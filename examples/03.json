@@ -1,0 +1,161 @@
+{
+  "interviewId": "INTV-2025-003",
+  "intervieweeName": "Aaliyah Johnson",
+  "interviewDate": "2025-04-18",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Chen",
+  "demographics": {
+    "age": "22",
+    "gender": "Female",
+    "major": "Civil Engineering",
+    "year": "Senior",
+    "firstGeneration": false,
+    "ethnicity": "Black/African American",
+    "other": "President of National Society of Black Engineers (NSBE) chapter"
+  },
+  "transcript": {
+    "fileName": "aaliyah_johnson_interview.docx",
+    "fileType": "docx",
+    "rawText": "[Excerpt omitted for brevity]",
+    "wordCount": 4860,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "mistral-7b-instruct",
+      "temperature": 0.7,
+      "promptVersion": "v1.2",
+      "promptTemplateId": "summary-theme-2025Q1"
+    },
+    "summaries": [
+      {
+        "category": "academic-experience",
+        "title": "Leadership and Mentorship in Engineering Design Projects",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture.",
+        "embedding": []
+      },
+      {
+        "category": "social-experience",
+        "title": "Representation and Visibility in Engineering Spaces",
+        "summaryText": "She emphasized how few Black women were visible in faculty and leadership roles, describing representation as both motivating and emotionally taxing. Her NSBE involvement offered vital affirmation and a platform to advocate for equity.",
+        "embedding": []
+      },
+      {
+        "category": "barriers-challenges",
+        "title": "Microaggressions and Invisible Labor in Group Dynamics",
+        "summaryText": "Aaliyah recounted repeated experiences of having her technical input questioned in group settings. She also described taking on emotional labor to support other students facing similar bias.",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students.",
+        "timeframeType": "year",
+        "category": "leadership",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced subtle exclusion in a group design project where her ideas were initially dismissed.",
+        "timeframeType": "semester",
+        "category": "barrier",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition.",
+        "timeframeType": "year",
+        "category": "academic-achievement",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "T201",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge.",
+        "frequency": 8,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "representation-and-belonging",
+        "relatedQuoteIds": ["Q201", "Q202"],
+        "embedding": []
+      },
+      {
+        "themeId": "T202",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps.",
+        "frequency": 7,
+        "impactScore": 8,
+        "actionable": true,
+        "category": "support-systems",
+        "relatedQuoteIds": ["Q203"],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "Q201",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams.",
+        "context": "Aaliyah describing the advocacy work tied to her leadership role.",
+        "timestamp": "00:11:24",
+        "tags": ["advocacy", "representation", "labor"],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T201"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q202",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else.",
+        "context": "Aaliyah reflecting on the impact of representation and visibility.",
+        "timestamp": "00:19:45",
+        "tags": ["representation", "belonging"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T201"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q203",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us.",
+        "context": "Aaliyah on the value of mentorship networks.",
+        "timestamp": "00:31:05",
+        "tags": ["mentorship", "support-systems", "belonging"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T202"],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "A201",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks.",
+        "priority": "high",
+        "stakeholders": ["College of Engineering", "Office of Diversity and Inclusion"],
+        "actionItems": [
+          "Create service-learning credit for mentorship and advocacy roles",
+          "Include advocacy experience in leadership award criteria"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-04-19T14:10:00Z",
+    "updatedAt": "2025-04-19T14:10:00Z",
+    "version": "1.0",
+    "source": "manual-upload",
+    "validatedBy": "schema-v1.0"
+  }
+}

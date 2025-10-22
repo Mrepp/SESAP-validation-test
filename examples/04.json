@@ -1,0 +1,161 @@
+{
+  "interviewId": "INTV-2025-004",
+  "intervieweeName": "Ethan Miller",
+  "interviewDate": "2025-05-03",
+  "interviewFormat": "Zoom",
+  "interviewerName": "Dr. Patel",
+  "demographics": {
+    "age": "23",
+    "gender": "Male",
+    "major": "Mechanical Engineering",
+    "year": "Senior",
+    "firstGeneration": false,
+    "ethnicity": "White/Caucasian",
+    "other": "Undergraduate teaching assistant and robotics club member"
+  },
+  "transcript": {
+    "fileName": "ethan_miller_interview.txt",
+    "fileType": "txt",
+    "rawText": "[Excerpt omitted for brevity]",
+    "wordCount": 4625,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "mistral-7b-instruct",
+      "temperature": 0.7,
+      "promptVersion": "v1.2",
+      "promptTemplateId": "summary-theme-2025Q1"
+    },
+    "summaries": [
+      {
+        "category": "academic-experience",
+        "title": "Developing Leadership Confidence Through Robotics Projects",
+        "summaryText": "Ethan described how leading design sprints in the robotics club refined his communication and teamwork skills. He recognized his relative advantage from prior exposure to engineering through his family, and expressed an interest in mentoring peers with less background experience.",
+        "embedding": []
+      },
+      {
+        "category": "social-experience",
+        "title": "Recognizing Privilege and Peer Disparities in Engineering Education",
+        "summaryText": "Ethan discussed observing classmates who struggled to access tutoring or networking opportunities. His reflection on his own privilege as a continuing-generation student led him to advocate for more peer tutoring support and accessible design lab hours.",
+        "embedding": []
+      },
+      {
+        "category": "support-systems",
+        "title": "Building Inclusive Engineering Teams",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies.",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation.",
+        "timeframeType": "year",
+        "category": "leadership",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions.",
+        "timeframeType": "year",
+        "category": "industry-experience",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Served as a teaching assistant for an introductory design course, emphasizing peer inclusivity.",
+        "timeframeType": "semester",
+        "category": "academic-contribution",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "T301",
+        "title": "Acknowledging Structural Advantage and Allyship in STEM",
+        "description": "Ethan’s reflections underscore the role of allyship among students who recognize their positional privilege. He highlights how acknowledging systemic inequities can lead to more equitable classroom dynamics.",
+        "frequency": 7,
+        "impactScore": 8,
+        "actionable": true,
+        "category": "equity-and-inclusion",
+        "relatedQuoteIds": ["Q301", "Q302"],
+        "embedding": []
+      },
+      {
+        "themeId": "T302",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice.",
+        "frequency": 6,
+        "impactScore": 7,
+        "actionable": false,
+        "category": "collaboration",
+        "relatedQuoteIds": ["Q303"],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "Q301",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me.",
+        "context": "Ethan reflecting on his exposure to early STEM opportunities.",
+        "timestamp": "00:06:58",
+        "tags": ["privilege", "access", "reflection"],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": ["T301"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q302",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like.",
+        "context": "Ethan describing inclusive team leadership philosophy.",
+        "timestamp": "00:18:15",
+        "tags": ["leadership", "allyship", "inclusion"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T301"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q303",
+        "quoteText": "When our robotics team included people from different majors, the solutions got way more creative. It wasn’t just engineers thinking like engineers.",
+        "context": "Ethan on the value of diverse collaboration.",
+        "timestamp": "00:29:02",
+        "tags": ["diversity", "collaboration", "innovation"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T302"],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "A301",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups.",
+        "priority": "medium",
+        "stakeholders": ["Engineering Outreach Office", "K-12 Partnerships"],
+        "actionItems": [
+          "Create summer bridge programs for high school students",
+          "Offer needs-based scholarships for pre-college engineering camps"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-05-04T08:55:00Z",
+    "updatedAt": "2025-05-04T08:55:00Z",
+    "version": "1.0",
+    "source": "manual-upload",
+    "validatedBy": "schema-v1.0"
+  }
+}

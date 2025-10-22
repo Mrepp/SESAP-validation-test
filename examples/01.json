@@ -1,0 +1,196 @@
+{
+  "interviewId": "INTV-2025-001",
+  "intervieweeName": "Maria Lopez",
+  "interviewDate": "2025-03-14",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Chen",
+  "demographics": {
+    "age": "20",
+    "gender": "Female",
+    "major": "Computer Engineering",
+    "year": "Sophomore",
+    "firstGeneration": true,
+    "ethnicity": "Latina",
+    "other": "Active member of Society of Hispanic Professional Engineers (SHPE)"
+  },
+  "transcript": {
+    "fileName": "maria_lopez_interview.docx",
+    "fileType": "docx",
+    "rawText": "[Excerpt omitted for brevity]",
+    "wordCount": 4380,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "mistral-7b-instruct",
+      "temperature": 0.7,
+      "promptVersion": "v1.2",
+      "promptTemplateId": "summary-theme-2025Q1"
+    },
+    "summaries": [
+      {
+        "category": "academic-experience",
+        "title": "Balancing Academic Rigor with Limited Peer Representation",
+        "summaryText": "Maria described feeling academically capable but often isolated in her computer engineering courses, where few other Latina students were enrolled. She mentioned that faculty were supportive when approached, but that representation and group belonging remained low, especially during first-year lab sections.",
+        "embedding": []
+      },
+      {
+        "category": "social-experience",
+        "title": "Building Community Through Cultural Organizations",
+        "summaryText": "Participation in SHPE and campus cultural centers provided Maria a sense of belonging and identity affirmation. These communities offered emotional support and mentorship that she could not easily find in her department.",
+        "embedding": []
+      },
+      {
+        "category": "barriers-challenges",
+        "title": "First-Generation Challenges in Navigating University Systems",
+        "summaryText": "Maria described difficulty understanding financial aid processes and navigating academic advising resources. She relied heavily on peer networks and informal guidance, noting that the institutional language often assumed prior family familiarity with college systems.",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship.",
+        "timeframeType": "semester",
+        "category": "social-integration",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access.",
+        "timeframeType": "semester",
+        "category": "academic-difficulty",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors.",
+        "timeframeType": "year",
+        "category": "academic-achievement",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "T001",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering.",
+        "frequency": 9,
+        "impactScore": 8,
+        "actionable": true,
+        "category": "belonging",
+        "relatedQuoteIds": ["Q002", "Q004"],
+        "embedding": []
+      },
+      {
+        "themeId": "T002",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers.",
+        "frequency": 6,
+        "impactScore": 7,
+        "actionable": true,
+        "category": "first-generation-experience",
+        "relatedQuoteIds": ["Q001", "Q003"],
+        "embedding": []
+      },
+      {
+        "themeId": "T003",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited.",
+        "frequency": 5,
+        "impactScore": 6,
+        "actionable": false,
+        "category": "cultural-representation",
+        "relatedQuoteIds": ["Q004"],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "Q001",
+        "quoteText": "No one in my family went to college, so I didn’t even know how office hours worked my first semester.",
+        "context": "Maria describing her initial confusion with academic expectations as a first-gen student.",
+        "timestamp": "00:07:34",
+        "tags": ["first-generation", "academic-adjustment"],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": ["T002"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q002",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here.",
+        "context": "Maria reflecting on classroom representation and belonging.",
+        "timestamp": "00:18:45",
+        "tags": ["belonging", "representation"],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T001"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q003",
+        "quoteText": "I wish there were a clearer path for first-gen students to find mentorship — it feels like everyone else already knows the rules.",
+        "context": "Maria discussing gaps in support infrastructure.",
+        "timestamp": "00:31:02",
+        "tags": ["mentorship", "first-generation"],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T002"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q004",
+        "quoteText": "Seeing other Latina engineers at the SHPE conference made me feel like I’m not alone — like I really do belong in this field.",
+        "context": "Maria reflecting on peer support and cultural representation.",
+        "timestamp": "00:47:15",
+        "tags": ["belonging", "representation", "positive-identity"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T001", "T003"],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "A001",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support.",
+        "priority": "high",
+        "stakeholders": ["Office of Student Success", "Financial Aid", "Advising Center"],
+        "actionItems": [
+          "Create a first-gen orientation checklist",
+          "Host mid-semester advising workshops",
+          "Add first-gen resource links to department portals"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "A002",
+        "title": "Increase Cultural Representation in Engineering Programs",
+        "description": "Students emphasized the importance of seeing role models and mentors from similar cultural backgrounds. Faculty partnerships with student cultural organizations could foster inclusion and belonging.",
+        "priority": "medium",
+        "stakeholders": ["Engineering Faculty", "Diversity Office"],
+        "actionItems": [
+          "Invite diverse industry speakers",
+          "Integrate cultural competence into departmental events"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-03-15T10:42:00Z",
+    "updatedAt": "2025-03-15T10:42:00Z",
+    "version": "1.0",
+    "source": "manual-upload",
+    "validatedBy": "schema-v1.0"
+  }
+}

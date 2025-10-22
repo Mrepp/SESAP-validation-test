@@ -1,0 +1,40 @@
+{
+    "interviewId": "INTV-2025-005",
+    "intervieweeName": "Priya Sharma",
+    "interviewDate": "2025-05-10",
+    "interviewFormat": "In-person",
+    "interviewerName": "Dr. Nguyen",
+    "demographics": {
+      "age": "21",
+      "gender": "Female",
+      "major": "Computer Science",
+      "year": "Junior",
+      "firstGeneration": true,
+      "ethnicity": "Indian-American",
+      "other": "Research assistant in human-computer interaction lab"
+    },
+    "transcript": {
+      "fileName": "priya_sharma_interview.docx",
+      "fileType": "docx",
+      "rawText": "[Excerpt omitted]",
+      "wordCount": 4780,
+      "validation": {"minimumLengthCheck": {"passed": true, "warningIssued": false, "overrideApprovedBy": ""}}
+    },
+    "analysis": {
+      "model": {"provider": "OpenRouter", "modelName": "mistral-7b-instruct", "temperature": 0.7, "promptVersion": "v1.2", "promptContext": "SESAP Study", "promptTemplateId": "summary-theme-2025Q1"},
+      "summaries": [
+        {"category": "academic-experience", "title": "Balancing Research and Cultural Expectations", "summaryText": "Priya balanced heavy research commitments with cultural obligations, feeling pressure to excel as a first-gen Indian-American student in tech.", "embedding": []},
+        {"category": "social-experience", "title": "Gender Bias and Collaboration", "summaryText": "Priya discussed subtle gender bias in group work but found solidarity in women-in-tech clubs.", "embedding": []}
+      ],
+      "themes": [
+        {"themeId": "T401", "title": "Intersection of Culture and Academic Identity", "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors.", "frequency": 6, "impactScore": 8, "actionable": true, "category": "cultural-pressure", "relatedQuoteIds": ["Q401"], "embedding": []}
+      ],
+      "quotes": [
+        {"quoteId": "Q401", "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure.", "context": "Priya describing family expectations.", "timestamp": "00:11:30", "tags": ["family", "pressure"], "sentiment": "mixed", "significanceLevel": "high", "relatedThemeIds": ["T401"], "embedding": []}
+      ],
+      "areasForImprovement": [
+        {"areaId": "A401", "title": "Increase Mentorship for Women in Computing", "description": "Expand mentorship and career guidance for women and first-gen students.", "priority": "high", "stakeholders": ["CS Department"], "actionItems": ["Develop peer mentorship circles"], "embedding": []}
+      ]
+    },
+    "metadata": {"createdAt": "2025-05-10T12:00:00Z", "updatedAt": "2025-05-10T12:00:00Z", "version": "1.0", "source": "manual-upload", "validatedBy": "schema-v1.0"}
+}

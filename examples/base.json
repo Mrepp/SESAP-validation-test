@@ -1,0 +1,96 @@
+{
+  "interviewId": "",
+  "interviewDate": "",
+  "interviewFormat": "",
+  "interviewerName": "",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "major": "",
+    "year": "",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "",
+    "fileType": "",
+    "rawText": "",
+    "wordCount": 0,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": false,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "",
+      "temperature": 0.7,
+      "promptVersion": "",
+      "promptTemplateId": ""
+    },
+    "summaries": [
+      {
+        "category": "",
+        "title": "",
+        "summaryText": "",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "",
+        "timeframeType": "",
+        "category": "",
+        "sentiment": "",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "",
+        "title": "",
+        "description": "",
+        "frequency": 0,
+        "impactScore": 0,
+        "actionable": false,
+        "category": "",
+        "relatedQuoteIds": [],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "",
+        "quoteText": "",
+        "context": "",
+        "timestamp": "",
+        "tags": [],
+        "sentiment": "",
+        "significanceLevel": "",
+        "relatedThemeIds": [],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "",
+        "title": "",
+        "description": "",
+        "priority": "",
+        "stakeholders": [],
+        "actionItems": [],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "",
+    "updatedAt": "",
+    "version": "1.0",
+    "source": "manual-upload",
+    "validatedBy": ""
+  }
+}

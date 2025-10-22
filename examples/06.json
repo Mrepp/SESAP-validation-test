@@ -1,0 +1,41 @@
+{
+    "interviewId": "INTV-2025-006",
+    "intervieweeName": "Luis Hernandez",
+    "interviewDate": "2025-05-11",
+    "interviewFormat": "Zoom",
+    "interviewerName": "Dr. Chen",
+    "demographics": {
+      "age": "19",
+      "gender": "Male",
+      "major": "Electrical Engineering",
+      "year": "Sophomore",
+      "firstGeneration": true,
+      "ethnicity": "Latino",
+      "other": "Volunteer tutor for high school robotics team"
+    },
+    "transcript": {
+      "fileName": "luis_hernandez_interview.txt",
+      "fileType": "txt",
+      "rawText": "[Excerpt omitted]",
+      "wordCount": 4550,
+      "validation": {"minimumLengthCheck": {"passed": true, "warningIssued": false, "overrideApprovedBy": ""}}
+    },
+    "analysis": {
+      "model": {"provider": "OpenRouter", "modelName": "mistral-7b-instruct", "temperature": 0.7, "promptVersion": "v1.2", "promptContext": "SESAP Study", "promptTemplateId": "summary-theme-2025Q1"},
+      "summaries": [
+        {"category": "academic-experience", "title": "Transition from High School to University-Level Engineering", "summaryText": "Luis found the shift from project-based high school learning to theory-heavy coursework challenging but rewarding.", "embedding": []},
+        {"category": "support-systems", "title": "Community and Peer Mentorship as Anchors", "summaryText": "Peer mentors and cultural centers helped Luis navigate isolation as a first-gen Latino student.", "embedding": []}
+      ],
+      "themes": [
+        {"themeId": "T402", "title": "First-Generation Adaptation to STEM Rigor", "description": "Luis’s story demonstrates resilience through peer and cultural support.", "frequency": 7, "impactScore": 9, "actionable": true, "category": "first-gen-support", "relatedQuoteIds": ["Q402"], "embedding": []}
+      ],
+      "quotes": [
+        {"quoteId": "Q402", "quoteText": "At first I thought I wasn’t smart enough, but then I realized everyone’s struggling; we just don’t talk about it.", "context": "Luis reflecting on imposter syndrome.", "timestamp": "00:09:20", "tags": ["first-gen", "confidence"], "sentiment": "positive", "significanceLevel": "high", "relatedThemeIds": ["T402"], "embedding": []}
+      ],
+      "areasForImprovement": [
+        {"areaId": "A402", "title": "Enhance First-Gen Orientation Programs", "description": "Provide stronger academic transition support for first-generation students entering engineering.", "priority": "medium", "stakeholders": ["Student Success Office"], "actionItems": ["Create early academic bridge programs"], "embedding": []}
+      ]
+    },
+    "metadata": {"createdAt": "2025-05-11T09:30:00Z", "updatedAt": "2025-05-11T09:30:00Z", "version": "1.0", "source": "manual-upload", "validatedBy": "schema-v1.0"}
+  }
+  

@@ -1,0 +1,40 @@
+{
+"interviewId": "INTV-2025-007",
+"intervieweeName": "Sarah Kim",
+"interviewDate": "2025-05-12",
+"interviewFormat": "In-person",
+"interviewerName": "Dr. Patel",
+"demographics": {
+"age": "20",
+"gender": "Female",
+"major": "Bioengineering",
+"year": "Junior",
+"firstGeneration": false,
+"ethnicity": "Korean-American",
+"other": "Peer wellness ambassador and undergraduate researcher"
+},
+"transcript": {
+"fileName": "sarah_kim_interview.docx",
+"fileType": "docx",
+"rawText": "[Excerpt omitted]",
+"wordCount": 5100,
+"validation": {"minimumLengthCheck": {"passed": true, "warningIssued": false, "overrideApprovedBy": ""}}
+},
+"analysis": {
+"model": {"provider": "OpenRouter", "modelName": "mistral-7b-instruct", "temperature": 0.7, "promptVersion": "v1.2", "promptContext": "SESAP Study", "promptTemplateId": "summary-theme-2025Q1"},
+"summaries": [
+{"category": "support-systems", "title": "Integrating Mental Health Advocacy with STEM Identity", "summaryText": "Sarah described bridging mental health awareness into STEM culture through peer-led workshops.", "embedding": []},
+{"category": "social-experience", "title": "Navigating Gender Bias in Research Environments", "summaryText": "She recounted experiences where her technical contributions were overlooked and strategies she used to assert confidence.", "embedding": []}
+],
+"themes": [
+{"themeId": "T403", "title": "Normalizing Mental Health Conversations in STEM", "description": "Sarah’s work highlights the growing student-led shift toward wellness advocacy within rigorous majors.", "frequency": 8, "impactScore": 8, "actionable": true, "category": "mental-health-awareness", "relatedQuoteIds": ["Q403"], "embedding": []}
+],
+"quotes": [
+{"quoteId": "Q403", "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success.", "context": "Sarah connecting wellness and academic productivity.", "timestamp": "00:25:40", "tags": ["mental-health", "STEM-culture"], "sentiment": "positive", "significanceLevel": "high", "relatedThemeIds": ["T403"], "embedding": []}
+],
+"areasForImprovement": [
+{"areaId": "A403", "title": "Integrate Wellness Programming into STEM Curriculum", "description": "Develop optional workshops or credit modules linking mental health and STEM performance.", "priority": "high", "stakeholders": ["Counseling Center", "STEM Departments"], "actionItems": ["Host joint mental health seminars"], "embedding": []}
+]
+},
+"metadata": {"createdAt": "2025-05-12T11:45:00Z", "updatedAt": "2025-05-12T11:45:00Z", "version": "1.0", "source": "manual-upload", "validatedBy": "schema-v1.0"}
+}

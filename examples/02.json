@@ -1,0 +1,206 @@
+{
+  "interviewId": "INTV-2025-002",
+  "intervieweeName": "Daniel Nguyen",
+  "interviewDate": "2025-04-02",
+  "interviewFormat": "Zoom",
+  "interviewerName": "Dr. Patel",
+  "demographics": {
+    "age": "21",
+    "gender": "Male",
+    "major": "Electrical Engineering",
+    "year": "Junior",
+    "firstGeneration": true,
+    "ethnicity": "Vietnamese-American",
+    "other": "Peer mentor in the Engineering Learning Community"
+  },
+  "transcript": {
+    "fileName": "daniel_nguyen_interview.txt",
+    "fileType": "txt",
+    "rawText": "[Excerpt omitted for brevity]",
+    "wordCount": 5023,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "mistral-7b-instruct",
+      "temperature": 0.7,
+      "promptVersion": "v1.2",
+      "promptTemplateId": "summary-theme-2025Q1"
+    },
+    "summaries": [
+      {
+        "category": "academic-experience",
+        "title": "Developing Academic Confidence Through Mentorship",
+        "summaryText": "Daniel described feeling initially out of place in rigorous electrical engineering courses, particularly when comparing himself to peers with prior robotics or coding experience. His confidence improved after joining a peer mentoring program where upperclassmen provided guidance and reassurance.",
+        "embedding": []
+      },
+      {
+        "category": "support-systems",
+        "title": "Family Support and Pressure as a Dual Motivation",
+        "summaryText": "As a first-generation student, Daniel’s parents provided emotional encouragement but limited academic guidance. Their sacrifices motivated him, though he expressed anxiety about failing to meet expectations.",
+        "embedding": []
+      },
+      {
+        "category": "overall-sentiment",
+        "title": "Balancing Pressure, Pride, and Belonging",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM.",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers.",
+        "timeframeType": "semester",
+        "category": "academic-difficulty",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support.",
+        "timeframeType": "year",
+        "category": "social-integration",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented a project on sustainable energy systems at an undergraduate research showcase.",
+        "timeframeType": "year",
+        "category": "academic-achievement",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "T101",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs.",
+        "frequency": 10,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "mental-health-and-belonging",
+        "relatedQuoteIds": ["Q102", "Q103"],
+        "embedding": []
+      },
+      {
+        "themeId": "T102",
+        "title": "Peer Mentorship as a Belonging Intervention",
+        "description": "Daniel emphasized how structured mentorship programs provided psychological safety and belonging cues, normalizing struggle and improving persistence among marginalized students.",
+        "frequency": 7,
+        "impactScore": 8,
+        "actionable": true,
+        "category": "support-systems",
+        "relatedQuoteIds": ["Q104"],
+        "embedding": []
+      },
+      {
+        "themeId": "T103",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM.",
+        "frequency": 6,
+        "impactScore": 6,
+        "actionable": false,
+        "category": "cultural-representation",
+        "relatedQuoteIds": ["Q101", "Q105"],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "Q101",
+        "quoteText": "My parents don’t really understand what I study, but they tell everyone I’m going to be an engineer — that means a lot, but it’s also scary.",
+        "context": "Daniel reflecting on parental expectations and emotional weight of being first-gen.",
+        "timestamp": "00:05:12",
+        "tags": ["first-generation", "family", "expectations"],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T103"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q102",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes.",
+        "context": "Daniel discussing his sense of imposter syndrome in engineering coursework.",
+        "timestamp": "00:15:09",
+        "tags": ["belonging", "imposter-syndrome"],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T101"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q103",
+        "quoteText": "It took me a year to realize struggling is normal — not a sign that I’m not supposed to be here.",
+        "context": "Daniel describing the turning point after joining peer mentoring programs.",
+        "timestamp": "00:22:43",
+        "tags": ["support", "belonging", "identity"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T101", "T102"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q104",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too.",
+        "context": "Daniel describing peer mentorship as a belonging intervention.",
+        "timestamp": "00:36:12",
+        "tags": ["mentorship", "first-generation", "representation"],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": ["T102"],
+        "embedding": []
+      },
+      {
+        "quoteId": "Q105",
+        "quoteText": "My parents say, ‘Just do your best,’ but I can tell they really mean, ‘Don’t waste this chance we gave you.’",
+        "context": "Daniel reflecting on implicit cultural pressure from family expectations.",
+        "timestamp": "00:42:10",
+        "tags": ["cultural", "family-pressure"],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": ["T103"],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "A101",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates.",
+        "priority": "critical",
+        "stakeholders": ["Engineering Advising Office", "Student Success Programs"],
+        "actionItems": [
+          "Create opt-in mentoring tracks for first-gen students",
+          "Provide mentor training focused on inclusive communication"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "A102",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes.",
+        "priority": "medium",
+        "stakeholders": ["Engineering Faculty", "Teaching & Learning Center"],
+        "actionItems": [
+          "Encourage faculty to include ‘learning journeys’ in course introductions",
+          "Develop short workshops on inclusive teaching practices"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-04-03T09:30:00Z",
+    "updatedAt": "2025-04-03T09:30:00Z",
+    "version": "1.0",
+    "source": "manual-upload",
+    "validatedBy": "schema-v1.0"
+  }
+}
