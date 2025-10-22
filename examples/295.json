@@ -1,0 +1,296 @@
+{
+  "interviewId": "fc4be4c1-1c02-491b-8657-60b700561952",
+  "intervieweeName": "Michael Smith",
+  "interviewDate": "2025-05-30",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. James Wilson",
+  "demographics": {
+    "age": "18",
+    "gender": "Male",
+    "major": "History",
+    "year": "Sophomore",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_fc4be4c1-1c02-491b-8657-60b700561952.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2079,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 296.1",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 296.2",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 296.3",
+        "summaryText": "She emphasized how few Black women were visible in faculty and leadership roles, describing representation as both motivating and emotionally taxing. Her NSBE involvement offered vital affirmation and a platform to advocate for equity. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Mental Health",
+        "title": "Summary 296.4",
+        "summaryText": "Daniel described feeling initially out of place in rigorous electrical engineering courses, particularly when comparing himself to peers with prior robotics or coding experience. His confidence improved after joining a peer mentoring program where upperclassmen provided guidance and reassurance. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 1]",
+        "timeframeType": "present",
+        "category": "Personal Growth",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Mental Health",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 2]",
+        "timeframeType": "ongoing",
+        "category": "Career",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 3]",
+        "timeframeType": "present",
+        "category": "Diversity & Inclusion",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_d8hm5nlk7",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 3]",
+        "frequency": 10,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_pj7gn4o69",
+          "quote_le9wmvip2"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_i4vyzzlrl",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 3]",
+        "frequency": 3,
+        "impactScore": 10,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_le9wmvip2"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_20j1tv2mz",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 1]",
+        "frequency": 4,
+        "impactScore": 7,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_packmlh6m",
+          "quote_ra2aywz75"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_gp2i88yr3",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge.",
+        "frequency": 10,
+        "impactScore": 6,
+        "actionable": true,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_pj7gn4o69",
+          "quote_le9wmvip2",
+          "quote_ra2aywz75"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_dur90wkm2",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 2]",
+        "frequency": 8,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_pj7gn4o69",
+          "quote_le9wmvip2"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_pj7gn4o69",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "8:38",
+        "tags": [
+          "advocacy",
+          "representation",
+          "community",
+          "belonging"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_i4vyzzlrl"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ra2aywz75",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "36:45",
+        "tags": [
+          "achievement"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_d8hm5nlk7"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_packmlh6m",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "13:19",
+        "tags": [
+          "belonging",
+          "representation",
+          "leadership",
+          "support"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_d8hm5nlk7"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_le9wmvip2",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "42:06",
+        "tags": [
+          "success",
+          "representation"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_d8hm5nlk7"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_nvtxbbm89",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "26:53",
+        "tags": [
+          "resilience"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_d8hm5nlk7"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_ltxlj3hyz",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 1]",
+        "priority": "high",
+        "stakeholders": [
+          "Faculty",
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_m01h68fvt",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 1]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.496Z",
+    "updatedAt": "2025-10-22T04:04:33.496Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 5,
+        "quotes": 5,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

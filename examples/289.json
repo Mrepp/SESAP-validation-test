@@ -1,0 +1,313 @@
+{
+  "interviewId": "5135249e-543f-4e2e-9957-0e2d6dcd25e5",
+  "intervieweeName": "Michael Smith",
+  "interviewDate": "2025-01-13",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. James Wilson",
+  "demographics": {
+    "age": "20",
+    "gender": "Male",
+    "major": "History",
+    "year": "Sophomore",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_5135249e-543f-4e2e-9957-0e2d6dcd25e5.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4162,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Social",
+        "title": "Summary 290.1",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Mental Health",
+        "title": "Summary 290.2",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 4]",
+        "timeframeType": "present",
+        "category": "Academic",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Personal Growth",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition. [Timeline 1]",
+        "timeframeType": "present",
+        "category": "Diversity & Inclusion",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 1]",
+        "timeframeType": "future",
+        "category": "Academic",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_ejd7am9e8",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 1]",
+        "frequency": 2,
+        "impactScore": 9,
+        "actionable": false,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_80e5pp83n",
+          "quote_s8zx5ytr4",
+          "quote_58hl62846"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_pr0y3ocfa",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 1]",
+        "frequency": 7,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_s8zx5ytr4",
+          "quote_58hl62846",
+          "quote_rcpykfa8p"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_kp10eysq6",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 1]",
+        "frequency": 6,
+        "impactScore": 1,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_ps4b0xbnk",
+          "quote_irdgmnorz",
+          "quote_rcpykfa8p"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_irdgmnorz",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "16:17",
+        "tags": [
+          "challenge",
+          "support",
+          "leadership",
+          "barrier"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_kp10eysq6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_rcpykfa8p",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "28:37",
+        "tags": [
+          "achievement",
+          "belonging",
+          "advocacy"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_kp10eysq6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_s8zx5ytr4",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "39:28",
+        "tags": [
+          "struggle",
+          "success",
+          "growth",
+          "challenge"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_kp10eysq6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_a3az8e15p",
+        "quoteText": "I wish there were a clearer path for first-gen students to find mentorship — it feels like everyone else already knows the rules. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "38:47",
+        "tags": [
+          "community"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ejd7am9e8"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_58hl62846",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "28:24",
+        "tags": [
+          "growth",
+          "belonging"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_ejd7am9e8"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_80e5pp83n",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "24:20",
+        "tags": [
+          "challenge",
+          "advocacy",
+          "resilience",
+          "leadership"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_kp10eysq6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_uvjqzqak7",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "35:38",
+        "tags": [
+          "challenge",
+          "community",
+          "identity",
+          "opportunity"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_pr0y3ocfa"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ps4b0xbnk",
+        "quoteText": "No one in my family went to college, so I didn’t even know how office hours worked my first semester. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "20:38",
+        "tags": [
+          "support",
+          "belonging"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_pr0y3ocfa"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_3etr3adia",
+        "title": "Integrate Wellness Programming into STEM Curriculum",
+        "description": "Develop optional workshops or credit modules linking mental health and STEM performance. [Extended 4]",
+        "priority": "medium",
+        "stakeholders": [
+          "Faculty",
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Develop training programs"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_ofhjstgig",
+        "title": "Integrate Wellness Programming into STEM Curriculum",
+        "description": "Develop optional workshops or credit modules linking mental health and STEM performance. [Extended 2]",
+        "priority": "low",
+        "stakeholders": [
+          "Students"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms",
+          "Develop training programs"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.417Z",
+    "updatedAt": "2025-10-22T04:04:12.417Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 2,
+        "themes": 3,
+        "quotes": 8,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "interviewId": "8230eb07-3aa5-4c4b-bdf7-6c2317817179",
+  "intervieweeName": "A. Williams",
+  "interviewDate": "2025-06-12",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. James Wilson",
+  "demographics": {
+    "age": "20",
+    "gender": "Prefer not to say",
+    "major": "Sociology",
+    "year": "Sophomore",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_8230eb07-3aa5-4c4b-bdf7-6c2317817179.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4304,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 301.1",
+        "summaryText": "Priya balanced heavy research commitments with cultural obligations, feeling pressure to excel as a first-gen Indian-American student in tech. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 301.2",
+        "summaryText": "Sarah described bridging mental health awareness into STEM culture through peer-led workshops. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Personal Growth",
+        "title": "Summary 301.3",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 2/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Served as a teaching assistant for an introductory design course, emphasizing peer inclusivity. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Campus Life",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Campus Life",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Personal Growth",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Mental Health",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_40ekut6d3",
+        "title": "Acknowledging Structural Advantage and Allyship in STEM",
+        "description": "Ethan’s reflections underscore the role of allyship among students who recognize their positional privilege. He highlights how acknowledging systemic inequities can lead to more equitable classroom dynamics. [Extended 3]",
+        "frequency": 7,
+        "impactScore": 10,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_fyyk157fx",
+          "quote_3dl0jsz6u",
+          "quote_ze3vwweau"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_v0kqpkm42",
+        "title": "Peer Mentorship as a Belonging Intervention",
+        "description": "Daniel emphasized how structured mentorship programs provided psychological safety and belonging cues, normalizing struggle and improving persistence among marginalized students. [Extended 3]",
+        "frequency": 8,
+        "impactScore": 6,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_fyyk157fx"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_cmkl1i98w",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 2]",
+        "frequency": 3,
+        "impactScore": 10,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_3dl0jsz6u",
+          "quote_ca84p4ll8"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_ze3vwweau",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "24:11",
+        "tags": [
+          "community",
+          "barrier",
+          "achievement"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_cmkl1i98w"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_blkk64wlz",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "19:45",
+        "tags": [
+          "success"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_cmkl1i98w"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_hqyq5tiql",
+        "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "14:46",
+        "tags": [
+          "challenge",
+          "struggle"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_40ekut6d3"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_fyyk157fx",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "6:13",
+        "tags": [
+          "support"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_v0kqpkm42"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_21nioxkdp",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "33:24",
+        "tags": [
+          "representation",
+          "achievement",
+          "struggle"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_v0kqpkm42"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_hqgrsrr96",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "45:45",
+        "tags": [
+          "success",
+          "growth",
+          "resilience"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_40ekut6d3"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ca84p4ll8",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "28:37",
+        "tags": [
+          "belonging",
+          "challenge"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_v0kqpkm42"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_3dl0jsz6u",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "3:30",
+        "tags": [
+          "success",
+          "advocacy",
+          "barrier"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_v0kqpkm42"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_92iydkbrj",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates. [Extended 1]",
+        "priority": "medium",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_syc2l6ymx",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.498Z",
+    "updatedAt": "2025-10-22T04:04:33.498Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 3,
+        "quotes": 8,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "interviewId": "79dadf9a-f3cb-4826-a550-b015d0e045da",
+  "intervieweeName": "Michelle Smith",
+  "interviewDate": "2025-09-04",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. Emily Williams",
+  "demographics": {
+    "age": "19",
+    "gender": "Female",
+    "major": "Philosophy",
+    "year": "Sophomore",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_79dadf9a-f3cb-4826-a550-b015d0e045da.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4838,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Personal Growth",
+        "title": "Summary 310.1",
+        "summaryText": "Priya discussed subtle gender bias in group work but found solidarity in women-in-tech clubs. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 310.2",
+        "summaryText": "As a first-generation student, Daniel’s parents provided emotional encouragement but limited academic guidance. Their sacrifices motivated him, though he expressed anxiety about failing to meet expectations. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 310.3",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Financial",
+        "title": "Summary 310.4",
+        "summaryText": "Aaliyah recounted repeated experiences of having her technical input questioned in group settings. She also described taking on emotional labor to support other students facing similar bias. [Part 4/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Social",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Social",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 1]",
+        "timeframeType": "ongoing",
+        "category": "Mental Health",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 2]",
+        "timeframeType": "past",
+        "category": "Career",
+        "sentiment": "mixed",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_d8nhzbooc",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 2]",
+        "frequency": 6,
+        "impactScore": 1,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_5c4i393bx",
+          "quote_hkkvui5ff",
+          "quote_f21hmjsi9"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ppqghpkvx",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 1]",
+        "frequency": 5,
+        "impactScore": 3,
+        "actionable": true,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_f21hmjsi9",
+          "quote_bmj3bbxso",
+          "quote_oix7m8ed2"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_sg0vzwqn4",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 4]",
+        "frequency": 9,
+        "impactScore": 5,
+        "actionable": false,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_tpdjfa3rd",
+          "quote_5c4i393bx",
+          "quote_eaix5m2ei"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_f21hmjsi9",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "24:14",
+        "tags": [
+          "challenge",
+          "achievement"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_d8nhzbooc"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_tpdjfa3rd",
+        "quoteText": "I wish there were a clearer path for first-gen students to find mentorship — it feels like everyone else already knows the rules. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "3:56",
+        "tags": [
+          "growth"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_d8nhzbooc"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_bmj3bbxso",
+        "quoteText": "My parents don’t really understand what I study, but they tell everyone I’m going to be an engineer — that means a lot, but it’s also scary. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "33:49",
+        "tags": [
+          "resilience",
+          "success",
+          "growth"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_d8nhzbooc"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_5c4i393bx",
+        "quoteText": "My parents don’t really understand what I study, but they tell everyone I’m going to be an engineer — that means a lot, but it’s also scary. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "43:22",
+        "tags": [
+          "advocacy",
+          "belonging",
+          "representation"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_d8nhzbooc"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_oix7m8ed2",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "22:19",
+        "tags": [
+          "resilience"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_d8nhzbooc"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_eaix5m2ei",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "2:36",
+        "tags": [
+          "barrier"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_sg0vzwqn4"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_hkkvui5ff",
+        "quoteText": "Seeing other Latina engineers at the SHPE conference made me feel like I’m not alone — like I really do belong in this field. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "39:10",
+        "tags": [
+          "success",
+          "struggle",
+          "identity",
+          "achievement"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_sg0vzwqn4"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_on1cayo1t",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates. [Extended 1]",
+        "priority": "low",
+        "stakeholders": [
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Enhance communication channels",
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_a62b5in65",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_5r2134l1s",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 4]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Develop training programs"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.146Z",
+    "updatedAt": "2025-10-22T04:16:46.146Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 3,
+        "quotes": 7,
+        "timelinePoints": 4,
+        "improvements": 3
+      }
+    }
+  }
+}

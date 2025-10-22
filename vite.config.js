@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/college-interview-explorer/',
+  base: process.env.NODE_ENV === 'production' ? '/college-interview-explorer/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

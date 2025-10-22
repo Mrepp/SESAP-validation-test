@@ -1,0 +1,312 @@
+{
+  "interviewId": "a5fa22a0-cb69-4e0f-a860-3e17bf7aad2c",
+  "intervieweeName": "Alex Smith",
+  "interviewDate": "2025-03-01",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. James Wilson",
+  "demographics": {
+    "age": "22",
+    "gender": "Non-binary",
+    "major": "Mathematics",
+    "year": "Junior",
+    "other": "First-generation college student"
+  },
+  "transcript": {
+    "fileName": "transcript_a5fa22a0-cb69-4e0f-a860-3e17bf7aad2c.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4188,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 300.1",
+        "summaryText": "Aaliyah recounted repeated experiences of having her technical input questioned in group settings. She also described taking on emotional labor to support other students facing similar bias. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Social",
+        "title": "Summary 300.2",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access. [Timeline 4]",
+        "timeframeType": "ongoing",
+        "category": "Personal Growth",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented a project on sustainable energy systems at an undergraduate research showcase. [Timeline 3]",
+        "timeframeType": "future",
+        "category": "Campus Life",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented a project on sustainable energy systems at an undergraduate research showcase. [Timeline 4]",
+        "timeframeType": "ongoing",
+        "category": "Mental Health",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_kyn6d3yhk",
+        "title": "Intersection of Culture and Academic Identity",
+        "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors. [Extended 3]",
+        "frequency": 3,
+        "impactScore": 8,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_20jqkndng",
+          "quote_r21pjypk5",
+          "quote_cjxd4szx3"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_s328jyccl",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 2]",
+        "frequency": 8,
+        "impactScore": 3,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_rcfc9pxy6",
+          "quote_20jqkndng",
+          "quote_ez5brksnk"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_jvzdoxh72",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 3]",
+        "frequency": 10,
+        "impactScore": 7,
+        "actionable": true,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_20jqkndng",
+          "quote_r21pjypk5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_bjzflplt2",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 3]",
+        "frequency": 10,
+        "impactScore": 7,
+        "actionable": false,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_rcfc9pxy6",
+          "quote_ez5brksnk",
+          "quote_20jqkndng"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_09xunzjdb",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 1]",
+        "frequency": 5,
+        "impactScore": 6,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_cjxd4szx3",
+          "quote_r21pjypk5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_409345dvo",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 3]",
+        "frequency": 5,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_cjxd4szx3"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_rcfc9pxy6",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "3:07",
+        "tags": [
+          "support",
+          "success"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_s328jyccl"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_r21pjypk5",
+        "quoteText": "When our robotics team included people from different majors, the solutions got way more creative. It wasn’t just engineers thinking like engineers. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "1:55",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_bjzflplt2"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_cjxd4szx3",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "34:04",
+        "tags": [
+          "community",
+          "leadership",
+          "barrier",
+          "belonging"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_409345dvo"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_20jqkndng",
+        "quoteText": "It took me a year to realize struggling is normal — not a sign that I’m not supposed to be here. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "37:56",
+        "tags": [
+          "belonging",
+          "advocacy"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_kyn6d3yhk"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_hsy1yngvj",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "16:20",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_409345dvo"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ez5brksnk",
+        "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "26:56",
+        "tags": [
+          "challenge"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_09xunzjdb"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_egxtupvtl",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 4]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_kk1x2qebs",
+        "title": "Integrate Wellness Programming into STEM Curriculum",
+        "description": "Develop optional workshops or credit modules linking mental health and STEM performance. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.497Z",
+    "updatedAt": "2025-10-22T04:04:33.497Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 2,
+        "themes": 6,
+        "quotes": 6,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

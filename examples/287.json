@@ -1,0 +1,286 @@
+{
+  "interviewId": "c785bae6-162f-495f-ae93-3cc07cd85007",
+  "intervieweeName": "Taylor Williams",
+  "interviewDate": "2025-03-27",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. Lisa Anderson",
+  "demographics": {
+    "age": "18",
+    "gender": "Non-binary",
+    "major": "Biology",
+    "year": "Senior",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_c785bae6-162f-495f-ae93-3cc07cd85007.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4428,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 288.1",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Financial",
+        "title": "Summary 288.2",
+        "summaryText": "Daniel described feeling initially out of place in rigorous electrical engineering courses, particularly when comparing himself to peers with prior robotics or coding experience. His confidence improved after joining a peer mentoring program where upperclassmen provided guidance and reassurance. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers. [Timeline 3]",
+        "timeframeType": "present",
+        "category": "Financial",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Served as a teaching assistant for an introductory design course, emphasizing peer inclusivity. [Timeline 3]",
+        "timeframeType": "future",
+        "category": "Campus Life",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 2]",
+        "timeframeType": "future",
+        "category": "Academic",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 1]",
+        "timeframeType": "future",
+        "category": "Personal Growth",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Career",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_yiyn937s6",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 3]",
+        "frequency": 10,
+        "impactScore": 6,
+        "actionable": false,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_u325h4jtm",
+          "quote_5lwju1p2y",
+          "quote_z7tlh3tcw"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_u0j5mxevf",
+        "title": "Acknowledging Structural Advantage and Allyship in STEM",
+        "description": "Ethan’s reflections underscore the role of allyship among students who recognize their positional privilege. He highlights how acknowledging systemic inequities can lead to more equitable classroom dynamics. [Extended 2]",
+        "frequency": 9,
+        "impactScore": 10,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_u325h4jtm"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_n39cfeafj",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 2]",
+        "frequency": 7,
+        "impactScore": 6,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_kflj6713f"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_vx44smiz5",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 4]",
+        "frequency": 3,
+        "impactScore": 10,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_5lwju1p2y",
+          "quote_bkyzfa431",
+          "quote_u325h4jtm"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_u325h4jtm",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "25:10",
+        "tags": [
+          "advocacy",
+          "representation",
+          "community"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_vx44smiz5"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_5lwju1p2y",
+        "quoteText": "Seeing other Latina engineers at the SHPE conference made me feel like I’m not alone — like I really do belong in this field. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "14:54",
+        "tags": [
+          "community"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_n39cfeafj"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_z7tlh3tcw",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "41:09",
+        "tags": [
+          "resilience"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_yiyn937s6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_bkyzfa431",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "44:16",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_yiyn937s6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_04k3lmhcv",
+        "quoteText": "At first I thought I wasn’t smart enough, but then I realized everyone’s struggling; we just don’t talk about it. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "33:31",
+        "tags": [
+          "opportunity"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_vx44smiz5"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_kflj6713f",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "22:47",
+        "tags": [
+          "achievement"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_yiyn937s6"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_4mxtrpv3y",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Develop training programs"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_5ib4z9zmf",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 1]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.417Z",
+    "updatedAt": "2025-10-22T04:04:12.417Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 2,
+        "themes": 4,
+        "quotes": 6,
+        "timelinePoints": 5,
+        "improvements": 2
+      }
+    }
+  }
+}

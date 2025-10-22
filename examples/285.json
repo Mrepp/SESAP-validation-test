@@ -1,0 +1,338 @@
+{
+  "interviewId": "84f2b27b-b84b-45cb-a51c-5913920c85c1",
+  "intervieweeName": "Casey Johnson",
+  "interviewDate": "2025-05-01",
+  "interviewFormat": "Phone",
+  "interviewerName": "Dr. Sarah Johnson",
+  "demographics": {
+    "age": "20",
+    "gender": "Non-binary",
+    "major": "Art History",
+    "year": "Junior",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_84f2b27b-b84b-45cb-a51c-5913920c85c1.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 3492,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Social",
+        "title": "Summary 286.1",
+        "summaryText": "Ethan described how leading design sprints in the robotics club refined his communication and teamwork skills. He recognized his relative advantage from prior exposure to engineering through his family, and expressed an interest in mentoring peers with less background experience. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 286.2",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 286.3",
+        "summaryText": "Sarah described bridging mental health awareness into STEM culture through peer-led workshops. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Personal Growth",
+        "title": "Summary 286.4",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 3/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 4]",
+        "timeframeType": "present",
+        "category": "Diversity & Inclusion",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Served as a teaching assistant for an introductory design course, emphasizing peer inclusivity. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Personal Growth",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 1]",
+        "timeframeType": "future",
+        "category": "Mental Health",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_ka6az5xh8",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 3]",
+        "frequency": 9,
+        "impactScore": 1,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_xen4loftq",
+          "quote_zn3cqe7r0",
+          "quote_mwpidgblv"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ft58jq89u",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 2]",
+        "frequency": 8,
+        "impactScore": 4,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_zn3cqe7r0",
+          "quote_xen4loftq",
+          "quote_dnrodz873"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_0ec56p2wm",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 1]",
+        "frequency": 2,
+        "impactScore": 9,
+        "actionable": false,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_zn3cqe7r0"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_xen4loftq",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "2:12",
+        "tags": [
+          "support",
+          "representation",
+          "achievement"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ft58jq89u"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_f6qhn9fub",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "42:05",
+        "tags": [
+          "barrier",
+          "achievement"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_ft58jq89u"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_mwpidgblv",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "26:33",
+        "tags": [
+          "opportunity"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_ft58jq89u"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_zn3cqe7r0",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "24:28",
+        "tags": [
+          "advocacy",
+          "struggle"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_ka6az5xh8"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_la3n446ry",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "28:52",
+        "tags": [
+          "challenge",
+          "struggle"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_ft58jq89u"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_kstljjs5k",
+        "quoteText": "My parents say, ‘Just do your best,’ but I can tell they really mean, ‘Don’t waste this chance we gave you.’ [Context 2]",
+        "context": "Interview context",
+        "timestamp": "22:52",
+        "tags": [
+          "leadership",
+          "growth",
+          "opportunity",
+          "success"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_ft58jq89u"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_dnrodz873",
+        "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "17:02",
+        "tags": [
+          "achievement",
+          "growth",
+          "advocacy"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ka6az5xh8"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_am7n0mepl",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 4]",
+        "priority": "low",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_uw3jzm3t7",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 2]",
+        "priority": "low",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Develop training programs"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_t9jwjqpcm",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 1]",
+        "priority": "medium",
+        "stakeholders": [
+          "Administration"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_ftttutg6e",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 3]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.416Z",
+    "updatedAt": "2025-10-22T04:04:12.416Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 3,
+        "quotes": 7,
+        "timelinePoints": 5,
+        "improvements": 4
+      }
+    }
+  }
+}

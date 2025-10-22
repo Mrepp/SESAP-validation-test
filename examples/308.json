@@ -1,0 +1,291 @@
+{
+  "interviewId": "f72f8f20-f539-4d46-9d54-6756558b5b89",
+  "intervieweeName": "James Williams",
+  "interviewDate": "2024-10-27",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Emily Williams",
+  "demographics": {
+    "age": "20",
+    "gender": "Male",
+    "major": "History",
+    "year": "Freshman",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_f72f8f20-f539-4d46-9d54-6756558b5b89.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2327,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Career",
+        "title": "Summary 309.1",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Career",
+        "title": "Summary 309.2",
+        "summaryText": "Ethan described how leading design sprints in the robotics club refined his communication and teamwork skills. He recognized his relative advantage from prior exposure to engineering through his family, and expressed an interest in mentoring peers with less background experience. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 309.3",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 3/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Academic",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Social",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Career",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_dnnuset1r",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 1]",
+        "frequency": 2,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_pi6kksl24"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_z6bwbhb7l",
+        "title": "Intersection of Culture and Academic Identity",
+        "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors. [Extended 2]",
+        "frequency": 3,
+        "impactScore": 5,
+        "actionable": false,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_ifvmrehvo"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_i5bbyiey0",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 2]",
+        "frequency": 1,
+        "impactScore": 4,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_pi6kksl24"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_oa8e9bmu3",
+        "title": "Intersection of Culture and Academic Identity",
+        "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors. [Extended 3]",
+        "frequency": 7,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_ifvmrehvo"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_pi6kksl24",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "37:52",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_z6bwbhb7l"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_1q9p1ltvw",
+        "quoteText": "At first I thought I wasn’t smart enough, but then I realized everyone’s struggling; we just don’t talk about it. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "45:17",
+        "tags": [
+          "struggle",
+          "challenge",
+          "leadership",
+          "opportunity"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_oa8e9bmu3"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_wfaixdvna",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "15:03",
+        "tags": [
+          "belonging"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_oa8e9bmu3"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ifvmrehvo",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "31:33",
+        "tags": [
+          "identity",
+          "struggle"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_z6bwbhb7l"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_h3ldi29fc",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "18:12",
+        "tags": [
+          "challenge"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_dnnuset1r"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_6erumfojo",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "18:30",
+        "tags": [
+          "opportunity"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_i5bbyiey0"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_0rnncwnv6",
+        "title": "Integrate Wellness Programming into STEM Curriculum",
+        "description": "Develop optional workshops or credit modules linking mental health and STEM performance. [Extended 4]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_x5ynqrfkg",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 1]",
+        "priority": "medium",
+        "stakeholders": [
+          "Administration",
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.145Z",
+    "updatedAt": "2025-10-22T04:16:46.145Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 4,
+        "quotes": 6,
+        "timelinePoints": 5,
+        "improvements": 2
+      }
+    }
+  }
+}

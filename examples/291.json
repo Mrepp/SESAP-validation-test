@@ -1,0 +1,315 @@
+{
+  "interviewId": "33fe36c9-59ce-44a0-97a5-9d18c15371e9",
+  "intervieweeName": "David Brown",
+  "interviewDate": "2025-10-01",
+  "interviewFormat": "Phone",
+  "interviewerName": "Dr. Sarah Johnson",
+  "demographics": {
+    "age": "19",
+    "gender": "Male",
+    "major": "Biology",
+    "year": "Junior",
+    "other": "First-generation college student"
+  },
+  "transcript": {
+    "fileName": "transcript_33fe36c9-59ce-44a0-97a5-9d18c15371e9.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2906,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Financial",
+        "title": "Summary 292.1",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Social",
+        "title": "Summary 292.2",
+        "summaryText": "Maria described difficulty understanding financial aid processes and navigating academic advising resources. She relied heavily on peer networks and informal guidance, noting that the institutional language often assumed prior family familiarity with college systems. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 292.3",
+        "summaryText": "Ethan discussed observing classmates who struggled to access tutoring or networking opportunities. His reflection on his own privilege as a continuing-generation student led him to advocate for more peer tutoring support and accessible design lab hours. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 292.4",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 4/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 4]",
+        "timeframeType": "ongoing",
+        "category": "Financial",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Social",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "positive",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_nq5vgu2x6",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 1]",
+        "frequency": 5,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_uiyuvp3lp",
+          "quote_gxzxb9un5",
+          "quote_zw8opogs9"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_3r2m0gcdi",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 1]",
+        "frequency": 1,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_rszifpgra"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_pmarmh40b",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 4]",
+        "frequency": 1,
+        "impactScore": 3,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_zw8opogs9"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_0sd5wuidq",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 4]",
+        "frequency": 5,
+        "impactScore": 3,
+        "actionable": false,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_gxzxb9un5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_lp5ngt82g",
+        "title": "Normalizing Mental Health Conversations in STEM",
+        "description": "Sarah’s work highlights the growing student-led shift toward wellness advocacy within rigorous majors. [Extended 4]",
+        "frequency": 5,
+        "impactScore": 10,
+        "actionable": false,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_uiyuvp3lp",
+          "quote_gxzxb9un5",
+          "quote_zw8opogs9"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_2dkeir7jn",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 2]",
+        "frequency": 2,
+        "impactScore": 2,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_rszifpgra",
+          "quote_uiyuvp3lp"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_gxzxb9un5",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "43:06",
+        "tags": [
+          "struggle",
+          "advocacy",
+          "representation"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_0sd5wuidq"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_zw8opogs9",
+        "quoteText": "My parents say, ‘Just do your best,’ but I can tell they really mean, ‘Don’t waste this chance we gave you.’ [Context 4]",
+        "context": "Interview context",
+        "timestamp": "42:22",
+        "tags": [
+          "opportunity",
+          "representation"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_nq5vgu2x6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_uiyuvp3lp",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "12:23",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_2dkeir7jn"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_rszifpgra",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "40:43",
+        "tags": [
+          "achievement",
+          "community",
+          "belonging",
+          "challenge"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_0sd5wuidq"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_tvc97smuv",
+        "title": "Enhance First-Gen Orientation Programs",
+        "description": "Provide stronger academic transition support for first-generation students entering engineering. [Extended 4]",
+        "priority": "high",
+        "stakeholders": [
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_abffel5jm",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 3]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_i7347z5yb",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 3]",
+        "priority": "medium",
+        "stakeholders": [
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_tlf2z4qag",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 1]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration",
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.418Z",
+    "updatedAt": "2025-10-22T04:04:12.418Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 6,
+        "quotes": 4,
+        "timelinePoints": 3,
+        "improvements": 4
+      }
+    }
+  }
+}

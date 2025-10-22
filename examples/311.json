@@ -1,0 +1,319 @@
+{
+  "interviewId": "3e76bdab-5c24-49f8-ad8a-ff5a19c7a024",
+  "intervieweeName": "William Brown",
+  "interviewDate": "2025-08-09",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Robert Davis",
+  "demographics": {
+    "age": "21",
+    "gender": "Male",
+    "major": "Education",
+    "year": "Senior",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_3e76bdab-5c24-49f8-ad8a-ff5a19c7a024.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4161,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Social",
+        "title": "Summary 312.1",
+        "summaryText": "Priya discussed subtle gender bias in group work but found solidarity in women-in-tech clubs. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Career",
+        "title": "Summary 312.2",
+        "summaryText": "Daniel described feeling initially out of place in rigorous electrical engineering courses, particularly when comparing himself to peers with prior robotics or coding experience. His confidence improved after joining a peer mentoring program where upperclassmen provided guidance and reassurance. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Career",
+        "title": "Summary 312.3",
+        "summaryText": "Ethan discussed observing classmates who struggled to access tutoring or networking opportunities. His reflection on his own privilege as a continuing-generation student led him to advocate for more peer tutoring support and accessible design lab hours. [Part 2/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Social",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Diversity & Inclusion",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented a project on sustainable energy systems at an undergraduate research showcase. [Timeline 4]",
+        "timeframeType": "ongoing",
+        "category": "Career",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 4]",
+        "timeframeType": "present",
+        "category": "Academic",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_2qgi5l2xz",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge.",
+        "frequency": 9,
+        "impactScore": 5,
+        "actionable": true,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_r5d49gfnb",
+          "quote_19r18qiwm"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_cpitebzfx",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 4]",
+        "frequency": 7,
+        "impactScore": 5,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_v3zoivh7c",
+          "quote_3jh3h8yfp",
+          "quote_2cm09kqw6"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_b1nreuebw",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 3]",
+        "frequency": 9,
+        "impactScore": 5,
+        "actionable": true,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_r5d49gfnb"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_zhs9aqd1s",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 2]",
+        "frequency": 7,
+        "impactScore": 10,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_vxkv6bo6o"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_udj40jmpr",
+        "title": "Acknowledging Structural Advantage and Allyship in STEM",
+        "description": "Ethan’s reflections underscore the role of allyship among students who recognize their positional privilege. He highlights how acknowledging systemic inequities can lead to more equitable classroom dynamics. [Extended 4]",
+        "frequency": 4,
+        "impactScore": 8,
+        "actionable": false,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_vxkv6bo6o",
+          "quote_2cm09kqw6"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_r5d49gfnb",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "21:40",
+        "tags": [
+          "advocacy",
+          "barrier"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_zhs9aqd1s"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_19r18qiwm",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "42:04",
+        "tags": [
+          "challenge",
+          "achievement"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_b1nreuebw"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_2cm09kqw6",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "33:05",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_zhs9aqd1s"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_3jh3h8yfp",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "22:37",
+        "tags": [
+          "leadership",
+          "success",
+          "belonging",
+          "support"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_b1nreuebw"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_v3zoivh7c",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "38:33",
+        "tags": [
+          "struggle"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_b1nreuebw"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_hz00da0qr",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "8:47",
+        "tags": [
+          "growth",
+          "achievement",
+          "advocacy"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_b1nreuebw"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_vxkv6bo6o",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "38:21",
+        "tags": [
+          "representation"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_b1nreuebw"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_420x0o9ui",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 3]",
+        "priority": "low",
+        "stakeholders": [
+          "Students"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_fcrhoy8kb",
+        "title": "Integrate Wellness Programming into STEM Curriculum",
+        "description": "Develop optional workshops or credit modules linking mental health and STEM performance. [Extended 4]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Enhance communication channels",
+          "Develop training programs"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.146Z",
+    "updatedAt": "2025-10-22T04:16:46.146Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 5,
+        "quotes": 7,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

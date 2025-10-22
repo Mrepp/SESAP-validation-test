@@ -1,0 +1,302 @@
+{
+  "interviewId": "d08062a4-13cb-4aff-8815-7f4376edc2c9",
+  "intervieweeName": "Morgan Johnson",
+  "interviewDate": "2025-05-29",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Lisa Anderson",
+  "demographics": {
+    "age": "18",
+    "gender": "Non-binary",
+    "major": "Psychology",
+    "year": "Freshman",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_d08062a4-13cb-4aff-8815-7f4376edc2c9.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2085,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Social",
+        "title": "Summary 305.1",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Social",
+        "title": "Summary 305.2",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 4/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 2]",
+        "timeframeType": "future",
+        "category": "Campus Life",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 2]",
+        "timeframeType": "ongoing",
+        "category": "Diversity & Inclusion",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced subtle exclusion in a group design project where her ideas were initially dismissed. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_y6cctfeye",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge. [Extended 4]",
+        "frequency": 3,
+        "impactScore": 2,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_tawh95z04",
+          "quote_u4n9h0tmu",
+          "quote_zmv5wk9te"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_zrwqxejqu",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 2]",
+        "frequency": 4,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_zmv5wk9te"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_qa23p9xju",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 4]",
+        "frequency": 4,
+        "impactScore": 9,
+        "actionable": false,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_owc1lgja9"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_tawh95z04",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "37:36",
+        "tags": [
+          "barrier",
+          "growth",
+          "achievement"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_y6cctfeye"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_owc1lgja9",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "7:22",
+        "tags": [
+          "barrier",
+          "success",
+          "leadership",
+          "support"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_y6cctfeye"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_oqy20etzc",
+        "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "4:55",
+        "tags": [
+          "barrier",
+          "advocacy",
+          "opportunity"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_zrwqxejqu"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ogiec0ed7",
+        "quoteText": "At first I thought I wasn’t smart enough, but then I realized everyone’s struggling; we just don’t talk about it. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "5:25",
+        "tags": [
+          "advocacy",
+          "representation",
+          "opportunity"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_y6cctfeye"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_zmv5wk9te",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "17:30",
+        "tags": [
+          "success",
+          "advocacy",
+          "achievement",
+          "representation"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_zrwqxejqu"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_lba7tf384",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "35:01",
+        "tags": [
+          "struggle",
+          "achievement"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_zrwqxejqu"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_u4n9h0tmu",
+        "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "36:17",
+        "tags": [
+          "advocacy",
+          "opportunity",
+          "leadership",
+          "community"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_y6cctfeye"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_4b6e4qrj5",
+        "title": "Integrate Wellness Programming into STEM Curriculum",
+        "description": "Develop optional workshops or credit modules linking mental health and STEM performance. [Extended 2]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration",
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_c6afzzkad",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_fzgrp5mya",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 1]",
+        "priority": "high",
+        "stakeholders": [
+          "Faculty"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.143Z",
+    "updatedAt": "2025-10-22T04:16:46.143Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 2,
+        "themes": 3,
+        "quotes": 7,
+        "timelinePoints": 3,
+        "improvements": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "interviewId": "f7e67a83-3a5a-4ddd-a30e-544ddb8ebcf0",
+  "intervieweeName": "D. Brown",
+  "interviewDate": "2025-08-14",
+  "interviewFormat": "Phone",
+  "interviewerName": "Dr. Robert Davis",
+  "demographics": {
+    "age": "18",
+    "gender": "Prefer not to say",
+    "major": "Engineering",
+    "year": "Freshman",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_f7e67a83-3a5a-4ddd-a30e-544ddb8ebcf0.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 3156,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Personal Growth",
+        "title": "Summary 285.1",
+        "summaryText": "She recounted experiences where her technical contributions were overlooked and strategies she used to assert confidence. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Mental Health",
+        "title": "Summary 285.2",
+        "summaryText": "Ethan discussed observing classmates who struggled to access tutoring or networking opportunities. His reflection on his own privilege as a continuing-generation student led him to advocate for more peer tutoring support and accessible design lab hours. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 285.3",
+        "summaryText": "Luis found the shift from project-based high school learning to theory-heavy coursework challenging but rewarding. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 285.4",
+        "summaryText": "Luis found the shift from project-based high school learning to theory-heavy coursework challenging but rewarding. [Part 3/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 3]",
+        "timeframeType": "present",
+        "category": "Personal Growth",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition. [Timeline 2]",
+        "timeframeType": "future",
+        "category": "Mental Health",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced subtle exclusion in a group design project where her ideas were initially dismissed. [Timeline 3]",
+        "timeframeType": "present",
+        "category": "Academic",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Diversity & Inclusion",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_cffbmya6r",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge. [Extended 4]",
+        "frequency": 5,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_eeqipgnob",
+          "quote_jcifjm9dr"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_a1op1wpt3",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 4]",
+        "frequency": 9,
+        "impactScore": 8,
+        "actionable": false,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_xydkdw0ob",
+          "quote_eeqipgnob"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_1wps74dvx",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 2]",
+        "frequency": 1,
+        "impactScore": 2,
+        "actionable": false,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_eeqipgnob",
+          "quote_jcifjm9dr"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_xydkdw0ob",
+        "quoteText": "My parents don’t really understand what I study, but they tell everyone I’m going to be an engineer — that means a lot, but it’s also scary. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "27:48",
+        "tags": [
+          "leadership",
+          "struggle",
+          "representation",
+          "challenge"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_cffbmya6r"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_b0w4rl9tj",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "1:37",
+        "tags": [
+          "support",
+          "representation",
+          "community",
+          "barrier"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_1wps74dvx"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_jcifjm9dr",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "8:46",
+        "tags": [
+          "opportunity",
+          "advocacy"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_a1op1wpt3"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_dtcg3ebiu",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "44:22",
+        "tags": [
+          "success",
+          "support",
+          "growth",
+          "resilience"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_cffbmya6r"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_h8gipewna",
+        "quoteText": "Seeing other Latina engineers at the SHPE conference made me feel like I’m not alone — like I really do belong in this field. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "43:21",
+        "tags": [
+          "identity",
+          "challenge"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_cffbmya6r"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ce75tamsq",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "24:38",
+        "tags": [
+          "leadership",
+          "struggle",
+          "achievement"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_cffbmya6r"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_eeqipgnob",
+        "quoteText": "You can’t innovate if you’re burned out — STEM needs to start treating wellness as part of success. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "45:25",
+        "tags": [
+          "identity",
+          "growth",
+          "leadership"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_cffbmya6r"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_k28yk02ai",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "23:40",
+        "tags": [
+          "success",
+          "identity"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_cffbmya6r"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_07vd3e3ke",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates. [Extended 4]",
+        "priority": "low",
+        "stakeholders": [
+          "Students"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_x0wmkd3jr",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration",
+          "Students"
+        ],
+        "actionItems": [
+          "Develop training programs"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.415Z",
+    "updatedAt": "2025-10-22T04:04:12.415Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 3,
+        "quotes": 8,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

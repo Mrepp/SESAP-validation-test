@@ -1,0 +1,355 @@
+{
+  "interviewId": "553d79d0-b530-4d40-856a-5fa21463159a",
+  "intervieweeName": "Morgan Williams",
+  "interviewDate": "2025-05-25",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. Lisa Anderson",
+  "demographics": {
+    "age": "18",
+    "gender": "Non-binary",
+    "major": "International Relations",
+    "year": "Sophomore",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_553d79d0-b530-4d40-856a-5fa21463159a.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4549,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 308.1",
+        "summaryText": "Maria described difficulty understanding financial aid processes and navigating academic advising resources. She relied heavily on peer networks and informal guidance, noting that the institutional language often assumed prior family familiarity with college systems. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Financial",
+        "title": "Summary 308.2",
+        "summaryText": "Luis found the shift from project-based high school learning to theory-heavy coursework challenging but rewarding. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 308.3",
+        "summaryText": "She emphasized how few Black women were visible in faculty and leadership roles, describing representation as both motivating and emotionally taxing. Her NSBE involvement offered vital affirmation and a platform to advocate for equity. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 308.4",
+        "summaryText": "As a first-generation student, Daniel’s parents provided emotional encouragement but limited academic guidance. Their sacrifices motivated him, though he expressed anxiety about failing to meet expectations. [Part 2/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Personal Growth",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Financial",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Personal Growth",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 1]",
+        "timeframeType": "present",
+        "category": "Campus Life",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 2]",
+        "timeframeType": "future",
+        "category": "Academic",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_ub1now2q6",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge.",
+        "frequency": 6,
+        "impactScore": 8,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_0dcd78ydv",
+          "quote_l5q7j0ll5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_4fvxc1b79",
+        "title": "Acknowledging Structural Advantage and Allyship in STEM",
+        "description": "Ethan’s reflections underscore the role of allyship among students who recognize their positional privilege. He highlights how acknowledging systemic inequities can lead to more equitable classroom dynamics. [Extended 4]",
+        "frequency": 4,
+        "impactScore": 3,
+        "actionable": false,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_l5q7j0ll5",
+          "quote_i4zpo8ua1"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_62z0u0mu0",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 3]",
+        "frequency": 7,
+        "impactScore": 6,
+        "actionable": false,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_0dcd78ydv",
+          "quote_fndg0ckv3",
+          "quote_l5q7j0ll5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_fkvt6fcqy",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 1]",
+        "frequency": 9,
+        "impactScore": 7,
+        "actionable": false,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_0dcd78ydv",
+          "quote_i4zpo8ua1",
+          "quote_l5q7j0ll5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ub16jbttg",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge. [Extended 2]",
+        "frequency": 7,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_yuvvomi29"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_0dcd78ydv",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "8:47",
+        "tags": [
+          "advocacy",
+          "barrier",
+          "representation"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_fkvt6fcqy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_fndg0ckv3",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "17:15",
+        "tags": [
+          "achievement",
+          "identity",
+          "success",
+          "barrier"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_fkvt6fcqy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_yuvvomi29",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "10:20",
+        "tags": [
+          "struggle",
+          "challenge",
+          "opportunity",
+          "success"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_fkvt6fcqy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_i4zpo8ua1",
+        "quoteText": "I wish there were a clearer path for first-gen students to find mentorship — it feels like everyone else already knows the rules. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "6:47",
+        "tags": [
+          "representation",
+          "leadership",
+          "support"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ub1now2q6"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_xsmbe8q8l",
+        "quoteText": "At first I thought I wasn’t smart enough, but then I realized everyone’s struggling; we just don’t talk about it. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "20:32",
+        "tags": [
+          "success",
+          "advocacy",
+          "barrier"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_fkvt6fcqy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_l5q7j0ll5",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "21:03",
+        "tags": [
+          "leadership"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_fkvt6fcqy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_583579oo1",
+        "quoteText": "Seeing other Latina engineers at the SHPE conference made me feel like I’m not alone — like I really do belong in this field. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "20:15",
+        "tags": [
+          "advocacy",
+          "opportunity",
+          "struggle"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ub1now2q6"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_gzfsursi8",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 1]",
+        "priority": "low",
+        "stakeholders": [
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_9tnj8sw14",
+        "title": "Increase Cultural Representation in Engineering Programs",
+        "description": "Students emphasized the importance of seeing role models and mentors from similar cultural backgrounds. Faculty partnerships with student cultural organizations could foster inclusion and belonging. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students",
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_xrq5ly5hn",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 1]",
+        "priority": "low",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.145Z",
+    "updatedAt": "2025-10-22T04:16:46.145Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 5,
+        "quotes": 7,
+        "timelinePoints": 5,
+        "improvements": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "interviewId": "511f9090-4088-49a9-a643-ed604d63f022",
+  "intervieweeName": "D. Williams",
+  "interviewDate": "2025-09-16",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. Lisa Anderson",
+  "demographics": {
+    "age": "22",
+    "gender": "Prefer not to say",
+    "major": "Communications",
+    "year": "Sophomore",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_511f9090-4088-49a9-a643-ed604d63f022.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2539,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 289.1",
+        "summaryText": "Ethan discussed observing classmates who struggled to access tutoring or networking opportunities. His reflection on his own privilege as a continuing-generation student led him to advocate for more peer tutoring support and accessible design lab hours. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 289.2",
+        "summaryText": "Participation in SHPE and campus cultural centers provided Maria a sense of belonging and identity affirmation. These communities offered emotional support and mentorship that she could not easily find in her department. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Presented a project on sustainable energy systems at an undergraduate research showcase. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Financial",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_6kjwxs36y",
+        "title": "Intersection of Culture and Academic Identity",
+        "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors. [Extended 4]",
+        "frequency": 2,
+        "impactScore": 3,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_gu45wjgh5",
+          "quote_qsibsokod",
+          "quote_8t3pw5iti"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_8x4dygazg",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 3]",
+        "frequency": 6,
+        "impactScore": 2,
+        "actionable": false,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_qsibsokod",
+          "quote_gu45wjgh5"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ifvztn3qc",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 4]",
+        "frequency": 2,
+        "impactScore": 1,
+        "actionable": false,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_8t3pw5iti",
+          "quote_69u08i939"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_qsibsokod",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "14:39",
+        "tags": [
+          "leadership",
+          "opportunity",
+          "representation"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ifvztn3qc"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_8t3pw5iti",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "42:32",
+        "tags": [
+          "community",
+          "belonging",
+          "representation",
+          "resilience"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_8x4dygazg"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_i9fpz0bs9",
+        "quoteText": "When our robotics team included people from different majors, the solutions got way more creative. It wasn’t just engineers thinking like engineers. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "1:50",
+        "tags": [
+          "barrier",
+          "achievement",
+          "advocacy"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_8x4dygazg"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_gu45wjgh5",
+        "quoteText": "Sometimes I feel like everyone else just gets it — like I’m pretending to belong in these classes. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "23:57",
+        "tags": [
+          "achievement"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_6kjwxs36y"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_69u08i939",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "4:12",
+        "tags": [
+          "growth"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_6kjwxs36y"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_x7rqvm10d",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_4tut8rfl4",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_kexkz2zsr",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 1]",
+        "priority": "medium",
+        "stakeholders": [
+          "Administration"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.417Z",
+    "updatedAt": "2025-10-22T04:04:12.417Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 2,
+        "themes": 3,
+        "quotes": 5,
+        "timelinePoints": 3,
+        "improvements": 3
+      }
+    }
+  }
+}

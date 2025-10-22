@@ -1,0 +1,294 @@
+{
+  "interviewId": "b43b7a09-4934-46a1-962d-968d2177d057",
+  "intervieweeName": "Michelle Johnson",
+  "interviewDate": "2025-08-10",
+  "interviewFormat": "Phone",
+  "interviewerName": "Dr. Robert Davis",
+  "demographics": {
+    "age": "21",
+    "gender": "Female",
+    "major": "Economics",
+    "year": "Junior",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_b43b7a09-4934-46a1-962d-968d2177d057.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 3976,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 291.1",
+        "summaryText": "As a first-generation student, Daniel’s parents provided emotional encouragement but limited academic guidance. Their sacrifices motivated him, though he expressed anxiety about failing to meet expectations. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Mental Health",
+        "title": "Summary 291.2",
+        "summaryText": "Sarah described bridging mental health awareness into STEM culture through peer-led workshops. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 291.3",
+        "summaryText": "As a first-generation student, Daniel’s parents provided emotional encouragement but limited academic guidance. Their sacrifices motivated him, though he expressed anxiety about failing to meet expectations. [Part 4/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Financial",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced subtle exclusion in a group design project where her ideas were initially dismissed. [Timeline 3]",
+        "timeframeType": "future",
+        "category": "Mental Health",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Financial",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Financial",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_zlizdjc4d",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 4]",
+        "frequency": 10,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_m1reysh3s",
+          "quote_l3nntacxs",
+          "quote_bkiqt37k9"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_13r095gvf",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 1]",
+        "frequency": 10,
+        "impactScore": 3,
+        "actionable": false,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_bkiqt37k9",
+          "quote_m1reysh3s",
+          "quote_x3wpzco3j"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_u27notk6k",
+        "title": "Sense of Belonging in STEM for Students of Color",
+        "description": "Maria’s reflections highlight how peer representation and visibility in classrooms significantly influence belonging and persistence for Latina women in engineering. [Extended 3]",
+        "frequency": 3,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_l3nntacxs",
+          "quote_m1reysh3s"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ob2i65km9",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 1]",
+        "frequency": 2,
+        "impactScore": 9,
+        "actionable": false,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_l3nntacxs",
+          "quote_xo7n4m8ub",
+          "quote_x3wpzco3j"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_m1reysh3s",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "7:23",
+        "tags": [
+          "opportunity",
+          "growth"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_13r095gvf"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_x3wpzco3j",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "28:26",
+        "tags": [
+          "growth",
+          "advocacy",
+          "representation"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_ob2i65km9"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_xo7n4m8ub",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "32:08",
+        "tags": [
+          "challenge"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_zlizdjc4d"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_l3nntacxs",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "43:27",
+        "tags": [
+          "support",
+          "opportunity",
+          "identity",
+          "success"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_13r095gvf"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_bkiqt37k9",
+        "quoteText": "It took me a year to realize struggling is normal — not a sign that I’m not supposed to be here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "24:14",
+        "tags": [
+          "community",
+          "struggle",
+          "challenge",
+          "leadership"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_ob2i65km9"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_0fui0atbi",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 3]",
+        "priority": "low",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_v592a7rmp",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_8ktmaccsi",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:12.418Z",
+    "updatedAt": "2025-10-22T04:04:12.418Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 4,
+        "quotes": 5,
+        "timelinePoints": 4,
+        "improvements": 3
+      }
+    }
+  }
+}

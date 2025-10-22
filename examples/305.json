@@ -1,0 +1,340 @@
+{
+  "interviewId": "7edaf398-5a74-4da5-ba77-24bc781f78d2",
+  "intervieweeName": "Emily Smith",
+  "interviewDate": "2025-02-15",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Sarah Johnson",
+  "demographics": {
+    "age": "19",
+    "gender": "Female",
+    "major": "International Relations",
+    "year": "Freshman",
+    "other": "First-generation college student"
+  },
+  "transcript": {
+    "fileName": "transcript_7edaf398-5a74-4da5-ba77-24bc781f78d2.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2604,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Personal Growth",
+        "title": "Summary 306.1",
+        "summaryText": "Participation in SHPE and campus cultural centers provided Maria a sense of belonging and identity affirmation. These communities offered emotional support and mentorship that she could not easily find in her department. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Personal Growth",
+        "title": "Summary 306.2",
+        "summaryText": "Peer mentors and cultural centers helped Luis navigate isolation as a first-gen Latino student. [Part 4/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 306.3",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 4/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access.",
+        "timeframeType": "past",
+        "category": "Academic",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 3]",
+        "timeframeType": "ongoing",
+        "category": "Career",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 3]",
+        "timeframeType": "future",
+        "category": "Social",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 2]",
+        "timeframeType": "future",
+        "category": "Mental Health",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "mixed",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_d94e8jc11",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 2]",
+        "frequency": 2,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_sde4q6h83",
+          "quote_510o0wg28"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_rf7yay3go",
+        "title": "Peer Mentorship as a Belonging Intervention",
+        "description": "Daniel emphasized how structured mentorship programs provided psychological safety and belonging cues, normalizing struggle and improving persistence among marginalized students. [Extended 1]",
+        "frequency": 9,
+        "impactScore": 10,
+        "actionable": false,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_510o0wg28"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_rqpv8pqxy",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 2]",
+        "frequency": 6,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_w7v8acazu",
+          "quote_sde4q6h83",
+          "quote_hs63wgx4z"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_fojzmnydv",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 3]",
+        "frequency": 1,
+        "impactScore": 3,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_hs63wgx4z"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_6zjw067k0",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 2]",
+        "frequency": 2,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_sde4q6h83"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_xq470s65y",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 4]",
+        "frequency": 1,
+        "impactScore": 4,
+        "actionable": false,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_510o0wg28"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_510o0wg28",
+        "quoteText": "I wish there were a clearer path for first-gen students to find mentorship — it feels like everyone else already knows the rules. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "13:06",
+        "tags": [
+          "challenge",
+          "advocacy",
+          "representation",
+          "growth"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_rqpv8pqxy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ahvayhxgh",
+        "quoteText": "I wish there were a clearer path for first-gen students to find mentorship — it feels like everyone else already knows the rules. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "19:38",
+        "tags": [
+          "leadership"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_xq470s65y"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_hs63wgx4z",
+        "quoteText": "My parents say, ‘Just do your best,’ but I can tell they really mean, ‘Don’t waste this chance we gave you.’ [Context 1]",
+        "context": "Interview context",
+        "timestamp": "4:29",
+        "tags": [
+          "struggle",
+          "opportunity",
+          "growth",
+          "community"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_rf7yay3go"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_sde4q6h83",
+        "quoteText": "Seeing other Latina engineers at the SHPE conference made me feel like I’m not alone — like I really do belong in this field. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "17:51",
+        "tags": [
+          "achievement",
+          "community",
+          "growth",
+          "belonging"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_rqpv8pqxy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_w7v8acazu",
+        "quoteText": "At first I thought I wasn’t smart enough, but then I realized everyone’s struggling; we just don’t talk about it. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "32:31",
+        "tags": [
+          "achievement"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_rqpv8pqxy"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_kx6sokwyh",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "1:07",
+        "tags": [
+          "identity",
+          "leadership",
+          "community",
+          "achievement"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_6zjw067k0"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_917pcwflm",
+        "title": "Enhance First-Gen Orientation Programs",
+        "description": "Provide stronger academic transition support for first-generation students entering engineering. [Extended 1]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_uvdiot6oy",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 2]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_6wqx59rx1",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.144Z",
+    "updatedAt": "2025-10-22T04:16:46.144Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 6,
+        "quotes": 6,
+        "timelinePoints": 5,
+        "improvements": 3
+      }
+    }
+  }
+}

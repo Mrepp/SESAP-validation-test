@@ -1,0 +1,289 @@
+{
+  "interviewId": "02bba6b3-d134-4eb8-9cf4-4eb55251002a",
+  "intervieweeName": "Morgan Johnson",
+  "interviewDate": "2025-07-18",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. Lisa Anderson",
+  "demographics": {
+    "age": "19",
+    "gender": "Non-binary",
+    "major": "Environmental Science",
+    "year": "Senior",
+    "other": "First-generation college student"
+  },
+  "transcript": {
+    "fileName": "transcript_02bba6b3-d134-4eb8-9cf4-4eb55251002a.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 3655,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Financial",
+        "title": "Summary 311.1",
+        "summaryText": "Ethan described how leading design sprints in the robotics club refined his communication and teamwork skills. He recognized his relative advantage from prior exposure to engineering through his family, and expressed an interest in mentoring peers with less background experience. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Personal Growth",
+        "title": "Summary 311.2",
+        "summaryText": "She emphasized how few Black women were visible in faculty and leadership roles, describing representation as both motivating and emotionally taxing. Her NSBE involvement offered vital affirmation and a platform to advocate for equity. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 311.3",
+        "summaryText": "Aaliyah recounted repeated experiences of having her technical input questioned in group settings. She also described taking on emotional labor to support other students facing similar bias. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Joined the Society of Hispanic Professional Engineers during her first semester to find community and mentorship. [Timeline 1]",
+        "timeframeType": "present",
+        "category": "Mental Health",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced subtle exclusion in a group design project where her ideas were initially dismissed. [Timeline 4]",
+        "timeframeType": "ongoing",
+        "category": "Diversity & Inclusion",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access. [Timeline 3]",
+        "timeframeType": "present",
+        "category": "Career",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Completed internship at a manufacturing firm where he recognized gender imbalance in leadership positions. [Timeline 4]",
+        "timeframeType": "ongoing",
+        "category": "Campus Life",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Joined the Engineering Learning Community, finding peer mentors and emotional support. [Timeline 2]",
+        "timeframeType": "present",
+        "category": "Diversity & Inclusion",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_vpjpta80g",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 3]",
+        "frequency": 7,
+        "impactScore": 5,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_mdpbwraw0",
+          "quote_v9spr0e31"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_mtoc188oy",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 4]",
+        "frequency": 7,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_v9spr0e31"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_rykgw38lw",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 1]",
+        "frequency": 8,
+        "impactScore": 10,
+        "actionable": false,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_v9spr0e31",
+          "quote_mdpbwraw0",
+          "quote_4qv8xslud"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_v9spr0e31",
+        "quoteText": "No one in my family went to college, so I didn’t even know how office hours worked my first semester. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "4:37",
+        "tags": [
+          "belonging",
+          "success"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_vpjpta80g"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_5c9vl8ret",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "4:22",
+        "tags": [
+          "achievement",
+          "struggle",
+          "leadership"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_rykgw38lw"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_f7omdtnkl",
+        "quoteText": "My parents don’t really understand what I study, but they tell everyone I’m going to be an engineer — that means a lot, but it’s also scary. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "22:06",
+        "tags": [
+          "barrier",
+          "support",
+          "belonging",
+          "growth"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_vpjpta80g"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_mdpbwraw0",
+        "quoteText": "I love leading projects, but it’s exhausting always being the one to explain why diversity matters in engineering teams. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "18:38",
+        "tags": [
+          "identity",
+          "resilience",
+          "success"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_rykgw38lw"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_4qv8xslud",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "15:45",
+        "tags": [
+          "community",
+          "achievement",
+          "representation"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_rykgw38lw"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_e3uyx4uvy",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 4]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_bpngdo5wz",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 1]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration",
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_zaslw11vs",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration",
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:16:46.146Z",
+    "updatedAt": "2025-10-22T04:16:46.146Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 3,
+        "quotes": 5,
+        "timelinePoints": 5,
+        "improvements": 3
+      }
+    }
+  }
+}

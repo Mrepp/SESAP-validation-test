@@ -1,0 +1,289 @@
+{
+  "interviewId": "abf9d2d7-0dce-457e-9064-96cde9a39942",
+  "intervieweeName": "Sarah Jones",
+  "interviewDate": "2025-06-26",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. Michael Chen",
+  "demographics": {
+    "age": "20",
+    "gender": "Female",
+    "major": "Sociology",
+    "year": "Freshman",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_abf9d2d7-0dce-457e-9064-96cde9a39942.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2894,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 302.1",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 302.2",
+        "summaryText": "Maria described feeling academically capable but often isolated in her computer engineering courses, where few other Latina students were enrolled. She mentioned that faculty were supportive when approached, but that representation and group belonging remained low, especially during first-year lab sections. [Part 2/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Presented senior capstone project on sustainable urban drainage systems, earning department recognition. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Personal Growth",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Diversity & Inclusion",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers. [Timeline 1]",
+        "timeframeType": "future",
+        "category": "Career",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_1zuvbjhi7",
+        "title": "Intersection of Culture and Academic Identity",
+        "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors. [Extended 4]",
+        "frequency": 9,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_aod186obq",
+          "quote_8xlfzxb7n"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ej7hdlml0",
+        "title": "Navigating Institutional Barriers as a First-Generation Student",
+        "description": "First-generation identity shapes how Maria interprets bureaucratic and academic systems, creating additional cognitive and emotional labor compared to continuing-generation peers. [Extended 3]",
+        "frequency": 3,
+        "impactScore": 6,
+        "actionable": true,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_8xlfzxb7n",
+          "quote_i2bpeboxt",
+          "quote_0053kza0e"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_4n4tl96ez",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 1]",
+        "frequency": 9,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_i2bpeboxt",
+          "quote_aod186obq"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_mqp0liwn9",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 2]",
+        "frequency": 10,
+        "impactScore": 3,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_i2bpeboxt",
+          "quote_0053kza0e"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_kx5q4gpea",
+        "title": "Intersection of Culture and Academic Identity",
+        "description": "Cultural expectations of excellence create dual pressure for first-gen students in technical majors. [Extended 1]",
+        "frequency": 1,
+        "impactScore": 6,
+        "actionable": true,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_0053kza0e",
+          "quote_8xlfzxb7n",
+          "quote_aod186obq"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_6saj9dme7",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 4]",
+        "frequency": 2,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_0053kza0e"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_0053kza0e",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "1:29",
+        "tags": [
+          "struggle",
+          "opportunity",
+          "identity",
+          "advocacy"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_6saj9dme7"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_i2bpeboxt",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "22:47",
+        "tags": [
+          "leadership",
+          "community"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_kx5q4gpea"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_8xlfzxb7n",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "13:57",
+        "tags": [
+          "advocacy"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_mqp0liwn9"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_aod186obq",
+        "quoteText": "If I can use my position to make sure everyone gets a fair shot in our projects, that’s what good leadership looks like. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "7:17",
+        "tags": [
+          "belonging"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_ej7hdlml0"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_310n6uycs",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students"
+        ],
+        "actionItems": [
+          "Increase resource allocation"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_km0bifvfr",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 1]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_g4wkzik0z",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.498Z",
+    "updatedAt": "2025-10-22T04:04:33.498Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 2,
+        "themes": 6,
+        "quotes": 4,
+        "timelinePoints": 3,
+        "improvements": 3
+      }
+    }
+  }
+}

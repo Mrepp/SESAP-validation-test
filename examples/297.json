@@ -1,0 +1,295 @@
+{
+  "interviewId": "178b281c-b751-4a14-895f-c230abae5a99",
+  "intervieweeName": "Jordan Smith",
+  "interviewDate": "2025-10-08",
+  "interviewFormat": "Virtual",
+  "interviewerName": "Dr. James Wilson",
+  "demographics": {
+    "age": "19",
+    "gender": "Non-binary",
+    "major": "Chemistry",
+    "year": "Senior",
+    "other": "First-generation college student"
+  },
+  "transcript": {
+    "fileName": "transcript_178b281c-b751-4a14-895f-c230abae5a99.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4446,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Financial",
+        "title": "Summary 298.1",
+        "summaryText": "Daniel expressed pride in representing his family’s aspirations but also noted ongoing struggles with imposter syndrome. He values belonging through peer groups that normalize his experiences as a first-gen student of color in STEM. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 298.2",
+        "summaryText": "She emphasized how few Black women were visible in faculty and leadership roles, describing representation as both motivating and emotionally taxing. Her NSBE involvement offered vital affirmation and a platform to advocate for equity. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 298.3",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 4/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 2]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Became lead designer on the robotics team, guiding a diverse group of underclassmen through competition preparation. [Timeline 4]",
+        "timeframeType": "future",
+        "category": "Mental Health",
+        "sentiment": "neutral",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 1]",
+        "timeframeType": "past",
+        "category": "Social",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Served as a teaching assistant for an introductory design course, emphasizing peer inclusivity. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "negative",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_714m2sm5y",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 3]",
+        "frequency": 7,
+        "impactScore": 10,
+        "actionable": false,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_65hcw9278",
+          "quote_x7g0ichej",
+          "quote_f2i8qufea"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_e9pjobh4s",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 3]",
+        "frequency": 1,
+        "impactScore": 3,
+        "actionable": true,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_ekoxspmf7",
+          "quote_f2i8qufea"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_pr08lhkgg",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 2]",
+        "frequency": 7,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_65hcw9278",
+          "quote_x7g0ichej"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_ojt14npnu",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge. [Extended 3]",
+        "frequency": 9,
+        "impactScore": 4,
+        "actionable": true,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_x7g0ichej",
+          "quote_65hcw9278",
+          "quote_f2i8qufea"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_yw9tc4xjo",
+        "title": "Mentorship Networks as Retention Mechanisms",
+        "description": "Mentorship emerges as a consistent strategy for increasing belonging and persistence for students from marginalized groups. Aaliyah’s mentorship program demonstrates how peer-led initiatives can fill institutional gaps. [Extended 1]",
+        "frequency": 1,
+        "impactScore": 9,
+        "actionable": true,
+        "category": "Social",
+        "relatedQuoteIds": [
+          "quote_x7g0ichej",
+          "quote_f2i8qufea"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_d7tlrxpzb",
+        "title": "Cultural Representation as a Source of Motivation",
+        "description": "Seeing Latino professionals at SHPE events reinforced Maria’s sense of purpose and belonging in a field where representation remains limited. [Extended 1]",
+        "frequency": 5,
+        "impactScore": 7,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_ekoxspmf7",
+          "quote_f2i8qufea"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_65hcw9278",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "12:49",
+        "tags": [
+          "resilience",
+          "challenge",
+          "struggle",
+          "growth"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_e9pjobh4s"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_x7g0ichej",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "25:21",
+        "tags": [
+          "opportunity",
+          "advocacy",
+          "representation",
+          "growth"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_714m2sm5y"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_f2i8qufea",
+        "quoteText": "It took me a year to realize struggling is normal — not a sign that I’m not supposed to be here. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "2:19",
+        "tags": [
+          "belonging",
+          "leadership",
+          "resilience",
+          "advocacy"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_d7tlrxpzb"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ekoxspmf7",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "36:58",
+        "tags": [
+          "leadership",
+          "success",
+          "barrier",
+          "community"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_ojt14npnu"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_8ah3en0ak",
+        "title": "Expand Visibility of First-Gen Student Resources",
+        "description": "Current communication about financial aid, academic advising, and mentorship resources does not adequately reach first-generation students. Improving targeted outreach through orientation and department emails could reduce inequities in access to support. [Extended 2]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Create feedback mechanisms"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_jsba1m0d1",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates. [Extended 4]",
+        "priority": "high",
+        "stakeholders": [
+          "Faculty"
+        ],
+        "actionItems": [
+          "Develop training programs"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.497Z",
+    "updatedAt": "2025-10-22T04:04:33.497Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 3,
+        "themes": 6,
+        "quotes": 4,
+        "timelinePoints": 4,
+        "improvements": 2
+      }
+    }
+  }
+}

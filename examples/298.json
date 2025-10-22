@@ -1,0 +1,378 @@
+{
+  "interviewId": "28a9d12e-b9a2-4c5e-a21d-3b757862db2e",
+  "intervieweeName": "E. Jones",
+  "interviewDate": "2025-02-08",
+  "interviewFormat": "In-person",
+  "interviewerName": "Dr. Emily Williams",
+  "demographics": {
+    "age": "20",
+    "gender": "Prefer not to say",
+    "major": "Philosophy",
+    "year": "Senior",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_28a9d12e-b9a2-4c5e-a21d-3b757862db2e.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 4481,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Campus Life",
+        "title": "Summary 299.1",
+        "summaryText": "Ethan noted that successful project outcomes often came from teams with diverse backgrounds and perspectives. He believes empathy and active listening should be core engineering competencies. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 299.2",
+        "summaryText": "She emphasized how few Black women were visible in faculty and leadership roles, describing representation as both motivating and emotionally taxing. Her NSBE involvement offered vital affirmation and a platform to advocate for equity. [Part 3/4]",
+        "embedding": []
+      },
+      {
+        "category": "Diversity & Inclusion",
+        "title": "Summary 299.3",
+        "summaryText": "Priya balanced heavy research commitments with cultural obligations, feeling pressure to excel as a first-gen Indian-American student in tech. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Academic",
+        "title": "Summary 299.4",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture. [Part 1/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Co-founded a mentorship initiative within NSBE for first- and second-year engineering students. [Timeline 1]",
+        "timeframeType": "present",
+        "category": "Academic",
+        "sentiment": "mixed",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Faced academic probation warning after struggling with Calculus II due to lack of tutoring access. [Timeline 2]",
+        "timeframeType": "future",
+        "category": "Personal Growth",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented research poster at a regional engineering conference, receiving recognition from faculty mentors. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Diversity & Inclusion",
+        "sentiment": "neutral",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_k3ue9nd03",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 4]",
+        "frequency": 7,
+        "impactScore": 3,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_vknm3aniu",
+          "quote_3b09ag7uy",
+          "quote_wvvmv6bzt"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_tladlbzx4",
+        "title": "Acknowledging Structural Advantage and Allyship in STEM",
+        "description": "Ethan’s reflections underscore the role of allyship among students who recognize their positional privilege. He highlights how acknowledging systemic inequities can lead to more equitable classroom dynamics. [Extended 2]",
+        "frequency": 7,
+        "impactScore": 2,
+        "actionable": true,
+        "category": "Financial",
+        "relatedQuoteIds": [
+          "quote_wvvmv6bzt",
+          "quote_0slrrq4kh",
+          "quote_yqag3wt7b"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_4ezwspav1",
+        "title": "Emotional Labor and Advocacy Burden in Underrepresented Students",
+        "description": "Aaliyah’s experience illustrates how women of color in engineering often balance advocacy roles with academic demands, leading to invisible emotional labor that institutions rarely acknowledge. [Extended 2]",
+        "frequency": 7,
+        "impactScore": 9,
+        "actionable": false,
+        "category": "Campus Life",
+        "relatedQuoteIds": [
+          "quote_vuieol1mo",
+          "quote_da1m603l0",
+          "quote_up0dmfxxe"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_aswdhwkbv",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM.",
+        "frequency": 5,
+        "impactScore": 4,
+        "actionable": true,
+        "category": "Diversity & Inclusion",
+        "relatedQuoteIds": [
+          "quote_wvvmv6bzt",
+          "quote_0slrrq4kh",
+          "quote_da1m603l0"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_txl5f6odw",
+        "title": "Team Diversity as an Engineering Strength",
+        "description": "Ethan believes interdisciplinary and culturally diverse teams drive better innovation outcomes, reflecting the growing importance of social awareness in engineering practice. [Extended 1]",
+        "frequency": 8,
+        "impactScore": 1,
+        "actionable": false,
+        "category": "Academic",
+        "relatedQuoteIds": [
+          "quote_vknm3aniu",
+          "quote_wvvmv6bzt",
+          "quote_3b09ag7uy"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_da1m603l0",
+        "quoteText": "Mentorship is how we survive here — sharing what we’ve learned keeps us going when the system doesn’t always see us. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "37:50",
+        "tags": [
+          "support",
+          "success",
+          "representation"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_4ezwspav1"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_vuieol1mo",
+        "quoteText": "My parents always say 'you represent the family'—it motivates me but also adds pressure. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "26:54",
+        "tags": [
+          "identity",
+          "leadership"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_aswdhwkbv"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_yqag3wt7b",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "3:10",
+        "tags": [
+          "identity",
+          "leadership"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_tladlbzx4"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_wvvmv6bzt",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "9:46",
+        "tags": [
+          "resilience",
+          "challenge",
+          "struggle",
+          "achievement"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_k3ue9nd03"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_vknm3aniu",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "16:26",
+        "tags": [
+          "achievement",
+          "success",
+          "leadership",
+          "community"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_k3ue9nd03"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_up0dmfxxe",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "1:44",
+        "tags": [
+          "advocacy",
+          "representation",
+          "support"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_tladlbzx4"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_3b09ag7uy",
+        "quoteText": "I realized I had access to engineering summer camps that most of my friends never even heard of — that’s when privilege clicked for me. [Context 3]",
+        "context": "Interview context",
+        "timestamp": "13:32",
+        "tags": [
+          "identity",
+          "growth",
+          "success",
+          "challenge"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "medium",
+        "relatedThemeIds": [
+          "theme_aswdhwkbv"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_0slrrq4kh",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "20:41",
+        "tags": [
+          "advocacy",
+          "barrier"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_4ezwspav1"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_f3a0z19sm",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 1]",
+        "priority": "low",
+        "stakeholders": [
+          "Administration",
+          "Students",
+          "Faculty"
+        ],
+        "actionItems": [
+          "Implement new support systems",
+          "Develop training programs"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_vx3wui7hh",
+        "title": "Expand Peer Mentoring for First-Generation STEM Students",
+        "description": "Formalize mentoring programs that pair upperclassmen with first-generation students early in their academic journey. These networks reduce imposter syndrome and improve retention rates. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Develop training programs",
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_8o3uiv31q",
+        "title": "Broaden Access to Early Engineering Exposure Programs",
+        "description": "Ethan’s reflection highlights unequal early access to STEM exposure. Partnering with local schools and community programs can help level the playing field for underrepresented groups. [Extended 1]",
+        "priority": "medium",
+        "stakeholders": [
+          "Students"
+        ],
+        "actionItems": [
+          "Develop training programs"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_bmftvz0fp",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 3]",
+        "priority": "low",
+        "stakeholders": [
+          "Faculty",
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.497Z",
+    "updatedAt": "2025-10-22T04:04:33.497Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 5,
+        "quotes": 8,
+        "timelinePoints": 3,
+        "improvements": 4
+      }
+    }
+  }
+}

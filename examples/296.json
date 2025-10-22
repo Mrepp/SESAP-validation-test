@@ -1,0 +1,292 @@
+{
+  "interviewId": "bab5dccf-334d-46d7-947b-ca320bfb7fa6",
+  "intervieweeName": "Casey Jones",
+  "interviewDate": "2025-01-19",
+  "interviewFormat": "Phone",
+  "interviewerName": "Dr. Robert Davis",
+  "demographics": {
+    "age": "19",
+    "gender": "Non-binary",
+    "major": "Physics",
+    "year": "Freshman",
+    "other": ""
+  },
+  "transcript": {
+    "fileName": "transcript_bab5dccf-334d-46d7-947b-ca320bfb7fa6.txt",
+    "fileType": "text/plain",
+    "rawText": "[Transcript content]",
+    "wordCount": 2230,
+    "validation": {
+      "minimumLengthCheck": {
+        "passed": true,
+        "warningIssued": false,
+        "overrideApprovedBy": ""
+      }
+    }
+  },
+  "analysis": {
+    "model": {
+      "provider": "OpenRouter",
+      "modelName": "anthropic/claude-2",
+      "temperature": 0.7,
+      "promptVersion": "2.0",
+      "promptTemplateId": "college-interview-v2"
+    },
+    "summaries": [
+      {
+        "category": "Mental Health",
+        "title": "Summary 297.1",
+        "summaryText": "Ethan discussed observing classmates who struggled to access tutoring or networking opportunities. His reflection on his own privilege as a continuing-generation student led him to advocate for more peer tutoring support and accessible design lab hours. [Part 2/4]",
+        "embedding": []
+      },
+      {
+        "category": "Mental Health",
+        "title": "Summary 297.2",
+        "summaryText": "Aaliyah described how leading senior design teams strengthened her confidence in project management and technical problem-solving. She reflected on mentorship as a core component of her academic identity, often supporting younger women of color navigating engineering culture.",
+        "embedding": []
+      },
+      {
+        "category": "Campus Life",
+        "title": "Summary 297.3",
+        "summaryText": "Aaliyah recounted repeated experiences of having her technical input questioned in group settings. She also described taking on emotional labor to support other students facing similar bias. [Part 1/4]",
+        "embedding": []
+      },
+      {
+        "category": "Mental Health",
+        "title": "Summary 297.4",
+        "summaryText": "Maria described difficulty understanding financial aid processes and navigating academic advising resources. She relied heavily on peer networks and informal guidance, noting that the institutional language often assumed prior family familiarity with college systems. [Part 2/4]",
+        "embedding": []
+      }
+    ],
+    "timelinePoints": [
+      {
+        "eventDescription": "Served as a teaching assistant for an introductory design course, emphasizing peer inclusivity. [Timeline 4]",
+        "timeframeType": "past",
+        "category": "Academic",
+        "sentiment": "positive",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Struggled during his first programming course, leading him to seek help from tutoring and peers. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Academic",
+        "sentiment": "negative",
+        "embedding": []
+      },
+      {
+        "eventDescription": "Presented a project on sustainable energy systems at an undergraduate research showcase. [Timeline 3]",
+        "timeframeType": "past",
+        "category": "Career",
+        "sentiment": "mixed",
+        "embedding": []
+      }
+    ],
+    "themes": [
+      {
+        "themeId": "theme_484un8kws",
+        "title": "Family Expectations and Cultural Motivation",
+        "description": "Cultural values around family honor and sacrifice serve both as motivation and a source of pressure for first-generation Vietnamese-American students pursuing STEM. [Extended 4]",
+        "frequency": 6,
+        "impactScore": 6,
+        "actionable": true,
+        "category": "Personal Growth",
+        "relatedQuoteIds": [
+          "quote_a1prqb3mv",
+          "quote_v446h98xf"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_uxzmawjlw",
+        "title": "Imposter Syndrome Among First-Generation Asian-American Students",
+        "description": "Daniel’s experience illustrates how first-generation students often internalize academic challenges as personal shortcomings, especially when they lack peers with shared backgrounds in STEM programs. [Extended 1]",
+        "frequency": 4,
+        "impactScore": 3,
+        "actionable": true,
+        "category": "Career",
+        "relatedQuoteIds": [
+          "quote_v446h98xf",
+          "quote_ckcqpn2ic",
+          "quote_a1prqb3mv"
+        ],
+        "embedding": []
+      },
+      {
+        "themeId": "theme_3siaswqeq",
+        "title": "First-Generation Adaptation to STEM Rigor",
+        "description": "Luis’s story demonstrates resilience through peer and cultural support. [Extended 2]",
+        "frequency": 1,
+        "impactScore": 9,
+        "actionable": false,
+        "category": "Mental Health",
+        "relatedQuoteIds": [
+          "quote_a1prqb3mv"
+        ],
+        "embedding": []
+      }
+    ],
+    "quotes": [
+      {
+        "quoteId": "quote_a1prqb3mv",
+        "quoteText": "My parents say, ‘Just do your best,’ but I can tell they really mean, ‘Don’t waste this chance we gave you.’ [Context 3]",
+        "context": "Interview context",
+        "timestamp": "42:54",
+        "tags": [
+          "barrier",
+          "belonging"
+        ],
+        "sentiment": "negative",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_484un8kws"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_v446h98xf",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "35:27",
+        "tags": [
+          "leadership",
+          "growth",
+          "support"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "high",
+        "relatedThemeIds": [
+          "theme_484un8kws"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_d98wdzx1v",
+        "quoteText": "Sometimes I look around my class and I’m the only Latina — it makes me question whether I belong here. [Context 4]",
+        "context": "Interview context",
+        "timestamp": "9:00",
+        "tags": [
+          "leadership",
+          "advocacy"
+        ],
+        "sentiment": "positive",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_484un8kws"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_ckcqpn2ic",
+        "quoteText": "Having mentors who also came from immigrant families helped me feel like my story belonged here too. [Context 2]",
+        "context": "Interview context",
+        "timestamp": "7:56",
+        "tags": [
+          "advocacy",
+          "leadership",
+          "struggle",
+          "growth"
+        ],
+        "sentiment": "mixed",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_484un8kws"
+        ],
+        "embedding": []
+      },
+      {
+        "quoteId": "quote_lkgcfh844",
+        "quoteText": "When I walk into a classroom and see no one who looks like me, I remind myself that my presence opens the door for someone else. [Context 1]",
+        "context": "Interview context",
+        "timestamp": "28:33",
+        "tags": [
+          "support",
+          "barrier"
+        ],
+        "sentiment": "neutral",
+        "significanceLevel": "low",
+        "relatedThemeIds": [
+          "theme_3siaswqeq"
+        ],
+        "embedding": []
+      }
+    ],
+    "areasForImprovement": [
+      {
+        "areaId": "area_xxpys4tqd",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 3]",
+        "priority": "high",
+        "stakeholders": [
+          "Administration",
+          "Faculty",
+          "Students"
+        ],
+        "actionItems": [
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_0vaxexxop",
+        "title": "Formal Recognition for Student Advocacy and Mentorship Work",
+        "description": "Students like Aaliyah contribute substantial unpaid labor in mentoring and advocacy roles. Institutions should recognize these contributions as part of leadership and service learning frameworks. [Extended 1]",
+        "priority": "high",
+        "stakeholders": [
+          "Students",
+          "Administration"
+        ],
+        "actionItems": [
+          "Enhance communication channels"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_ifpz0dqms",
+        "title": "Increase Mentorship for Women in Computing",
+        "description": "Expand mentorship and career guidance for women and first-gen students. [Extended 2]",
+        "priority": "medium",
+        "stakeholders": [
+          "Faculty",
+          "Administration",
+          "Students"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      },
+      {
+        "areaId": "area_f8y6pu4hg",
+        "title": "Normalize Academic Struggle Through Faculty Messaging",
+        "description": "Faculty can help counter imposter syndrome by sharing personal learning experiences, highlighting that mastery develops over time and through mistakes. [Extended 4]",
+        "priority": "low",
+        "stakeholders": [
+          "Students",
+          "Faculty",
+          "Administration"
+        ],
+        "actionItems": [
+          "Implement new support systems"
+        ],
+        "embedding": []
+      }
+    ]
+  },
+  "metadata": {
+    "createdAt": "2025-10-22T04:04:33.496Z",
+    "updatedAt": "2025-10-22T04:04:33.496Z",
+    "version": "1.0",
+    "source": "mock-generator-scaled",
+    "validatedBy": "auto-generated",
+    "testConfig": {
+      "sizeMultiplier": 1,
+      "contentCounts": {
+        "summaries": 4,
+        "themes": 3,
+        "quotes": 5,
+        "timelinePoints": 3,
+        "improvements": 4
+      }
+    }
+  }
+}
