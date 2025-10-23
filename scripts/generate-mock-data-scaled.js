@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '../examples');
 const TEST_MARKER_FILE = path.join(DATA_DIR, '.test-files.json');
 
-// [Previous constants remain the same...]
+// Constants for data generation
 const MAJORS = [
   'Computer Science', 'Psychology', 'Biology', 'Business Administration',
   'English Literature', 'Political Science', 'Engineering', 'Nursing',
@@ -60,6 +60,156 @@ function generateRecentDate() {
   const now = new Date();
   const pastDate = new Date(now.getTime() - Math.random() * 365 * 24 * 60 * 60 * 1000);
   return pastDate.toISOString().split('T')[0];
+}
+
+function generateLoremIpsum(wordCount) {
+  const words = [
+    'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
+    'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
+    'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud'
+  ];
+  
+  const result = [];
+  for (let i = 0; i < wordCount; i++) {
+    result.push(randomChoice(words));
+  }
+  return result.join(' ');
+}
+
+// Track generated test files
+async function trackTestFiles(files) {
+  let existingFiles = [];
+  try {
+    const data = await fs.readFile(TEST_MARKER_FILE, 'utf-8');
+    existingFiles = JSON.parse(data);
+  } catch {
+    // File doesn't exist yet
+  }
+  
+  const allFiles = [...new Set([...existingFiles, ...files])];
+  await fs.writeFile(TEST_MARKER_FILE, JSON.stringify(allFiles, null, 2));
+  return allFiles;
+}
+
+// Clean up ALL non-base test files
+export async function cleanupTestFiles() {
+  const baseFiles = ['01.json', '02.json', '03.json', '04.json', '05.json', '06.json', '07.json', 'base.json'];
+  
+  try {
+    const files = await fs.readdir(DATA_DIR);
+    let deletedCount = 0;
+    
+    for (const file of files) {
+      // Skip base files and non-JSON files
+      if (baseFiles.includes(file) || !file.endsWith('.json')) {
+        continue;
+      }
+      
+      // Delete all other JSON files (test files)
+      const filePath = path.join(DATA_DIR, file);
+      try {
+        await fs.unlink(filePath);
+        console.log(`  Deleted: ${file}`);
+        deletedCount++;
+      } catch (error) {
+        console.warn(`  Failed to delete ${file}: ${error.message}`);
+      }
+    }
+    
+    // Clean up marker file
+    try {
+      await fs.unlink(TEST_MARKER_FILE);
+    } catch {
+      // Marker file might not exist
+    }
+    
+    console.log(`Cleanup complete! Deleted ${deletedCount} test files.`);
+    return deletedCount;
+  } catch (error) {
+    console.log('Error during cleanup:', error.message);
+    return 0;
+  }
+}
+
+// Load base data from original files only
+async function loadOrGenerateBaseData() {
+  const baseFiles = ['01.json', '02.json', '03.json', '04.json', '05.json', '06.json', '07.json'];
+  
+  const allData = {
+    summaries: [],
+    themes: [],
+    quotes: [],
+    timelinePoints: [],
+    areasForImprovement: []
+  };
+  
+  for (const fileName of baseFiles) {
+    try {
+      const filePath = path.join(DATA_DIR, fileName);
+      const content = await fs.readFile(filePath, 'utf-8');
+      const data = JSON.parse(content);
+      
+      if (data.analysis?.summaries) {
+        allData.summaries.push(...data.analysis.summaries);
+      }
+      if (data.analysis?.themes) {
+        allData.themes.push(...data.analysis.themes);
+      }
+      if (data.analysis?.quotes) {
+        allData.quotes.push(...data.analysis.quotes);
+      }
+      if (data.analysis?.timelinePoints) {
+        allData.timelinePoints.push(...data.analysis.timelinePoints);
+      }
+      if (data.analysis?.areasForImprovement) {
+        allData.areasForImprovement.push(...data.analysis.areasForImprovement);
+      }
+    } catch (error) {
+      console.warn(`Could not load base file ${fileName}:`, error.message);
+    }
+  }
+  
+  // If no data, generate some base content
+  if (allData.summaries.length === 0) {
+    allData.summaries = [
+      { summaryText: 'Student discussed academic challenges and support systems.' },
+      { summaryText: 'Financial concerns were a major topic throughout the interview.' },
+      { summaryText: 'Social integration and campus community were highlighted.' }
+    ];
+  }
+  
+  if (allData.themes.length === 0) {
+    allData.themes = [
+      { title: 'Academic Success', description: 'Strategies for academic achievement' },
+      { title: 'Campus Resources', description: 'Utilization of available support services' },
+      { title: 'Personal Growth', description: 'Development during college years' }
+    ];
+  }
+  
+  if (allData.quotes.length === 0) {
+    allData.quotes = [
+      { quoteText: 'College has been transformative for me.' },
+      { quoteText: 'I wish I had known about these resources earlier.' },
+      { quoteText: 'The support from faculty made all the difference.' }
+    ];
+  }
+  
+  if (allData.timelinePoints.length === 0) {
+    allData.timelinePoints = [
+      { eventDescription: 'Started college with uncertainty' },
+      { eventDescription: 'Found mentor in sophomore year' },
+      { eventDescription: 'Decided on major after exploration' }
+    ];
+  }
+  
+  if (allData.areasForImprovement.length === 0) {
+    allData.areasForImprovement = [
+      { title: 'Communication', description: 'Better information dissemination needed' },
+      { title: 'Resources', description: 'More support services required' }
+    ];
+  }
+  
+  return allData;
 }
 
 // Generate scaled mock interview
@@ -166,13 +316,21 @@ function generateScaledMockInterview(existingData, config, index) {
       randomChoice(existingData.areasForImprovement) :
       { title: 'Improvement Area', description: generateLoremIpsum(40 * config.interviews.sizeMultiplier) };
     
+    const actionItems = [
+      'Implement new support systems',
+      'Increase resource allocation',
+      'Enhance communication channels',
+      'Develop training programs',
+      'Create feedback mechanisms'
+    ];
+    
     selectedImprovements.push({
       ...baseArea,
       areaId: generateId('area'),
       description: baseArea.description || generateLoremIpsum(40 * config.interviews.sizeMultiplier),
       priority: randomChoice(['high', 'medium', 'low']),
       stakeholders: randomSubset(['Students', 'Faculty', 'Administration'], 1, 3),
-      actionItems: generateActionItems(config.interviews.sizeMultiplier),
+      actionItems: randomSubset(actionItems, 1, Math.min(actionItems.length, Math.ceil(2 * config.interviews.sizeMultiplier))),
       embedding: []
     });
   }
@@ -181,7 +339,7 @@ function generateScaledMockInterview(existingData, config, index) {
     'Male': ['James', 'Michael', 'David', 'Robert', 'William'],
     'Female': ['Sarah', 'Emily', 'Jessica', 'Ashley', 'Michelle'],
     'Non-binary': ['Alex', 'Jordan', 'Taylor', 'Casey', 'Morgan'],
-    'Prefer not to say': ['A.', 'B.', 'C.', 'D.', 'E.']
+    'Prefer not to say': ['A.', '  B.', 'C.', 'D.', 'E.']
   };
   
   const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones'];
@@ -247,180 +405,21 @@ function generateScaledMockInterview(existingData, config, index) {
     }
   };
 }
-// Load existing data or generate base data
-async function loadOrGenerateBaseData() {
-  const files = await fs.readdir(DATA_DIR).catch(() => []);
-  const jsonFiles = files.filter(f => f.match(/^\d+\.json$/));
-  
-  const allData = {
-    summaries: [],
-    themes: [],
-    quotes: [],
-    timelinePoints: [],
-    areasForImprovement: []
-  };
-  
-  if (jsonFiles.length > 0) {
-    for (const file of jsonFiles) {
-      try {
-        const content = await fs.readFile(path.join(DATA_DIR, file), 'utf-8');
-        const data = JSON.parse(content);
-        
-        if (data.analysis?.summaries) {
-          allData.summaries.push(...data.analysis.summaries);
-        }
-        if (data.analysis?.themes) {
-          allData.themes.push(...data.analysis.themes);
-        }
-        if (data.analysis?.quotes) {
-          allData.quotes.push(...data.analysis.quotes);
-        }
-        if (data.analysis?.timelinePoints) {
-          allData.timelinePoints.push(...data.analysis.timelinePoints);
-        }
-        if (data.analysis?.areasForImprovement) {
-          allData.areasForImprovement.push(...data.analysis.areasForImprovement);
-        }
-      } catch (error) {
-        console.warn(`Failed to load ${file}:`, error.message);
-      }
-    }
-  }
-  
-  // If no data, generate some base content
-  if (allData.summaries.length === 0) {
-    allData.summaries = [
-      { summaryText: 'Student discussed academic challenges and support systems.' },
-      { summaryText: 'Financial concerns were a major topic throughout the interview.' },
-      { summaryText: 'Social integration and campus community were highlighted.' }
-    ];
-  }
-  
-  if (allData.themes.length === 0) {
-    allData.themes = [
-      { title: 'Academic Success', description: 'Strategies for academic achievement' },
-      { title: 'Campus Resources', description: 'Utilization of available support services' },
-      { title: 'Personal Growth', description: 'Development during college years' }
-    ];
-  }
-  
-  if (allData.quotes.length === 0) {
-    allData.quotes = [
-      { quoteText: 'College has been transformative for me.' },
-      { quoteText: 'I wish I had known about these resources earlier.' },
-      { quoteText: 'The support from faculty made all the difference.' }
-    ];
-  }
-  
-  if (allData.timelinePoints.length === 0) {
-    allData.timelinePoints = [
-      { eventDescription: 'Started college with uncertainty' },
-      { eventDescription: 'Found mentor in sophomore year' },
-      { eventDescription: 'Decided on major after exploration' }
-    ];
-  }
-  
-  if (allData.areasForImprovement.length === 0) {
-    allData.areasForImprovement = [
-      { title: 'Communication', description: 'Better information dissemination needed' },
-      { title: 'Resources', description: 'More support services required' }
-    ];
-  }
-  
-  return allData;
-}
-
-
-function generateLoremIpsum(wordCount) {
-  const words = [
-    'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
-    'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
-    'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud'
-  ];
-  
-  const result = [];
-  for (let i = 0; i < wordCount; i++) {
-    result.push(randomChoice(words));
-  }
-  return result.join(' ');
-}
-
-function generateActionItems(multiplier) {
-  const baseItems = [
-    'Implement new support systems',
-    'Increase resource allocation',
-    'Enhance communication channels',
-    'Develop training programs',
-    'Create feedback mechanisms'
-  ];
-  
-  const count = Math.min(baseItems.length, Math.ceil(2 * multiplier));
-  return randomSubset(baseItems, 1, count);
-}
-
-async function trackTestFiles(files) {
-  let existingFiles = [];
-  try {
-    const data = await fs.readFile(TEST_MARKER_FILE, 'utf-8');
-    existingFiles = JSON.parse(data);
-  } catch {
-    // File doesn't exist yet
-  }
-  
-  const allFiles = [...new Set([...existingFiles, ...files])];
-  await fs.writeFile(TEST_MARKER_FILE, JSON.stringify(allFiles, null, 2));
-  return allFiles;
-}
-
-// Clean up test files
-export async function cleanupTestFiles() {
-  try {
-    const data = await fs.readFile(TEST_MARKER_FILE, 'utf-8');
-    const testFiles = JSON.parse(data);
-    
-    console.log(`Cleaning up ${testFiles.length} test files...`);
-    
-    for (const file of testFiles) {
-      const filePath = path.join(DATA_DIR, file);
-      try {
-        await fs.unlink(filePath);
-        console.log(`  Deleted: ${file}`);
-      } catch (error) {
-        console.warn(`  Failed to delete ${file}: ${error.message}`);
-      }
-    }
-    
-    // Remove the marker file
-    await fs.unlink(TEST_MARKER_FILE);
-    console.log('Cleanup complete!');
-    
-    return testFiles.length;
-  } catch (error) {
-    console.log('No test files to clean up');
-    return 0;
-  }
-}
-
-// Get base files (non-test files to preserve)
-async function getBaseFiles() {
-  const baseFiles = ['01.json', '02.json', '03.json', '04.json', '05.json', '06.json', '07.json', 'base.json'];
-  return baseFiles;
-}
 
 // Main generation function with cleanup
-export async function generateMockDataScaled(interviewCount, sizeMultiplier, cleanup = false) {
+export async function generateMockDataScaled(interviewCount, sizeMultiplier, cleanup = true) {
   const config = getTestConfig(interviewCount, sizeMultiplier);
   
-  // Clean up previous test files if requested
+  // Always clean up previous test files first
   if (cleanup) {
+    console.log('\n🧹 Cleaning up previous test files...');
     await cleanupTestFiles();
   }
   
-  console.log('Configuration:', JSON.stringify(config.interviews, null, 2));
+  console.log('\nConfiguration:', JSON.stringify(config.interviews, null, 2));
   console.log('Loading base interview data...');
   
   const existingData = await loadOrGenerateBaseData();
-  const baseFiles = await getBaseFiles();
   
   console.log(`Loaded base data:
   - ${existingData.summaries.length} summaries
@@ -451,6 +450,8 @@ export async function generateMockDataScaled(interviewCount, sizeMultiplier, cle
   
   // Track generated test files
   await trackTestFiles(generatedFiles);
+  
+  console.log(`\n✅ Generated ${config.interviews.count} test interviews`);
   
   // Return generation metadata
   return {

@@ -15,15 +15,23 @@ on:
         description: 'Size multiplier for content'
         required: false
         default: '1.0'
+      runner_label:
+        description: 'Runner architecture'
+        required: false
+        default: 'ubuntu-latest'
+        type: choice
+        options:
+          - ubuntu-latest
+          - ubuntu-24.04-arm
+          - both
 
 jobs:
-  test-and-deploy:
+  test-x64:
+    if: ${{ github.event.inputs.runner_label != 'ubuntu-24.04-arm' }}
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -52,33 +60,82 @@ jobs:
       uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: test-results-x64-node18
+        name: test-results-x64
         path: test-results/
         retention-days: 30
     
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
+      if: success()
       with:
-        name: build-x64-node18
+        name: build-x64
         path: dist/
         retention-days: 7
+
+  test-arm64:
+    if: ${{ github.event.inputs.runner_label == 'ubuntu-24.04-arm' || github.event.inputs.runner_label == 'both' }}
+    runs-on: ubuntu-24.04-arm
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    
+    - name: Configure Git
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run full test suite
+      run: |
+        npm run test:full -- \
+          ${{ github.event.inputs.interview_count || '10' }} \
+          ${{ github.event.inputs.size_multiplier || '1.0' }}
+      env:
+        GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        CI: true
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results-arm64
+        path: test-results/
+        retention-days: 30
+
+  deploy:
+    needs: [test-x64]
+    if: ${{ always() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Configure Git
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+    
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: build-x64
+        path: dist/
     
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         force_orphan: true
-    
-    - name: Comment deployment URL
-      if: github.event_name == 'pull_request'
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: '🚀 Preview deployment will be available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}'
-          })
