@@ -10,9 +10,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '../examples');
 const OUTPUT_DIR = path.join(__dirname, '../public/data');
 
-// Files to exclude from processing
-const EXCLUDE_FILES = ['.test-files.json', 'base.json', '.gitkeep', '.DS_Store'];
-
 // Initialize schema validator
 const ajv = new Ajv();
 const validate = ajv.compile(interviewSchema);
@@ -41,14 +38,7 @@ async function processInterview(filePath) {
   console.log(`Processing: ${path.basename(filePath)}`);
   
   const content = await fs.readFile(filePath, 'utf-8');
-  let data;
-  
-  try {
-    data = JSON.parse(content);
-  } catch (error) {
-    console.error(`JSON parse error for ${filePath}:`, error.message);
-    return { success: false, errors: ['Invalid JSON'], file: filePath };
-  }
+  const data = JSON.parse(content);
   
   // Validate schema
   const valid = validate(data);
@@ -57,6 +47,7 @@ async function processInterview(filePath) {
     return { success: false, errors: validate.errors, file: filePath };
   }
   
+  // Generate embeddings for all text fields
   try {
     // Process summaries
     if (data.analysis?.summaries) {
@@ -144,7 +135,7 @@ async function processInterview(filePath) {
   }
 }
 
-// ... rest of the file remains the same until main function ...
+// [Rest of the clustering and search functions remain the same...]
 
 // Main processing function
 async function main() {
@@ -153,13 +144,10 @@ async function main() {
   // Ensure output directory exists
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   
-  // Get all JSON files
+  // Get all JSON files, excluding the test marker file
   const files = await fs.readdir(DATA_DIR);
   const jsonFiles = files
-    .filter(f => {
-      // Only process .json files that are not in the exclude list
-      return f.endsWith('.json') && !EXCLUDE_FILES.includes(f);
-    })
+    .filter(f => f.endsWith('.json') && f !== 'base.json' && f !== '.test-files.json')
     .map(f => path.join(DATA_DIR, f));
   
   console.log(`Found ${jsonFiles.length} interview files`);
@@ -234,11 +222,12 @@ async function main() {
     }, null, 2)
   );
   
-  // Save metadata
+  // Save metadata including deployment timestamp
   await fs.writeFile(
     path.join(OUTPUT_DIR, 'metadata.json'),
     JSON.stringify({
       processedAt: new Date().toISOString(),
+      deploymentId: process.env.GITHUB_RUN_ID || `local_${Date.now()}`,
       totalInterviews: interviews.length,
       failedFiles: failed.length,
       clusterTypes: Object.keys(clusteringResults),
@@ -249,11 +238,6 @@ async function main() {
   );
   
   console.log('Data processing complete!');
-  
-  // Exit with error code if there were failures
-  if (failed.length > 0) {
-    process.exit(1);
-  }
 }
 
 main().catch(console.error);

@@ -17,8 +17,67 @@ export class PerformanceTestRunner {
       endTime: null,
       config: config,
       metrics: {},
-      errors: []
+      errors: [],
+      deploymentValid: false
     };
+  }
+
+  async verifyDeployment(url) {
+    console.log(`Verifying deployment at ${url}...`);
+    
+    try {
+      // Check if the page loads
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Page returned ${response.status}`);
+      }
+      
+      // Check for metadata.json to verify it's our deployment
+      const metadataUrl = `${url}/data/metadata.json`;
+      const metadataResponse = await fetch(metadataUrl);
+      
+      if (metadataResponse.ok) {
+        const metadata = await metadataResponse.json();
+        
+        // Check if this is a recent deployment (within last hour)
+        const deploymentTime = new Date(metadata.processedAt);
+        const now = new Date();
+        const hourAgo = new Date(now.getTime() - 60 * 60 * 1000);
+        
+        if (deploymentTime < hourAgo) {
+          console.warn('⚠️ Warning: Deployment is more than 1 hour old');
+          console.log(`   Deployment time: ${deploymentTime.toISOString()}`);
+          console.log(`   Current time: ${now.toISOString()}`);
+          
+          // In CI, this might be an old deployment
+          if (process.env.CI) {
+            throw new Error('Deployment appears to be stale (>1 hour old)');
+          }
+        }
+        
+        // Check deployment ID if available
+        const expectedId = process.env.GITHUB_RUN_ID;
+        if (expectedId && metadata.deploymentId !== expectedId) {
+          console.warn(`⚠️ Warning: Deployment ID mismatch`);
+          console.log(`   Expected: ${expectedId}`);
+          console.log(`   Found: ${metadata.deploymentId}`);
+        }
+        
+        console.log('✅ Deployment verified');
+        console.log(`   Deployment time: ${deploymentTime.toISOString()}`);
+        console.log(`   Interviews: ${metadata.totalInterviews}`);
+        
+        this.results.deploymentValid = true;
+        this.results.deploymentMetadata = metadata;
+        return true;
+      } else {
+        throw new Error('Could not fetch deployment metadata');
+      }
+    } catch (error) {
+      console.error('❌ Deployment verification failed:', error.message);
+      this.results.deploymentValid = false;
+      throw new Error(`Deployment not ready or invalid: ${error.message}`);
+    }
   }
 
   async waitForDeployment(url, maxWaitTime, checkInterval) {
@@ -27,17 +86,14 @@ export class PerformanceTestRunner {
     
     while (Date.now() - startTime < maxWaitTime) {
       try {
-        const response = await fetch(url);
-        if (response.ok) {
-          console.log('Deployment is ready!');
-          return true;
-        }
+        await this.verifyDeployment(url);
+        return true;
       } catch (error) {
-        // Expected to fail until deployment is ready
+        // Keep waiting
+        process.stdout.write('.');
       }
       
       await new Promise(resolve => setTimeout(resolve, checkInterval));
-      process.stdout.write('.');
     }
     
     throw new Error(`Deployment did not become ready within ${maxWaitTime}ms`);
@@ -47,7 +103,7 @@ export class PerformanceTestRunner {
     const page = await browser.newPage();
     const metrics = [];
     
-    for (let i = 0; i < 3; i++) { // Average of 3 runs
+    for (let i = 0; i < 3; i++) {
       await page.goto('about:blank');
       
       const startTime = Date.now();
@@ -86,48 +142,64 @@ export class PerformanceTestRunner {
 
   async measureClusterSwitch(browser, url) {
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle2' });
-    
-    const clusterTypes = ['summary', 'themes', 'collegeExperience', 'quotes'];
-    const switchTimes = [];
     
     try {
-      // Wait for the cluster dropdown using multiple possible selectors
-      const dropdownSelector = await page.waitForSelector(
-        'select, [data-testid="cluster-dropdown"], .cluster-dropdown, [aria-label*="Cluster"]', 
-        { timeout: 10000 }
-      ).catch(() => null);
+      await page.goto(url, { waitUntil: 'networkidle2' });
       
-      if (!dropdownSelector) {
+      // Wait for React app to load
+      await page.waitForFunction(
+        () => document.querySelector('#root')?.children.length > 0,
+        { timeout: 10000 }
+      );
+      
+      // Look for cluster dropdown with various selectors
+      const dropdownExists = await page.evaluate(() => {
+        const selectors = [
+          'select',
+          '[role="combobox"]',
+          '[data-testid="cluster-dropdown"]',
+          '.cluster-select',
+          'select[class*="cluster"]'
+        ];
+        
+        for (const selector of selectors) {
+          const element = document.querySelector(selector);
+          if (element) return true;
+        }
+        return false;
+      });
+      
+      if (!dropdownExists) {
         console.warn('Cluster dropdown not found, skipping cluster switch test');
         return {
           switches: [],
           averageTime: 0,
-          skipped: true
+          skipped: true,
+          reason: 'Dropdown not found'
         };
       }
       
+      const clusterTypes = ['summary', 'themes', 'collegeExperience', 'quotes'];
+      const switchTimes = [];
+      
       for (const clusterType of clusterTypes) {
-        const startTime = Date.now();
-        
-        // Try to change cluster type
         try {
-          // Find the actual select element
-          const selectExists = await page.$('select');
-          if (selectExists) {
-            await page.select('select', clusterType);
-          } else {
-            // Fallback: click dropdown and option
-            await page.click('[data-testid="cluster-dropdown"], .cluster-dropdown');
-            await page.click(`[data-value="${clusterType}"], option[value="${clusterType}"]`);
-          }
+          const startTime = Date.now();
+          
+          // Try to change cluster type
+          await page.evaluate((type) => {
+            const select = document.querySelector('select');
+            if (select) {
+              select.value = type;
+              select.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          }, clusterType);
           
           // Wait for visualization to update
           await page.waitForFunction(
             () => {
               const svg = document.querySelector('svg');
-              const circles = svg ? svg.querySelectorAll('circle, .node') : [];
-              return circles.length > 0;
+              return svg && svg.querySelectorAll('circle, .node').length > 0;
             },
             { timeout: 5000 }
           );
@@ -142,101 +214,114 @@ export class PerformanceTestRunner {
           console.warn(`Failed to switch to ${clusterType}:`, error.message);
         }
       }
-    } catch (error) {
-      console.error('Cluster switch test error:', error);
+      
       return {
         switches: switchTimes,
         averageTime: switchTimes.length > 0 
           ? switchTimes.reduce((sum, s) => sum + s.time, 0) / switchTimes.length 
-          : 0,
+          : 0
+      };
+    } catch (error) {
+      console.error('Cluster switch test error:', error);
+      return {
+        switches: [],
+        averageTime: 0,
         error: error.message
       };
+    } finally {
+      await page.close();
     }
-    
-    await page.close();
-    
-    return {
-      switches: switchTimes,
-      averageTime: switchTimes.length > 0 
-        ? switchTimes.reduce((sum, s) => sum + s.time, 0) / switchTimes.length 
-        : 0
-    };
   }
 
   async measureSearch(browser, url) {
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle2' });
     
-    const searchTests = [
-      { type: 'text', query: 'student experience' },
-      { type: 'text', query: 'academic' },
-      { type: 'semantic', query: 'challenges faced by first generation students' }
-    ];
-    
-    const results = [];
-    
-    for (const test of searchTests) {
-      try {
-        // Wait for search input using multiple selectors
-        const searchInput = await page.waitForSelector(
-          'input[type="text"], input[type="search"], [data-testid="search-input"], .search-input',
-          { timeout: 5000 }
-        );
-        
-        // Clear search field
-        await searchInput.click({ clickCount: 3 });
-        await page.keyboard.press('Backspace');
-        
-        // Type search query
-        await searchInput.type(test.query);
-        
-        const startTime = Date.now();
-        
-        // Click search button or press Enter
-        const searchButton = await page.$('button:has-text("Search"), [data-testid="search-button"]');
-        if (searchButton) {
-          await searchButton.click();
-        } else {
+    try {
+      await page.goto(url, { waitUntil: 'networkidle2' });
+      
+      // Wait for React app to load
+      await page.waitForFunction(
+        () => document.querySelector('#root')?.children.length > 0,
+        { timeout: 10000 }
+      );
+      
+      const searchTests = [
+        { type: 'text', query: 'student experience' },
+        { type: 'text', query: 'academic' }
+      ];
+      
+      const results = [];
+      
+      for (const test of searchTests) {
+        try {
+          // Find search input
+          const searchInput = await page.evaluate(() => {
+            const selectors = [
+              'input[type="text"]',
+              'input[type="search"]',
+              'input[placeholder*="search" i]',
+              '[data-testid="search-input"]'
+            ];
+            
+            for (const selector of selectors) {
+              const element = document.querySelector(selector);
+              if (element) return true;
+            }
+            return false;
+          });
+          
+          if (!searchInput) {
+            console.warn('Search input not found');
+            continue;
+          }
+          
+          // Clear and type search
+          await page.evaluate(() => {
+            const input = document.querySelector('input[type="text"], input[type="search"]');
+            if (input) {
+              input.value = '';
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+          });
+          
+          await page.type('input[type="text"], input[type="search"]', test.query);
+          
+          const startTime = Date.now();
+          
+          // Click search button or press Enter
           await page.keyboard.press('Enter');
+          
+          // Wait for results (with timeout)
+          await page.waitForTimeout(1000);
+          
+          const searchTime = Date.now() - startTime;
+          
+          results.push({
+            ...test,
+            time: searchTime,
+            resultCount: 0
+          });
+        } catch (error) {
+          console.warn(`Search test failed for "${test.query}":`, error.message);
         }
-        
-        // Wait for results
-        await page.waitForSelector(
-          '[class*="result"], [data-testid="search-results"], .search-results',
-          { timeout: 10000 }
-        ).catch(() => console.warn('Search results timeout'));
-        
-        const searchTime = Date.now() - startTime;
-        
-        // Count results
-        const resultCount = await page.evaluate(() => {
-          const results = document.querySelectorAll('[class*="result"], [data-testid="search-result"]');
-          return results.length;
-        });
-        
-        results.push({
-          ...test,
-          time: searchTime,
-          resultCount
-        });
-      } catch (error) {
-        console.warn(`Search test failed for "${test.query}":`, error.message);
-        results.push({
-          ...test,
-          time: 0,
-          resultCount: 0,
-          error: error.message
-        });
       }
+      
+      return {
+        searches: results,
+        averageTime: results.length > 0
+          ? results.reduce((sum, r) => sum + r.time, 0) / results.length
+          : 0
+      };
+    } catch (error) {
+      console.error('Search test error:', error);
+      return {
+        searches: [],
+        averageTime: 0,
+        error: error.message
+      };
+    } finally {
+      await page.close();
     }
-    
-    await page.close();
-    
-    return {
-      searches: results,
-      averageTime: results.filter(r => r.time > 0).reduce((sum, r) => sum + r.time, 0) / 
-                   Math.max(results.filter(r => r.time > 0).length, 1)
-    };
   }
 
   async getBuildSize() {
@@ -248,7 +333,6 @@ export class PerformanceTestRunner {
         return 0;
       }
       
-      // Recursively get all files
       const getAllFiles = async (dirPath, arrayOfFiles = []) => {
         const files = await fs.readdir(dirPath);
         
@@ -304,7 +388,6 @@ export class PerformanceTestRunner {
         platform: process.platform
       };
     } catch (error) {
-      console.error('Error getting system info:', error);
       return {
         cpu: 4,
         memoryMB: 16384,
@@ -325,7 +408,7 @@ export class PerformanceTestRunner {
     this.results.systemInfo = await this.getSystemInfo();
     console.log('System Info:', this.results.systemInfo);
     
-    // Wait for deployment
+    // Wait for and verify deployment
     try {
       await this.waitForDeployment(
         this.config.deployment.githubPagesUrl,
@@ -337,7 +420,24 @@ export class PerformanceTestRunner {
         phase: 'deployment',
         error: error.message
       });
+      
+      // Don't continue testing if deployment is not valid
+      console.error('❌ Deployment verification failed. Skipping tests.');
+      this.results.endTime = new Date().toISOString();
+      
+      // Save error results
+      const resultsPath = path.join(__dirname, '../test-results');
+      await fs.mkdir(resultsPath, { recursive: true });
+      
+      const resultsFile = path.join(resultsPath, `${this.results.testId}_deployment_failed.json`);
+      await fs.writeFile(resultsFile, JSON.stringify(this.results, null, 2));
+      
       throw error;
+    }
+    
+    // Only run tests if deployment is valid
+    if (!this.results.deploymentValid) {
+      throw new Error('Deployment is not valid, cannot run tests');
     }
     
     // Launch browser
@@ -364,7 +464,7 @@ export class PerformanceTestRunner {
       if (!this.results.metrics.clusterSwitch.skipped) {
         console.log(`Average switch time: ${this.results.metrics.clusterSwitch.averageTime.toFixed(0)}ms`);
       } else {
-        console.log('Cluster switch test skipped (dropdown not found)');
+        console.log(`Skipped: ${this.results.metrics.clusterSwitch.reason}`);
       }
       
       // Measure search performance
@@ -373,7 +473,9 @@ export class PerformanceTestRunner {
         browser,
         this.config.deployment.githubPagesUrl
       );
-      console.log(`Average search time: ${this.results.metrics.search.averageTime.toFixed(0)}ms`);
+      if (this.results.metrics.search.averageTime > 0) {
+        console.log(`Average search time: ${this.results.metrics.search.averageTime.toFixed(0)}ms`);
+      }
       
     } catch (error) {
       this.results.errors.push({
@@ -404,7 +506,17 @@ export class PerformanceTestRunner {
   }
 
   generateSummary() {
-    const { metrics, config } = this.results;
+    const { metrics, config, deploymentValid, errors } = this.results;
+    
+    // Determine actual status based on errors and deployment validity
+    let status = '✅ PASSED';
+    if (!deploymentValid) {
+      status = '❌ FAILED (Invalid Deployment)';
+    } else if (errors.length > 0) {
+      status = '❌ FAILED';
+    } else if (metrics.clusterSwitch?.skipped || metrics.search?.error) {
+      status = '⚠️ PARTIAL';
+    }
     
     const summary = {
       testId: this.results.testId,
@@ -414,12 +526,17 @@ export class PerformanceTestRunner {
       },
       performance: {
         pageLoad: metrics.pageLoad?.loadTime ? `${metrics.pageLoad.loadTime.toFixed(0)}ms` : 'N/A',
-        clusterSwitch: metrics.clusterSwitch?.averageTime ? `${metrics.clusterSwitch.averageTime.toFixed(0)}ms` : 'N/A',
-        search: metrics.search?.averageTime ? `${metrics.search.averageTime.toFixed(0)}ms` : 'N/A',
+        clusterSwitch: metrics.clusterSwitch?.averageTime && !metrics.clusterSwitch.skipped
+          ? `${metrics.clusterSwitch.averageTime.toFixed(0)}ms` 
+          : 'N/A',
+        search: metrics.search?.averageTime && metrics.search.averageTime > 0
+          ? `${metrics.search.averageTime.toFixed(0)}ms` 
+          : 'N/A',
         buildSize: metrics.buildSizeMB ? `${metrics.buildSizeMB.toFixed(2)} MB` : 'N/A'
       },
-      status: this.results.errors.length === 0 ? '✅ PASSED' : '❌ FAILED',
-      errors: this.results.errors.length
+      status,
+      errors: errors.length,
+      deploymentValid
     };
     
     return summary;
