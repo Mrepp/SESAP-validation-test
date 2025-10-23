@@ -10,6 +10,8 @@
     "generate-mock": "node scripts/generate-mock-data-scaled.js",
     "test:full": "node scripts/test-full.js",
     "test:performance": "node scripts/performance-test.js",
+    "test:cleanup": "node -e \"import('./scripts/generate-mock-data-scaled.js').then(m => m.cleanupTestFiles())\"",
+    "monitor": "node scripts/monitor-workflow.js",
     "deploy": "gh-pages -d dist --dotfiles"
   },
   "dependencies": {
@@ -27,6 +29,8 @@
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
     "puppeteer": "^21.0.0",
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.0.0",
+    "@octokit/rest": "^20.0.0",
+    "open": "^9.1.0"
   }
 }
