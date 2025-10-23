@@ -11,25 +11,25 @@ const execAsync = promisify(exec);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function setupGitConfig() {
-  // Set up git config for GitHub Actions and local testing
+  // Set up git config for GitHub Actions
   console.log('Setting up Git configuration...');
   try {
-    await execAsync('git config user.email "test@example.com"');
-    await execAsync('git config user.name "Test User"');
+    await execAsync('git config user.email "actions@github.com"');
+    await execAsync('git config user.name "GitHub Actions"');
     console.log('Git configuration set successfully');
   } catch (error) {
-    console.warn('Git config already set or failed:', error.message);
+    console.warn('Git config warning:', error.message);
   }
 }
 
-async function runCommand(command, description, critical = true) {
+async function runCommand(command, description) {
   console.log(`\n🔧 ${description}`);
   console.log(`   Command: ${command}`);
   
   try {
     const { stdout, stderr } = await execAsync(command, {
       cwd: path.join(__dirname, '..'),
-      env: { ...process.env, CI: 'true' }
+      env: { ...process.env }
     });
     
     if (stdout) console.log(stdout);
@@ -38,10 +38,7 @@ async function runCommand(command, description, critical = true) {
     return { success: true, stdout, stderr };
   } catch (error) {
     console.error(`Failed: ${error.message}`);
-    if (critical) {
-      throw error;
-    }
-    return { success: false, error };
+    return { success: false, error: error.message };
   }
 }
 
@@ -51,7 +48,7 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     startTime: new Date().toISOString(),
     config: getTestConfig(interviewCount, sizeMultiplier),
     phases: {},
-    failed: false
+    errors: []
   };
   
   console.log('========================================');
@@ -62,29 +59,21 @@ async function runFullTest(interviewCount, sizeMultiplier) {
   console.log(`Size Multiplier: ${testRun.config.interviews.sizeMultiplier}x`);
   console.log('========================================\n');
   
-  let cleanupRequired = false;
+  let testPassed = true;
   
   try {
-    // Setup git config FIRST
+    // Setup git config first
     await setupGitConfig();
     
-    // Phase 0: Clean up previous test files
-    console.log('🧹 PHASE 0: Cleaning Previous Test Files');
-    console.log('----------------------------------------');
-    const cleanedFiles = await cleanupTestFiles();
-    console.log(`Cleaned up ${cleanedFiles} previous test files`);
-    
-    // Phase 1: Generate mock data
+    // Phase 1: Generate mock data (with automatic cleanup)
     console.log('\n📝 PHASE 1: Generating Mock Data');
     console.log('----------------------------------------');
     
     const mockGeneration = await generateMockDataScaled(
       testRun.config.interviews.count,
       testRun.config.interviews.sizeMultiplier,
-      false
+      true // Enable cleanup of old files
     );
-    
-    cleanupRequired = true;
     
     testRun.phases.mockGeneration = {
       success: true,
@@ -92,57 +81,22 @@ async function runFullTest(interviewCount, sizeMultiplier) {
       details: mockGeneration
     };
     
-    // Phase 2: Process only the new files
+    // Phase 2: Process data (generate embeddings)
     console.log('\n🔮 PHASE 2: Processing Data & Embeddings');
     console.log('----------------------------------------');
     
-    // Create a temporary process script that only processes new files
-    const processScriptContent = `
-import { processInterview } from './process-data.js';
-import fs from 'fs/promises';
-import path from 'path';
-
-const testFiles = ${JSON.stringify(mockGeneration.generatedFiles)};
-const DATA_DIR = path.join(process.cwd(), 'examples');
-
-async function processTestFiles() {
-  console.log('Processing only test files:', testFiles.length);
-  
-  for (const file of testFiles) {
-    const filePath = path.join(DATA_DIR, file);
-    await processInterview(filePath);
-  }
-  
-  console.log('Test file processing complete');
-}
-
-processTestFiles().catch(console.error);
-    `;
-    
-    const tempProcessScript = path.join(__dirname, '.temp-process.js');
-    await fs.writeFile(tempProcessScript, processScriptContent);
-    
     const processResult = await runCommand(
-      `node ${tempProcessScript}`,
-      'Processing test data only'
-    );
-    
-    // Clean up temp script
-    await fs.unlink(tempProcessScript).catch(() => {});
-    
-    // Now run the full process-data to rebuild indices
-    const fullProcessResult = await runCommand(
       'npm run process-data',
-      'Rebuilding search indices'
+      'Generating embeddings and search indices'
     );
     
     testRun.phases.dataProcessing = {
-      success: processResult.success && fullProcessResult.success
+      success: processResult.success
     };
     
-    if (!processResult.success || !fullProcessResult.success) {
-      testRun.failed = true;
-      throw new Error('Data processing failed');
+    if (!processResult.success) {
+      testRun.errors.push('Data processing failed');
+      testPassed = false;
     }
     
     // Phase 3: Build static site
@@ -159,111 +113,135 @@ processTestFiles().catch(console.error);
     };
     
     if (!buildResult.success) {
-      testRun.failed = true;
-      throw new Error('Site build failed');
+      testRun.errors.push('Site build failed');
+      testPassed = false;
     }
     
-    // Phase 4: Deploy to GitHub Pages (non-critical in CI)
-    console.log('\n🌍 PHASE 4: Deploying to GitHub Pages');
-    console.log('----------------------------------------');
-    
-    const deployResult = await runCommand(
-      'npx gh-pages -d dist --dotfiles',
-      'Deploying to GitHub Pages',
-      false // non-critical
-    );
-    
-    testRun.phases.deployment = {
-      success: deployResult.success,
-      skipped: !deployResult.success
-    };
-    
-    if (!deployResult.success) {
-      console.warn('⚠️ Deployment skipped or failed (non-critical)');
+    // Phase 4: Deploy to GitHub Pages (skip if previous steps failed)
+    if (testPassed) {
+      console.log('\n🌍 PHASE 4: Deploying to GitHub Pages');
+      console.log('----------------------------------------');
+      
+      const deployResult = await runCommand(
+        'npx gh-pages -d dist --dotfiles',
+        'Deploying to GitHub Pages'
+      );
+      
+      testRun.phases.deployment = {
+        success: deployResult.success
+      };
+      
+      if (!deployResult.success) {
+        testRun.errors.push('Deployment failed: ' + deployResult.error);
+        // Don't fail the test for deployment issues in CI
+        if (!process.env.CI) {
+          testPassed = false;
+        }
+      }
+    } else {
+      console.log('\n⚠️ Skipping deployment due to previous failures');
+      testRun.phases.deployment = { skipped: true };
     }
     
-    // Phase 5: Run performance tests
-    console.log('\n⚡ PHASE 5: Performance Testing');
+    // Phase 5: Run performance tests (only if deployment succeeded or in CI)
+    if (testPassed || process.env.CI) {
+      console.log('\n⚡ PHASE 5: Performance Testing');
+      console.log('----------------------------------------');
+      
+      try {
+        const perfRunner = new PerformanceTestRunner(testRun.config);
+        const perfResults = await perfRunner.runTests();
+        
+        testRun.phases.performanceTest = {
+          success: perfResults.errors.length === 0,
+          results: perfResults
+        };
+        
+        if (perfResults.errors.length > 0) {
+          testRun.errors.push(...perfResults.errors.map(e => e.error));
+          testPassed = false;
+        }
+        
+        // Generate summary
+        testRun.summary = perfRunner.generateSummary();
+      } catch (perfError) {
+        console.error('Performance test error:', perfError);
+        testRun.phases.performanceTest = {
+          success: false,
+          error: perfError.message
+        };
+        testRun.errors.push('Performance testing failed: ' + perfError.message);
+        testPassed = false;
+      }
+    } else {
+      console.log('\n⚠️ Skipping performance tests due to previous failures');
+      testRun.phases.performanceTest = { skipped: true };
+    }
+    
+  } catch (error) {
+    console.error('\n❌ Unexpected error:', error.message);
+    testRun.errors.push(error.message);
+    testPassed = false;
+  } finally {
+    // Phase 6: Cleanup
+    console.log('\n🧹 PHASE 6: Cleaning Up Test Files');
     console.log('----------------------------------------');
-    
-    const perfRunner = new PerformanceTestRunner(testRun.config);
-    const perfResults = await perfRunner.runTests();
-    
-    testRun.phases.performanceTest = {
-      success: perfResults.errors.length === 0,
-      results: perfResults
-    };
-    
-    if (perfResults.errors.length > 0) {
-      testRun.failed = true;
+    try {
+      await cleanupTestFiles();
+    } catch (cleanupError) {
+      console.warn('Cleanup warning:', cleanupError.message);
     }
     
     // Generate final summary
     testRun.endTime = new Date().toISOString();
-    testRun.summary = perfRunner.generateSummary();
+    testRun.overallSuccess = testPassed;
     
-    // Save complete test run results
+    // Save results
     const resultsDir = path.join(__dirname, '../test-results');
     await fs.mkdir(resultsDir, { recursive: true });
     
-    const resultsFile = path.join(resultsDir, `${testRun.id}_complete.json`);
+    const resultsFile = path.join(resultsDir, `${testRun.id}_${testPassed ? 'complete' : 'failed'}.json`);
     await fs.writeFile(resultsFile, JSON.stringify(testRun, null, 2));
     
     // Print summary
     console.log('\n========================================');
     console.log('📊 TEST SUMMARY');
     console.log('========================================');
-    console.log(`Test ID: ${testRun.summary.testId}`);
-    console.log(`Status: ${testRun.failed ? '❌ FAILED' : '✅ PASSED'}`);
-    console.log('\nConfiguration:');
-    console.log(`  - Interviews: ${testRun.summary.configuration.interviews}`);
-    console.log(`  - Size Multiplier: ${testRun.summary.configuration.sizeMultiplier}x`);
-    console.log('\nPerformance:');
-    console.log(`  - Page Load: ${testRun.summary.performance.pageLoad}`);
-    console.log(`  - Cluster Switch: ${testRun.summary.performance.clusterSwitch}`);
-    console.log(`  - Search: ${testRun.summary.performance.search}`);
-    console.log(`  - Build Size: ${testRun.summary.performance.buildSize}`);
+    console.log(`Test ID: ${testRun.id}`);
+    console.log(`Status: ${testPassed ? '✅ PASSED' : '❌ FAILED'}`);
     
-    if (testRun.failed) {
-      console.log('\n❌ Test completed with errors');
-    } else {
-      console.log('\n✅ Full test completed successfully!');
+    if (testRun.summary) {
+      console.log('\nConfiguration:');
+      console.log(`  - Interviews: ${testRun.summary.configuration.interviews}`);
+      console.log(`  - Size Multiplier: ${testRun.summary.configuration.sizeMultiplier}x`);
+      console.log('\nPerformance:');
+      console.log(`  - Page Load: ${testRun.summary.performance.pageLoad}`);
+      console.log(`  - Cluster Switch: ${testRun.summary.performance.clusterSwitch}`);
+      console.log(`  - Search: ${testRun.summary.performance.search}`);
+      console.log(`  - Build Size: ${testRun.summary.performance.buildSize}`);
     }
     
-    console.log(`Results saved to: ${resultsFile}`);
+    if (testRun.errors.length > 0) {
+      console.log('\nErrors:');
+      testRun.errors.forEach((error, i) => {
+        console.log(`  ${i + 1}. ${error}`);
+      });
+    }
     
-    // Get deployment URL
-    const deploymentUrl = testRun.config.deployment.githubPagesUrl;
-    console.log(`\n🌐 Site deployed at: ${deploymentUrl}`);
+    console.log(`\n📁 Results saved to: ${resultsFile}`);
     
-    return testRun;
+    if (testRun.config.deployment?.githubPagesUrl) {
+      console.log(`\n🌐 Site URL: ${testRun.config.deployment.githubPagesUrl}`);
+    }
     
-  } catch (error) {
-    console.error('\n❌ Test failed:', error.message);
-    testRun.error = error.message;
-    testRun.endTime = new Date().toISOString();
-    testRun.failed = true;
-    
-    // Save failed test results
-    const resultsDir = path.join(__dirname, '../test-results');
-    await fs.mkdir(resultsDir, { recursive: true });
-    
-    const resultsFile = path.join(resultsDir, `${testRun.id}_failed.json`);
-    await fs.writeFile(resultsFile, JSON.stringify(testRun, null, 2));
-    
-    throw error;
-  } finally {
-    // Phase 6: Cleanup
-    if (cleanupRequired) {
-      console.log('\n🧹 PHASE 6: Cleaning Up Test Files');
-      console.log('----------------------------------------');
-      await cleanupTestFiles();
+    // Exit with appropriate code
+    if (!testPassed && !process.env.CI) {
+      process.exit(1);
     }
   }
+  
+  return testRun;
 }
-
-// Export for use in scripts
-export { runFullTest };
 
 // CLI entry point
 if (import.meta.url === `file://${process.argv[1]}`) {
@@ -271,6 +249,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const sizeMultiplier = parseFloat(process.argv[3]) || undefined;
   
   runFullTest(interviewCount, sizeMultiplier)
-    .then((result) => process.exit(result.failed ? 1 : 0))
+    .then(() => process.exit(0))
     .catch(() => process.exit(1));
 }

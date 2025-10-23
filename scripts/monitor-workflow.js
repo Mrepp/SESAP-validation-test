@@ -9,12 +9,6 @@ import { promisify } from 'util';
 const execAsync = promisify(exec);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const ARCHITECTURES = {
-  0: 'x64',
-  1: 'arm64',
-  2: 'both'
-};
-
 class WorkflowMonitor {
   constructor(token, owner, repo) {
     this.octokit = new Octokit({ auth: token });
@@ -22,37 +16,42 @@ class WorkflowMonitor {
     this.repo = repo;
   }
 
-  async triggerWorkflow(interviewCount = 10, sizeMultiplier = 1.0, architecture = 'x64') {
-    console.log(`🚀 Triggering workflow for ${architecture}...`);
+  async triggerWorkflow(interviewCount = 10, sizeMultiplier = 1.0, architecture = 0) {
+    console.log('🚀 Triggering workflow...');
+    
+    // Determine runner label based on architecture
+    let runnerLabel;
+    switch (architecture) {
+      case 1:
+        runnerLabel = 'ubuntu-24.04-arm';
+        console.log('   Architecture: ARM64');
+        break;
+      case 2:
+        runnerLabel = 'both';
+        console.log('   Architecture: Both x64 and ARM64');
+        break;
+      default:
+        runnerLabel = 'ubuntu-latest';
+        console.log('   Architecture: x64');
+    }
     
     try {
-      // Get the workflow file based on architecture
-      let workflowFile = '.github/workflows/test-and-deploy.yml';
-      if (architecture === 'arm64') {
-        workflowFile = '.github/workflows/test-arm64.yml';
-      } else if (architecture === 'both') {
-        // Trigger both workflows
-        const x64Run = await this.triggerWorkflow(interviewCount, sizeMultiplier, 'x64');
-        const arm64Run = await this.triggerWorkflow(interviewCount, sizeMultiplier, 'arm64');
-        return { x64: x64Run, arm64: arm64Run, both: true };
-      }
-      
-      // Get the workflow
+      // Get the workflow ID
       const { data: workflows } = await this.octokit.actions.listRepoWorkflows({
         owner: this.owner,
         repo: this.repo
       });
       
       const workflow = workflows.workflows.find(w => 
-        w.path === workflowFile || w.name === 'Test and Deploy'
+        w.name === 'Test and Deploy' || w.path === '.github/workflows/test-and-deploy.yml'
       );
       
       if (!workflow) {
-        throw new Error(`Workflow not found: ${workflowFile}`);
+        throw new Error('Workflow not found');
       }
       
       // Trigger the workflow
-      await this.octokit.actions.createWorkflowDispatch({
+      const response = await this.octokit.actions.createWorkflowDispatch({
         owner: this.owner,
         repo: this.repo,
         workflow_id: workflow.id,
@@ -60,11 +59,11 @@ class WorkflowMonitor {
         inputs: {
           interview_count: String(interviewCount),
           size_multiplier: String(sizeMultiplier),
-          architecture: architecture
+          runner_label: runnerLabel
         }
       });
       
-      console.log(`✅ Workflow triggered successfully for ${architecture}`);
+      console.log('✅ Workflow triggered successfully');
       
       // Wait a bit for the run to be created
       await new Promise(resolve => setTimeout(resolve, 3000));
@@ -83,17 +82,18 @@ class WorkflowMonitor {
       
       throw new Error('Could not find triggered run');
     } catch (error) {
-      console.error(`Failed to trigger workflow for ${architecture}:`, error.message);
+      console.error('Failed to trigger workflow:', error.message);
       throw error;
     }
   }
 
-  async monitorRun(runId, label = '') {
-    console.log(`\n📊 Monitoring run ${runId} ${label}...`);
+  async monitorRun(runId) {
+    console.log(`\n📊 Monitoring run ${runId}...`);
     
     const startTime = Date.now();
     let lastStatus = '';
-    let lastStep = '';
+    let spinnerIndex = 0;
+    const spinnerChars = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
     
     while (true) {
       try {
@@ -105,7 +105,7 @@ class WorkflowMonitor {
         
         if (run.status !== lastStatus) {
           const elapsed = Math.floor((Date.now() - startTime) / 1000);
-          console.log(`[${elapsed}s] ${label} Status: ${run.status} | Conclusion: ${run.conclusion || 'pending'}`);
+          console.log(`\n[${elapsed}s] Status: ${run.status} | Conclusion: ${run.conclusion || 'pending'}`);
           lastStatus = run.status;
         }
         
@@ -123,45 +123,23 @@ class WorkflowMonitor {
         for (const job of jobs.jobs) {
           if (job.status === 'in_progress' && job.steps) {
             const currentStep = job.steps.find(s => s.status === 'in_progress');
-            if (currentStep && currentStep.name !== lastStep) {
-              process.stdout.write(`\r${label} Running: ${currentStep.name}...                    `);
-              lastStep = currentStep.name;
+            if (currentStep) {
+              process.stdout.write(`\r${spinnerChars[spinnerIndex]} Running: ${currentStep.name}...`);
+              spinnerIndex = (spinnerIndex + 1) % spinnerChars.length;
             }
           }
         }
         
         await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
-        console.error(`Error monitoring run ${label}:`, error.message);
+        console.error('\nError monitoring run:', error.message);
         await new Promise(resolve => setTimeout(resolve, 10000));
       }
     }
   }
 
-  async monitorMultipleRuns(runs) {
-    console.log('\n📊 Monitoring multiple workflow runs...');
-    
-    const results = {};
-    const promises = [];
-    
-    if (runs.x64) {
-      promises.push(
-        this.monitorRun(runs.x64.id, '[x64]').then(r => results.x64 = r)
-      );
-    }
-    
-    if (runs.arm64) {
-      promises.push(
-        this.monitorRun(runs.arm64.id, '[arm64]').then(r => results.arm64 = r)
-      );
-    }
-    
-    await Promise.all(promises);
-    return results;
-  }
-
-  async downloadArtifacts(runId, architecture = '') {
-    console.log(`\n📦 Downloading artifacts ${architecture}...`);
+  async downloadArtifacts(runId) {
+    console.log('\n\n📦 Downloading artifacts...');
     
     try {
       const { data: artifacts } = await this.octokit.actions.listWorkflowRunArtifacts({
@@ -170,11 +148,11 @@ class WorkflowMonitor {
         run_id: runId
       });
       
-      const artifactsDir = path.join(__dirname, '../workflow-artifacts', `run-${runId}${architecture ? `-${architecture}` : ''}`);
+      const artifactsDir = path.join(__dirname, '../workflow-artifacts', `run-${runId}`);
       await fs.mkdir(artifactsDir, { recursive: true });
       
       for (const artifact of artifacts.artifacts) {
-        console.log(`  Downloading: ${artifact.name}`);
+        console.log(`  📥 Downloading: ${artifact.name}`);
         
         const { data } = await this.octokit.actions.downloadArtifact({
           owner: this.owner,
@@ -188,12 +166,12 @@ class WorkflowMonitor {
         
         // Unzip the artifact
         try {
-          await execAsync(`unzip -o "${artifactPath}" -d "${artifactsDir}/${artifact.name}"`, {
+          await execAsync(`unzip -q -o "${artifactPath}" -d "${artifactsDir}/${artifact.name}"`, {
             cwd: artifactsDir
           });
           await fs.unlink(artifactPath);
-        } catch (error) {
-          console.warn(`Failed to unzip ${artifact.name}: ${error.message}`);
+        } catch (unzipError) {
+          console.warn(`  ⚠️ Could not unzip ${artifact.name}`);
         }
       }
       
@@ -217,46 +195,13 @@ class WorkflowMonitor {
       return `https://${this.owner}.github.io/${this.repo}`;
     }
   }
-
-  async printTestResults(artifactsDir, architecture = '') {
-    console.log(`\n📊 Test Results ${architecture}:`);
-    
-    try {
-      const testResultsPath = path.join(artifactsDir, `test-results-${architecture || 'x64'}-node18`);
-      const files = await fs.readdir(testResultsPath);
-      const resultFile = files.find(f => f.endsWith('_complete.json'));
-      
-      if (resultFile) {
-        const resultPath = path.join(testResultsPath, resultFile);
-        const results = JSON.parse(await fs.readFile(resultPath, 'utf-8'));
-        
-        console.log(`\n📈 Performance Summary ${architecture}:`);
-        console.log(`  - Page Load: ${results.summary?.performance?.pageLoad || 'N/A'}`);
-        console.log(`  - Cluster Switch: ${results.summary?.performance?.clusterSwitch || 'N/A'}`);
-        console.log(`  - Search: ${results.summary?.performance?.search || 'N/A'}`);
-        console.log(`  - Build Size: ${results.summary?.performance?.buildSize || 'N/A'}`);
-        console.log(`  - Status: ${results.summary?.status || 'Unknown'}`);
-        
-        if (results.systemInfo) {
-          console.log(`\n💻 System Info ${architecture}:`);
-          console.log(`  - CPU: ${results.systemInfo.cpu}`);
-          console.log(`  - Memory: ${results.systemInfo.memoryMB} MB`);
-          console.log(`  - Architecture: ${results.systemInfo.architecture}`);
-          console.log(`  - OS: ${results.systemInfo.os}`);
-        }
-      }
-    } catch (error) {
-      console.log(`Could not parse test results for ${architecture}: ${error.message}`);
-    }
-  }
 }
 
 async function main() {
   // Parse command line arguments
   const interviewCount = parseInt(process.argv[2]) || 10;
   const sizeMultiplier = parseFloat(process.argv[3]) || 1.0;
-  const architectureCode = parseInt(process.argv[4]) || 0;
-  const architecture = ARCHITECTURES[architectureCode] || 'x64';
+  const architecture = parseInt(process.argv[4]) || 0; // 0=x64, 1=arm64, 2=both
   
   console.log('========================================');
   console.log('🔍 GITHUB WORKFLOW MONITOR');
@@ -264,14 +209,17 @@ async function main() {
   console.log(`Configuration:`);
   console.log(`  - Interviews: ${interviewCount}`);
   console.log(`  - Size Multiplier: ${sizeMultiplier}x`);
-  console.log(`  - Architecture: ${architecture} (${architectureCode})`);
+  console.log(`  - Architecture: ${architecture === 0 ? 'x64' : architecture === 1 ? 'ARM64' : 'Both'}`);
   console.log('========================================\n');
   
   // Get GitHub token from environment
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
     console.error('❌ GITHUB_TOKEN environment variable is required');
-    console.log('\nSet it with: export GITHUB_TOKEN=your_token_here');
+    console.log('\nSet it with:');
+    console.log('  export GITHUB_TOKEN=your_token_here');
+    console.log('\nOr create a personal access token at:');
+    console.log('  https://github.com/settings/tokens');
     process.exit(1);
   }
   
@@ -288,7 +236,7 @@ async function main() {
     }
   } catch (error) {
     console.error('Failed to determine repository:', error.message);
-    console.log('Using defaults...');
+    console.log('Using defaults or environment variables...');
     owner = process.env.GITHUB_REPOSITORY_OWNER || 'your-username';
     repo = process.env.GITHUB_REPOSITORY || 'college-interview-explorer';
   }
@@ -298,67 +246,71 @@ async function main() {
   const monitor = new WorkflowMonitor(token, owner, repo);
   
   try {
-    // Trigger the workflow(s)
-    const runs = await monitor.triggerWorkflow(interviewCount, sizeMultiplier, architecture);
+    // Trigger the workflow
+    const run = await monitor.triggerWorkflow(interviewCount, sizeMultiplier, architecture);
+    console.log(`\n🎯 Workflow run started: #${run.run_number}`);
+    console.log(`   URL: ${run.html_url}`);
     
-    if (architecture === 'both') {
-      console.log(`\n🎯 Workflows started:`);
-      console.log(`   x64: #${runs.x64.run_number} - ${runs.x64.html_url}`);
-      console.log(`   arm64: #${runs.arm64.run_number} - ${runs.arm64.html_url}`);
+    // Open the run in browser
+    console.log('\n🌐 Opening workflow in browser...');
+    await open(run.html_url);
+    
+    // Monitor the run
+    const completedRun = await monitor.monitorRun(run.id);
+    
+    console.log('\n\n========================================');
+    console.log(`✅ Workflow completed: ${completedRun.conclusion}`);
+    console.log(`   Duration: ${Math.floor((new Date(completedRun.updated_at) - new Date(completedRun.created_at)) / 1000)}s`);
+    
+    if (completedRun.conclusion === 'success') {
+      // Download artifacts
+      const artifactsDir = await monitor.downloadArtifacts(run.id);
       
-      // Monitor both runs
-      const completedRuns = await monitor.monitorMultipleRuns(runs);
+      // Get deployment URL
+      const deploymentUrl = await monitor.getDeploymentUrl();
+      console.log(`\n🌍 Site deployed at: ${deploymentUrl}`);
+      console.log('\n🚀 Opening deployed site...');
+      await open(deploymentUrl);
       
-      console.log('\n========================================');
-      console.log('✅ All workflows completed');
-      
-      // Download artifacts for both
-      if (completedRuns.x64?.conclusion === 'success') {
-        const artifactsDir = await monitor.downloadArtifacts(runs.x64.id, 'x64');
-        if (artifactsDir) {
-          await monitor.printTestResults(artifactsDir, 'x64');
+      // Parse and display test results if available
+      if (artifactsDir) {
+        console.log('\n📊 Test Results Summary:');
+        console.log('----------------------------------------');
+        
+        try {
+          // Find test results file
+          const testDirs = await fs.readdir(artifactsDir);
+          for (const dir of testDirs) {
+            if (dir.includes('test-results')) {
+              const testPath = path.join(artifactsDir, dir);
+              const files = await fs.readdir(testPath);
+              const resultFile = files.find(f => f.includes('complete') && f.endsWith('.json'));
+              
+              if (resultFile) {
+                const resultPath = path.join(testPath, resultFile);
+                const results = JSON.parse(await fs.readFile(resultPath, 'utf-8'));
+                
+                if (results.summary) {
+                  console.log(`\n📈 Performance Metrics (${dir}):`);
+                  console.log(`  - Page Load: ${results.summary.performance.pageLoad}`);
+                  console.log(`  - Cluster Switch: ${results.summary.performance.clusterSwitch}`);
+                  console.log(`  - Search: ${results.summary.performance.search}`);
+                  console.log(`  - Build Size: ${results.summary.performance.buildSize}`);
+                  console.log(`  - Status: ${results.summary.status}`);
+                }
+              }
+            }
+          }
+        } catch (error) {
+          console.log('  ⚠️ Could not parse all test results');
         }
-      }
-      
-      if (completedRuns.arm64?.conclusion === 'success') {
-        const artifactsDir = await monitor.downloadArtifacts(runs.arm64.id, 'arm64');
-        if (artifactsDir) {
-          await monitor.printTestResults(artifactsDir, 'arm64');
-        }
+        
+        console.log('\n📁 All artifacts available at:');
+        console.log(`   ${artifactsDir}`);
       }
     } else {
-      console.log(`\n🎯 Workflow run started: #${runs.run_number}`);
-      console.log(`   URL: ${runs.html_url}`);
-      
-      // Open the run in browser
-      console.log('\n🌐 Opening workflow in browser...');
-      open(runs.html_url);
-      
-      // Monitor the run
-      const completedRun = await monitor.monitorRun(runs.id);
-      
-      console.log('\n========================================');
-      console.log(`✅ Workflow completed: ${completedRun.conclusion}`);
-      console.log(`   Duration: ${Math.floor((new Date(completedRun.updated_at) - new Date(completedRun.created_at)) / 1000)}s`);
-      
-      if (completedRun.conclusion === 'success') {
-        // Download artifacts
-        const artifactsDir = await monitor.downloadArtifacts(runs.id);
-        
-        // Get deployment URL
-        const deploymentUrl = await monitor.getDeploymentUrl();
-        console.log(`\n🌍 Site deployed at: ${deploymentUrl}`);
-        console.log('\n🚀 Opening deployed site...');
-        open(deploymentUrl);
-        
-        // Print test results
-        if (artifactsDir) {
-          await monitor.printTestResults(artifactsDir, architecture);
-        }
-      } else {
-        console.log('\n⚠️ Workflow did not complete successfully');
-        console.log('Check the logs at:', completedRun.html_url);
-      }
+      console.log('\n⚠️ Workflow did not complete successfully');
+      console.log('Check the logs at:', completedRun.html_url);
     }
     
   } catch (error) {
