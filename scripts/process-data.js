@@ -34,7 +34,7 @@ async function generateEmbedding(text) {
 }
 
 // Process individual interview file
-async function processInterview(filePath) {
+export async function processInterview(filePath) {
   console.log(`Processing: ${path.basename(filePath)}`);
   
   const content = await fs.readFile(filePath, 'utf-8');
