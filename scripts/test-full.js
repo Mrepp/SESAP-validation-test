@@ -11,7 +11,6 @@ const execAsync = promisify(exec);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function setupGitConfig() {
-  // Set up git config for GitHub Actions
   console.log('Setting up Git configuration...');
   try {
     await execAsync('git config user.email "actions@github.com"');
@@ -22,14 +21,14 @@ async function setupGitConfig() {
   }
 }
 
-async function runCommand(command, description) {
+async function runCommand(command, description, env = {}) {
   console.log(`\n🔧 ${description}`);
   console.log(`   Command: ${command}`);
   
   try {
     const { stdout, stderr } = await execAsync(command, {
       cwd: path.join(__dirname, '..'),
-      env: { ...process.env }
+      env: { ...process.env, ...env }
     });
     
     if (stdout) console.log(stdout);
@@ -42,13 +41,68 @@ async function runCommand(command, description) {
   }
 }
 
+async function deployWithAuth() {
+  // For GitHub Actions, use the built-in token
+  if (process.env.GITHUB_TOKEN) {
+    const token = process.env.GITHUB_TOKEN;
+    const repo = process.env.GITHUB_REPOSITORY || 'user/repo';
+    
+    // Use token-authenticated URL
+    const authUrl = `https://x-access-token:${token}@github.com/${repo}.git`;
+    
+    return runCommand(
+      `npx gh-pages -d dist --dotfiles --repo "${authUrl}"`,
+      'Deploying to GitHub Pages with authentication'
+    );
+  } else {
+    // Local deployment
+    return runCommand(
+      'npx gh-pages -d dist --dotfiles',
+      'Deploying to GitHub Pages'
+    );
+  }
+}
+
+async function verifyDeployment(url, testId) {
+  console.log(`\n🔍 Verifying deployment for test ${testId}...`);
+  
+  try {
+    // Check if metadata.json contains our test ID
+    const metadataUrl = `${url}/data/metadata.json`;
+    const response = await fetch(metadataUrl);
+    
+    if (!response.ok) {
+      console.log('Metadata not available yet');
+      return false;
+    }
+    
+    const metadata = await response.json();
+    const deploymentTime = new Date(metadata.processedAt);
+    const testTime = new Date();
+    
+    // Check if deployment is recent (within last 10 minutes)
+    const timeDiff = testTime - deploymentTime;
+    const isRecent = timeDiff < 10 * 60 * 1000; // 10 minutes
+    
+    console.log(`Deployment timestamp: ${metadata.processedAt}`);
+    console.log(`Current test time: ${testTime.toISOString()}`);
+    console.log(`Deployment is ${isRecent ? 'recent' : 'outdated'}`);
+    
+    return isRecent;
+  } catch (error) {
+    console.log('Could not verify deployment:', error.message);
+    return false;
+  }
+}
+
 async function runFullTest(interviewCount, sizeMultiplier) {
   const testRun = {
     id: `fulltest_${Date.now()}`,
     startTime: new Date().toISOString(),
     config: getTestConfig(interviewCount, sizeMultiplier),
     phases: {},
-    errors: []
+    errors: [],
+    deploymentSuccess: false
   };
   
   console.log('========================================');
@@ -117,70 +171,91 @@ async function runFullTest(interviewCount, sizeMultiplier) {
       testPassed = false;
     }
     
-    // Phase 4: Deploy to GitHub Pages (skip if previous steps failed)
-    if (testPassed) {
+    // Phase 4: Deploy to GitHub Pages (only if build succeeded)
+    if (testPassed && process.env.CI) {
       console.log('\n🌍 PHASE 4: Deploying to GitHub Pages');
       console.log('----------------------------------------');
       
-      const deployResult = await runCommand(
-        'npx gh-pages -d dist --dotfiles',
-        'Deploying to GitHub Pages'
-      );
+      const deployResult = await deployWithAuth();
       
       testRun.phases.deployment = {
         success: deployResult.success
       };
       
-      if (!deployResult.success) {
+      if (deployResult.success) {
+        testRun.deploymentSuccess = true;
+        console.log('✅ Deployment successful');
+        
+        // Wait a bit for deployment to propagate
+        console.log('Waiting for deployment to propagate...');
+        await new Promise(resolve => setTimeout(resolve, 30000)); // 30 seconds
+      } else {
         testRun.errors.push('Deployment failed: ' + deployResult.error);
-        // Don't fail the test for deployment issues in CI
-        if (!process.env.CI) {
-          testPassed = false;
-        }
+        testPassed = false;
       }
+    } else if (!process.env.CI) {
+      console.log('\n⚠️ Skipping deployment (not in CI environment)');
+      testRun.phases.deployment = { skipped: true, reason: 'Not in CI' };
     } else {
       console.log('\n⚠️ Skipping deployment due to previous failures');
-      testRun.phases.deployment = { skipped: true };
+      testRun.phases.deployment = { skipped: true, reason: 'Previous failures' };
     }
     
-    // Phase 5: Run performance tests (only if deployment succeeded or in CI)
-    if (testPassed || process.env.CI) {
+    // Phase 5: Run performance tests (only if deployment succeeded)
+    if (testRun.deploymentSuccess) {
       console.log('\n⚡ PHASE 5: Performance Testing');
       console.log('----------------------------------------');
       
-      try {
-        const perfRunner = new PerformanceTestRunner(testRun.config);
-        const perfResults = await perfRunner.runTests();
-        
-        testRun.phases.performanceTest = {
-          success: perfResults.errors.length === 0,
-          results: perfResults
-        };
-        
-        if (perfResults.errors.length > 0) {
-          testRun.errors.push(...perfResults.errors.map(e => e.error));
+      // Verify deployment is current
+      const deploymentUrl = testRun.config.deployment.githubPagesUrl;
+      const isCurrentDeployment = await verifyDeployment(deploymentUrl, testRun.id);
+      
+      if (isCurrentDeployment) {
+        try {
+          const perfRunner = new PerformanceTestRunner(testRun.config);
+          const perfResults = await perfRunner.runTests();
+          
+          testRun.phases.performanceTest = {
+            success: perfResults.errors.length === 0,
+            results: perfResults
+          };
+          
+          if (perfResults.errors.length > 0) {
+            testRun.errors.push(...perfResults.errors.map(e => `Performance test: ${e.error || e}`));
+            testPassed = false;
+          }
+          
+          // Generate summary
+          testRun.summary = perfRunner.generateSummary();
+        } catch (perfError) {
+          console.error('Performance test error:', perfError);
+          testRun.phases.performanceTest = {
+            success: false,
+            error: perfError.message
+          };
+          testRun.errors.push('Performance testing failed: ' + perfError.message);
           testPassed = false;
         }
-        
-        // Generate summary
-        testRun.summary = perfRunner.generateSummary();
-      } catch (perfError) {
-        console.error('Performance test error:', perfError);
-        testRun.phases.performanceTest = {
-          success: false,
-          error: perfError.message
+      } else {
+        console.log('\n⚠️ Skipping performance tests - deployment not current');
+        testRun.phases.performanceTest = { 
+          skipped: true, 
+          reason: 'Deployment not current or not accessible' 
         };
-        testRun.errors.push('Performance testing failed: ' + perfError.message);
+        testRun.errors.push('Could not verify current deployment');
         testPassed = false;
       }
     } else {
-      console.log('\n⚠️ Skipping performance tests due to previous failures');
-      testRun.phases.performanceTest = { skipped: true };
+      console.log('\n⚠️ Skipping performance tests - deployment did not succeed');
+      testRun.phases.performanceTest = { 
+        skipped: true, 
+        reason: 'No successful deployment' 
+      };
     }
     
   } catch (error) {
     console.error('\n❌ Unexpected error:', error.message);
-    testRun.errors.push(error.message);
+    testRun.errors.push(`Unexpected error: ${error.message}`);
     testPassed = false;
   } finally {
     // Phase 6: Cleanup
@@ -194,13 +269,13 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     
     // Generate final summary
     testRun.endTime = new Date().toISOString();
-    testRun.overallSuccess = testPassed;
+    testRun.overallSuccess = testPassed && testRun.errors.length === 0;
     
     // Save results
     const resultsDir = path.join(__dirname, '../test-results');
     await fs.mkdir(resultsDir, { recursive: true });
     
-    const resultsFile = path.join(resultsDir, `${testRun.id}_${testPassed ? 'complete' : 'failed'}.json`);
+    const resultsFile = path.join(resultsDir, `${testRun.id}_${testRun.overallSuccess ? 'complete' : 'failed'}.json`);
     await fs.writeFile(resultsFile, JSON.stringify(testRun, null, 2));
     
     // Print summary
@@ -208,7 +283,8 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     console.log('📊 TEST SUMMARY');
     console.log('========================================');
     console.log(`Test ID: ${testRun.id}`);
-    console.log(`Status: ${testPassed ? '✅ PASSED' : '❌ FAILED'}`);
+    console.log(`Overall Status: ${testRun.overallSuccess ? '✅ PASSED' : '❌ FAILED'}`);
+    console.log(`Deployment: ${testRun.deploymentSuccess ? '✅ Successful' : '❌ Failed or Skipped'}`);
     
     if (testRun.summary) {
       console.log('\nConfiguration:');
@@ -222,7 +298,7 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     }
     
     if (testRun.errors.length > 0) {
-      console.log('\nErrors:');
+      console.log('\n❌ Errors encountered:');
       testRun.errors.forEach((error, i) => {
         console.log(`  ${i + 1}. ${error}`);
       });
@@ -232,11 +308,11 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     
     if (testRun.config.deployment?.githubPagesUrl) {
       console.log(`\n🌐 Site URL: ${testRun.config.deployment.githubPagesUrl}`);
-    }
-    
-    // Exit with appropriate code
-    if (!testPassed && !process.env.CI) {
-      process.exit(1);
+      if (testRun.deploymentSuccess) {
+        console.log('   ✅ Deployment verified and current');
+      } else {
+        console.log('   ⚠️ Deployment may not be current');
+      }
     }
   }
   
@@ -249,6 +325,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const sizeMultiplier = parseFloat(process.argv[3]) || undefined;
   
   runFullTest(interviewCount, sizeMultiplier)
-    .then(() => process.exit(0))
+    .then((testRun) => {
+      process.exit(testRun.overallSuccess ? 0 : 1);
+    })
     .catch(() => process.exit(1));
 }
