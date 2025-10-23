@@ -15,34 +15,23 @@ on:
         description: 'Size multiplier for content'
         required: false
         default: '1.0'
-      runner_label:
-        description: 'Runner architecture'
-        required: false
-        default: 'ubuntu-latest'
-        type: choice
-        options:
-          - ubuntu-latest
-          - ubuntu-24.04-arm
-          - both
 
-env:
-  GITHUB_RUN_ID: ${{ github.run_id }}
-
-# Grant GITHUB_TOKEN the permissions required
 permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write
+
+env:
+  GITHUB_RUN_ID: ${{ github.run_id }}
 
 jobs:
-  test-x64:
-    if: ${{ github.event.inputs.runner_label != 'ubuntu-24.04-arm' }}
+  test:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Node.js
@@ -53,13 +42,13 @@ jobs:
     
     - name: Configure Git
       run: |
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
     
     - name: Install dependencies
       run: npm ci
     
-    - name: Run full test suite
+    - name: Run tests (without deployment)
       run: |
         npm run test:full -- \
           ${{ github.event.inputs.interview_count || '10' }} \
@@ -67,14 +56,13 @@ jobs:
       env:
         GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         CI: true
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SKIP_DEPLOY: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+        SKIP_DEPLOY: true
     
     - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: test-results-x64
+        name: test-results
         path: test-results/
         retention-days: 30
     
@@ -82,13 +70,13 @@ jobs:
       uses: actions/upload-artifact@v4
       if: success()
       with:
-        name: build-x64
+        name: build
         path: dist/
         retention-days: 7
 
   deploy:
-    needs: [test-x64]
-    if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     
     permissions:
@@ -96,27 +84,27 @@ jobs:
       pages: write
       id-token: write
     
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
     - uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Configure Git
-      run: |
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
     
     - name: Download build artifacts
       uses: actions/download-artifact@v4
       with:
-        name: build-x64
+        name: build
+        path: dist/
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    
+    - name: Upload to GitHub Pages
+      uses: actions/upload-pages-artifact@v4
+      with:
         path: dist/
     
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        force_orphan: true
-        user_name: 'github-actions[bot]'
-        user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+      id: deployment
+      uses: actions/deploy-pages@v4

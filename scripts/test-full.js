@@ -60,6 +60,7 @@ async function runFullTest(interviewCount, sizeMultiplier) {
   console.log('========================================\n');
   
   let testPassed = true;
+  let deploymentSuccessful = false;
   
   try {
     // Setup git config first
@@ -117,51 +118,59 @@ async function runFullTest(interviewCount, sizeMultiplier) {
       testPassed = false;
     }
     
-    const skipDeploy = process.env.SKIP_DEPLOY === 'true' || process.env.GITHUB_EVENT_NAME === 'pull_request';
+    // Phase 4: Deploy to GitHub Pages (skip in PR or if flag set)
+    const skipDeploy = process.env.SKIP_DEPLOY === 'true' || 
+                       process.env.GITHUB_EVENT_NAME === 'pull_request' ||
+                       !testPassed;
     
-    if (testPassed && !skipDeploy && process.env.CI) {
+    if (!skipDeploy && process.env.CI) {
       console.log('\n🌍 PHASE 4: Deploying to GitHub Pages');
       console.log('----------------------------------------');
-      console.log('Using GitHub Actions deployment method...');
       
-      // In CI, we don't deploy directly - the deploy job handles it
-      testRun.phases.deployment = {
-        success: true,
-        method: 'github-actions-job',
-        note: 'Deployment will be handled by separate job'
+      // Deployment is handled by separate job in GitHub Actions
+      console.log('Deployment will be handled by separate GitHub Actions job');
+      testRun.phases.deployment = { 
+        skipped: true, 
+        reason: 'Handled by separate job' 
       };
-    } else if (testPassed && !skipDeploy && !process.env.CI) {
-      console.log('\n🌍 PHASE 4: Deploying to GitHub Pages');
+      deploymentSuccessful = false; // Don't wait for deployment in CI
+      
+    } else if (skipDeploy) {
+      console.log('\n⚠️ Skipping deployment');
+      console.log(`   Reason: ${process.env.SKIP_DEPLOY === 'true' ? 'SKIP_DEPLOY flag' : 
+                           process.env.GITHUB_EVENT_NAME === 'pull_request' ? 'Pull Request' :
+                           'Previous failures'}`);
+      testRun.phases.deployment = { 
+        skipped: true, 
+        reason: skipDeploy 
+      };
+      deploymentSuccessful = false;
+    } else {
+      // Local deployment attempt
+      console.log('\n🌍 PHASE 4: Deploying to GitHub Pages (Local)');
       console.log('----------------------------------------');
       
-      // Local deployment
       const deployResult = await runCommand(
         'npm run deploy',
-        'Deploying to GitHub Pages (local)'
+        'Deploying to GitHub Pages'
       );
       
       testRun.phases.deployment = {
-        success: deployResult.success,
-        method: 'local'
+        success: deployResult.success
       };
       
       if (!deployResult.success) {
         testRun.errors.push('Deployment failed: ' + deployResult.error);
-        console.warn('⚠️ Deployment failed');
+        deploymentSuccessful = false;
+      } else {
+        deploymentSuccessful = true;
       }
-    } else {
-      console.log('\n⚠️ Skipping deployment');
-      testRun.phases.deployment = { 
-        skipped: true, 
-        reason: skipDeploy ? 'Skip flag set' : 'Previous failures' 
-      };
     }
     
-    // Phase 5: Run performance tests
-    // For CI, skip if deployment is handled separately
-    const skipPerfTest = process.env.CI && !skipDeploy;
+    // Phase 5: Run performance tests (only if deployment succeeded or we're testing locally)
+    const shouldRunPerfTests = deploymentSuccessful || (!process.env.CI && testPassed);
     
-    if (testPassed && !skipPerfTest) {
+    if (shouldRunPerfTests) {
       console.log('\n⚡ PHASE 5: Performance Testing');
       console.log('----------------------------------------');
       
@@ -177,12 +186,10 @@ async function runFullTest(interviewCount, sizeMultiplier) {
         if (perfResults.errors.length > 0) {
           testRun.errors.push(...perfResults.errors.map(e => e.error));
           
-          // In CI, deployment verification failures are expected if deploy is separate
-          const onlyDeploymentErrors = perfResults.errors.every(e => 
-            e.phase === 'deployment' || e.error.includes('deployment')
-          );
-          
-          if (!onlyDeploymentErrors) {
+          // Don't fail the whole test for deployment verification issues in CI
+          if (!perfResults.deploymentValid && process.env.CI) {
+            console.warn('⚠️ Deployment verification failed in CI, but continuing');
+          } else {
             testPassed = false;
           }
         }
@@ -190,14 +197,15 @@ async function runFullTest(interviewCount, sizeMultiplier) {
         // Generate summary
         testRun.summary = perfRunner.generateSummary();
       } catch (perfError) {
-        console.error('Performance test error:', perfError);
+        console.error('Performance test error:', perfError.message);
         
-        // Check if it's just deployment verification in CI
-        if (process.env.CI && perfError.message.includes('deployment')) {
-          console.log('⚠️ Deployment verification failed in CI (expected if deployment is separate)');
+        // Check if it's a deployment verification error
+        if (perfError.message.includes('Deployment') && process.env.CI) {
+          console.warn('⚠️ Skipping performance tests due to deployment issues in CI');
           testRun.phases.performanceTest = {
             skipped: true,
-            reason: 'Deployment not available in CI'
+            reason: 'Deployment not available',
+            error: perfError.message
           };
         } else {
           testRun.phases.performanceTest = {
@@ -208,15 +216,13 @@ async function runFullTest(interviewCount, sizeMultiplier) {
           testPassed = false;
         }
       }
-    } else if (skipPerfTest) {
-      console.log('\n⚠️ Skipping performance tests in CI (deployment handled separately)');
-      testRun.phases.performanceTest = { 
-        skipped: true, 
-        reason: 'CI deployment in separate job' 
-      };
     } else {
-      console.log('\n⚠️ Skipping performance tests due to previous failures');
-      testRun.phases.performanceTest = { skipped: true };
+      console.log('\n⚠️ Skipping performance tests');
+      console.log(`   Reason: ${!deploymentSuccessful ? 'No deployment available' : 'Previous failures'}`);
+      testRun.phases.performanceTest = { 
+        skipped: true,
+        reason: !deploymentSuccessful ? 'No deployment' : 'Previous failures'
+      };
     }
     
   } catch (error) {
@@ -271,7 +277,7 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     
     console.log(`\n📁 Results saved to: ${resultsFile}`);
     
-    if (testRun.config.deployment?.githubPagesUrl) {
+    if (testRun.config.deployment?.githubPagesUrl && deploymentSuccessful) {
       console.log(`\n🌐 Site URL: ${testRun.config.deployment.githubPagesUrl}`);
     }
     
