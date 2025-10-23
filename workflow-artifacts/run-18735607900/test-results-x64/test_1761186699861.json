@@ -1,0 +1,95 @@
+{
+  "testId": "test_1761186699861",
+  "startTime": "2025-10-23T02:31:39.862Z",
+  "endTime": "2025-10-23T02:32:16.542Z",
+  "config": {
+    "interviews": {
+      "count": 1,
+      "sizeMultiplier": 1
+    },
+    "content": {
+      "summaries": {
+        "min": 2,
+        "max": 4
+      },
+      "themes": {
+        "min": 3,
+        "max": 6
+      },
+      "quotes": {
+        "min": 4,
+        "max": 8
+      },
+      "timelinePoints": {
+        "min": 3,
+        "max": 5
+      },
+      "areasForImprovement": {
+        "min": 2,
+        "max": 4
+      }
+    },
+    "performance": {
+      "maxPageLoadTime": 3000,
+      "maxClusterSwitchTime": 500,
+      "maxSearchTime": 1000,
+      "retryAttempts": 3,
+      "deploymentCheckInterval": 30000,
+      "maxDeploymentWaitTime": 600000
+    },
+    "deployment": {
+      "githubPagesUrl": "https://Mrepp.github.io/survey_git_test",
+      "branch": "gh-pages"
+    }
+  },
+  "metrics": {
+    "pageLoad": {
+      "loadTime": 2105,
+      "domContentLoaded": 0.06666666667054719,
+      "loadComplete": 0,
+      "firstPaint": 0,
+      "firstContentfulPaint": 0
+    },
+    "clusterSwitch": {
+      "switches": [],
+      "averageTime": 0,
+      "skipped": true
+    },
+    "search": {
+      "searches": [
+        {
+          "type": "text",
+          "query": "student experience",
+          "time": 0,
+          "resultCount": 0,
+          "error": "Waiting for selector `input[type=\"text\"], input[type=\"search\"], [data-testid=\"search-input\"], .search-input` failed: Waiting failed: 5000ms exceeded"
+        },
+        {
+          "type": "text",
+          "query": "academic",
+          "time": 0,
+          "resultCount": 0,
+          "error": "Waiting for selector `input[type=\"text\"], input[type=\"search\"], [data-testid=\"search-input\"], .search-input` failed: Waiting failed: 5000ms exceeded"
+        },
+        {
+          "type": "semantic",
+          "query": "challenges faced by first generation students",
+          "time": 0,
+          "resultCount": 0,
+          "error": "Waiting for selector `input[type=\"text\"], input[type=\"search\"], [data-testid=\"search-input\"], .search-input` failed: Waiting failed: 5000ms exceeded"
+        }
+      ],
+      "averageTime": 0
+    },
+    "buildSizeMB": 4.879167556762695
+  },
+  "errors": [],
+  "systemInfo": {
+    "cpu": 4,
+    "memoryMB": 15995,
+    "architecture": "x86_64",
+    "os": "Linux",
+    "nodeVersion": "v18.20.8",
+    "platform": "linux"
+  }
+}

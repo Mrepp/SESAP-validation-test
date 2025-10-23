@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '../examples');
 const TEST_MARKER_FILE = path.join(DATA_DIR, '.test-files.json');
 
-// Constants for data generation
+// Constants remain the same...
 const MAJORS = [
   'Computer Science', 'Psychology', 'Biology', 'Business Administration',
   'English Literature', 'Political Science', 'Engineering', 'Nursing',
@@ -76,6 +76,19 @@ function generateLoremIpsum(wordCount) {
   return result.join(' ');
 }
 
+function generateActionItems(multiplier) {
+  const baseItems = [
+    'Implement new support systems',
+    'Increase resource allocation',
+    'Enhance communication channels',
+    'Develop training programs',
+    'Create feedback mechanisms'
+  ];
+  
+  const count = Math.min(baseItems.length, Math.ceil(2 * multiplier));
+  return randomSubset(baseItems, 1, count);
+}
+
 // Track generated test files
 async function trackTestFiles(files) {
   let existingFiles = [];
@@ -91,47 +104,36 @@ async function trackTestFiles(files) {
   return allFiles;
 }
 
-// Clean up ALL non-base test files
+// Clean up test files
 export async function cleanupTestFiles() {
-  const baseFiles = ['01.json', '02.json', '03.json', '04.json', '05.json', '06.json', '07.json', 'base.json'];
-  
   try {
-    const files = await fs.readdir(DATA_DIR);
-    let deletedCount = 0;
+    const data = await fs.readFile(TEST_MARKER_FILE, 'utf-8');
+    const testFiles = JSON.parse(data);
     
-    for (const file of files) {
-      // Skip base files and non-JSON files
-      if (baseFiles.includes(file) || !file.endsWith('.json')) {
-        continue;
-      }
-      
-      // Delete all other JSON files (test files)
+    console.log(`Cleaning up ${testFiles.length} test files...`);
+    
+    for (const file of testFiles) {
       const filePath = path.join(DATA_DIR, file);
       try {
         await fs.unlink(filePath);
         console.log(`  Deleted: ${file}`);
-        deletedCount++;
       } catch (error) {
         console.warn(`  Failed to delete ${file}: ${error.message}`);
       }
     }
     
-    // Clean up marker file
-    try {
-      await fs.unlink(TEST_MARKER_FILE);
-    } catch {
-      // Marker file might not exist
-    }
+    // Remove the marker file
+    await fs.unlink(TEST_MARKER_FILE);
+    console.log('Cleanup complete!');
     
-    console.log(`Cleanup complete! Deleted ${deletedCount} test files.`);
-    return deletedCount;
+    return testFiles.length;
   } catch (error) {
-    console.log('Error during cleanup:', error.message);
+    console.log('No test files to clean up');
     return 0;
   }
 }
 
-// Load base data from original files only
+// Load only base data (not test files)
 async function loadOrGenerateBaseData() {
   const baseFiles = ['01.json', '02.json', '03.json', '04.json', '05.json', '06.json', '07.json'];
   
@@ -143,9 +145,9 @@ async function loadOrGenerateBaseData() {
     areasForImprovement: []
   };
   
-  for (const fileName of baseFiles) {
+  for (const file of baseFiles) {
     try {
-      const filePath = path.join(DATA_DIR, fileName);
+      const filePath = path.join(DATA_DIR, file);
       const content = await fs.readFile(filePath, 'utf-8');
       const data = JSON.parse(content);
       
@@ -165,7 +167,7 @@ async function loadOrGenerateBaseData() {
         allData.areasForImprovement.push(...data.analysis.areasForImprovement);
       }
     } catch (error) {
-      console.warn(`Could not load base file ${fileName}:`, error.message);
+      console.warn(`Failed to load ${file}, using generated data`);
     }
   }
   
@@ -240,9 +242,7 @@ function generateScaledMockInterview(existingData, config, index) {
     Math.floor(Math.random() * (config.content.themes.max - config.content.themes.min + 1));
   const selectedThemes = [];
   for (let i = 0; i < themeCount; i++) {
-    const baseTheme = existingData.themes.length > 0 ? 
-      randomChoice(existingData.themes) : 
-      { title: 'Generated Theme', description: 'Auto-generated theme description' };
+    const baseTheme = randomChoice(existingData.themes);
     
     selectedThemes.push({
       ...baseTheme,
@@ -264,9 +264,7 @@ function generateScaledMockInterview(existingData, config, index) {
   for (let i = 0; i < quoteCount; i++) {
     const quoteId = generateId('quote');
     const relatedTheme = randomChoice(selectedThemes);
-    const baseQuote = existingData.quotes.length > 0 ?
-      randomChoice(existingData.quotes) :
-      { quoteText: generateLoremIpsum(30 * config.interviews.sizeMultiplier) };
+    const baseQuote = randomChoice(existingData.quotes);
     
     selectedQuotes.push({
       ...baseQuote,
@@ -293,9 +291,7 @@ function generateScaledMockInterview(existingData, config, index) {
     Math.floor(Math.random() * (config.content.timelinePoints.max - config.content.timelinePoints.min + 1));
   const selectedTimeline = [];
   for (let i = 0; i < timelineCount; i++) {
-    const basePoint = existingData.timelinePoints.length > 0 ?
-      randomChoice(existingData.timelinePoints) :
-      { eventDescription: generateLoremIpsum(20 * config.interviews.sizeMultiplier) };
+    const basePoint = randomChoice(existingData.timelinePoints);
     
     selectedTimeline.push({
       ...basePoint,
@@ -312,17 +308,7 @@ function generateScaledMockInterview(existingData, config, index) {
     Math.floor(Math.random() * (config.content.areasForImprovement.max - config.content.areasForImprovement.min + 1));
   const selectedImprovements = [];
   for (let i = 0; i < improvementCount; i++) {
-    const baseArea = existingData.areasForImprovement.length > 0 ?
-      randomChoice(existingData.areasForImprovement) :
-      { title: 'Improvement Area', description: generateLoremIpsum(40 * config.interviews.sizeMultiplier) };
-    
-    const actionItems = [
-      'Implement new support systems',
-      'Increase resource allocation',
-      'Enhance communication channels',
-      'Develop training programs',
-      'Create feedback mechanisms'
-    ];
+    const baseArea = randomChoice(existingData.areasForImprovement);
     
     selectedImprovements.push({
       ...baseArea,
@@ -330,7 +316,7 @@ function generateScaledMockInterview(existingData, config, index) {
       description: baseArea.description || generateLoremIpsum(40 * config.interviews.sizeMultiplier),
       priority: randomChoice(['high', 'medium', 'low']),
       stakeholders: randomSubset(['Students', 'Faculty', 'Administration'], 1, 3),
-      actionItems: randomSubset(actionItems, 1, Math.min(actionItems.length, Math.ceil(2 * config.interviews.sizeMultiplier))),
+      actionItems: generateActionItems(config.interviews.sizeMultiplier),
       embedding: []
     });
   }
@@ -339,7 +325,7 @@ function generateScaledMockInterview(existingData, config, index) {
     'Male': ['James', 'Michael', 'David', 'Robert', 'William'],
     'Female': ['Sarah', 'Emily', 'Jessica', 'Ashley', 'Michelle'],
     'Non-binary': ['Alex', 'Jordan', 'Taylor', 'Casey', 'Morgan'],
-    'Prefer not to say': ['A.', '  B.', 'C.', 'D.', 'E.']
+    'Prefer not to say': ['A.', 'B.', 'C.', 'D.', 'E.']
   };
   
   const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones'];
@@ -407,16 +393,15 @@ function generateScaledMockInterview(existingData, config, index) {
 }
 
 // Main generation function with cleanup
-export async function generateMockDataScaled(interviewCount, sizeMultiplier, cleanup = true) {
+export async function generateMockDataScaled(interviewCount, sizeMultiplier, cleanup = false) {
   const config = getTestConfig(interviewCount, sizeMultiplier);
   
-  // Always clean up previous test files first
+  // Clean up previous test files if requested
   if (cleanup) {
-    console.log('\n🧹 Cleaning up previous test files...');
     await cleanupTestFiles();
   }
   
-  console.log('\nConfiguration:', JSON.stringify(config.interviews, null, 2));
+  console.log('Configuration:', JSON.stringify(config.interviews, null, 2));
   console.log('Loading base interview data...');
   
   const existingData = await loadOrGenerateBaseData();
@@ -434,12 +419,13 @@ export async function generateMockDataScaled(interviewCount, sizeMultiplier, cle
   // Generate unique filenames for test files
   const generatedFiles = [];
   const timestamp = Date.now();
+  const testId = `test_${timestamp}`;
   
   for (let i = 0; i < config.interviews.count; i++) {
     const mockInterview = generateScaledMockInterview(existingData, config, i);
     
-    // Use timestamp-based naming for test files
-    const fileName = `test_${timestamp}_${i.toString().padStart(3, '0')}.json`;
+    // Use test-prefixed naming to distinguish from base files
+    const fileName = `${testId}_${i.toString().padStart(3, '0')}.json`;
     const filePath = path.join(DATA_DIR, fileName);
     
     await fs.writeFile(filePath, JSON.stringify(mockInterview, null, 2));
@@ -451,15 +437,13 @@ export async function generateMockDataScaled(interviewCount, sizeMultiplier, cle
   // Track generated test files
   await trackTestFiles(generatedFiles);
   
-  console.log(`\n✅ Generated ${config.interviews.count} test interviews`);
-  
   // Return generation metadata
   return {
     config,
     generatedFiles,
     totalGenerated: config.interviews.count,
     timestamp: new Date().toISOString(),
-    testId: timestamp
+    testId
   };
 }
 
@@ -468,7 +452,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const interviewCount = parseInt(process.argv[2]) || undefined;
   const sizeMultiplier = parseFloat(process.argv[3]) || undefined;
   
-  generateMockDataScaled(interviewCount, sizeMultiplier)
+  generateMockDataScaled(interviewCount, sizeMultiplier, true)
     .then(result => {
       console.log('\nGeneration complete!');
       console.log('Summary:', JSON.stringify(result, null, 2));

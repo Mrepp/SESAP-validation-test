@@ -1,0 +1,47 @@
+{
+  "id": "fulltest_1761169375825",
+  "startTime": "2025-10-22T21:42:55.825Z",
+  "config": {
+    "interviews": {
+      "count": 10,
+      "sizeMultiplier": 1
+    },
+    "content": {
+      "summaries": {
+        "min": 2,
+        "max": 4
+      },
+      "themes": {
+        "min": 3,
+        "max": 6
+      },
+      "quotes": {
+        "min": 4,
+        "max": 8
+      },
+      "timelinePoints": {
+        "min": 3,
+        "max": 5
+      },
+      "areasForImprovement": {
+        "min": 2,
+        "max": 4
+      }
+    },
+    "performance": {
+      "maxPageLoadTime": 3000,
+      "maxClusterSwitchTime": 500,
+      "maxSearchTime": 1000,
+      "retryAttempts": 3,
+      "deploymentCheckInterval": 30000,
+      "maxDeploymentWaitTime": 600000
+    },
+    "deployment": {
+      "githubPagesUrl": "https://your-username.github.io/college-interview-explorer",
+      "branch": "gh-pages"
+    }
+  },
+  "phases": {},
+  "error": "loadOrGenerateBaseData is not defined",
+  "endTime": "2025-10-22T21:42:55.827Z"
+}

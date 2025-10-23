@@ -15,26 +15,23 @@ on:
         description: 'Size multiplier for content'
         required: false
         default: '1.0'
-      runner_label:
-        description: 'Runner architecture'
+      architecture:
+        description: 'Architecture to test (x64/arm64/both)'
         required: false
-        default: 'ubuntu-latest'
-        type: choice
-        options:
-          - ubuntu-latest
-          - ubuntu-24.04-arm
-          - both
+        default: 'x64'
 
 jobs:
   test-x64:
-    if: ${{ github.event.inputs.runner_label != 'ubuntu-24.04-arm' }}
     runs-on: ubuntu-latest
+    if: github.event.inputs.architecture != 'arm64'
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
         node-version: 18
         cache: 'npm'
@@ -57,32 +54,34 @@ jobs:
         CI: true
     
     - name: Upload test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: test-results-x64
+        name: test-results-x64-node18
         path: test-results/
         retention-days: 30
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      if: success()
+      uses: actions/upload-artifact@v3
       with:
-        name: build-x64
+        name: build-x64-node18
         path: dist/
         retention-days: 7
 
   test-arm64:
-    if: ${{ github.event.inputs.runner_label == 'ubuntu-24.04-arm' || github.event.inputs.runner_label == 'both' }}
     runs-on: ubuntu-24.04-arm
+    if: github.event.inputs.architecture == 'arm64' || github.event.inputs.architecture == 'both'
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
         node-version: 18
+        cache: 'npm'
     
     - name: Configure Git
       run: |
@@ -102,25 +101,20 @@ jobs:
         CI: true
     
     - name: Upload test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: test-results-arm64
+        name: test-results-arm64-node18
         path: test-results/
         retention-days: 30
 
   deploy:
     needs: [test-x64]
-    if: ${{ always() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
     
     - name: Configure Git
       run: |
@@ -128,13 +122,13 @@ jobs:
         git config --global user.name "GitHub Actions"
     
     - name: Download build artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v3
       with:
-        name: build-x64
+        name: build-x64-node18
         path: dist/
     
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist

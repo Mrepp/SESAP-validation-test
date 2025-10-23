@@ -1,0 +1,225 @@
+{
+  "id": "fulltest_1761186683951",
+  "startTime": "2025-10-23T02:31:23.951Z",
+  "config": {
+    "interviews": {
+      "count": 1,
+      "sizeMultiplier": 1
+    },
+    "content": {
+      "summaries": {
+        "min": 2,
+        "max": 4
+      },
+      "themes": {
+        "min": 3,
+        "max": 6
+      },
+      "quotes": {
+        "min": 4,
+        "max": 8
+      },
+      "timelinePoints": {
+        "min": 3,
+        "max": 5
+      },
+      "areasForImprovement": {
+        "min": 2,
+        "max": 4
+      }
+    },
+    "performance": {
+      "maxPageLoadTime": 3000,
+      "maxClusterSwitchTime": 500,
+      "maxSearchTime": 1000,
+      "retryAttempts": 3,
+      "deploymentCheckInterval": 30000,
+      "maxDeploymentWaitTime": 600000
+    },
+    "deployment": {
+      "githubPagesUrl": "https://Mrepp.github.io/survey_git_test",
+      "branch": "gh-pages"
+    }
+  },
+  "phases": {
+    "mockGeneration": {
+      "success": true,
+      "filesGenerated": 1,
+      "details": {
+        "config": {
+          "interviews": {
+            "count": 1,
+            "sizeMultiplier": 1
+          },
+          "content": {
+            "summaries": {
+              "min": 2,
+              "max": 4
+            },
+            "themes": {
+              "min": 3,
+              "max": 6
+            },
+            "quotes": {
+              "min": 4,
+              "max": 8
+            },
+            "timelinePoints": {
+              "min": 3,
+              "max": 5
+            },
+            "areasForImprovement": {
+              "min": 2,
+              "max": 4
+            }
+          },
+          "performance": {
+            "maxPageLoadTime": 3000,
+            "maxClusterSwitchTime": 500,
+            "maxSearchTime": 1000,
+            "retryAttempts": 3,
+            "deploymentCheckInterval": 30000,
+            "maxDeploymentWaitTime": 600000
+          },
+          "deployment": {
+            "githubPagesUrl": "https://Mrepp.github.io/survey_git_test",
+            "branch": "gh-pages"
+          }
+        },
+        "generatedFiles": [
+          "test_1761186683991_000.json"
+        ],
+        "totalGenerated": 1,
+        "timestamp": "2025-10-23T02:31:23.993Z",
+        "testId": 1761186683991
+      }
+    },
+    "dataProcessing": {
+      "success": true
+    },
+    "siteBuild": {
+      "success": true
+    },
+    "deployment": {
+      "success": false
+    },
+    "performanceTest": {
+      "success": true,
+      "results": {
+        "testId": "test_1761186699861",
+        "startTime": "2025-10-23T02:31:39.862Z",
+        "endTime": "2025-10-23T02:32:16.542Z",
+        "config": {
+          "interviews": {
+            "count": 1,
+            "sizeMultiplier": 1
+          },
+          "content": {
+            "summaries": {
+              "min": 2,
+              "max": 4
+            },
+            "themes": {
+              "min": 3,
+              "max": 6
+            },
+            "quotes": {
+              "min": 4,
+              "max": 8
+            },
+            "timelinePoints": {
+              "min": 3,
+              "max": 5
+            },
+            "areasForImprovement": {
+              "min": 2,
+              "max": 4
+            }
+          },
+          "performance": {
+            "maxPageLoadTime": 3000,
+            "maxClusterSwitchTime": 500,
+            "maxSearchTime": 1000,
+            "retryAttempts": 3,
+            "deploymentCheckInterval": 30000,
+            "maxDeploymentWaitTime": 600000
+          },
+          "deployment": {
+            "githubPagesUrl": "https://Mrepp.github.io/survey_git_test",
+            "branch": "gh-pages"
+          }
+        },
+        "metrics": {
+          "pageLoad": {
+            "loadTime": 2105,
+            "domContentLoaded": 0.06666666667054719,
+            "loadComplete": 0,
+            "firstPaint": 0,
+            "firstContentfulPaint": 0
+          },
+          "clusterSwitch": {
+            "switches": [],
+            "averageTime": 0,
+            "skipped": true
+          },
+          "search": {
+            "searches": [
+              {
+                "type": "text",
+                "query": "student experience",
+                "time": 0,
+                "resultCount": 0,
+                "error": "Waiting for selector `input[type=\"text\"], input[type=\"search\"], [data-testid=\"search-input\"], .search-input` failed: Waiting failed: 5000ms exceeded"
+              },
+              {
+                "type": "text",
+                "query": "academic",
+                "time": 0,
+                "resultCount": 0,
+                "error": "Waiting for selector `input[type=\"text\"], input[type=\"search\"], [data-testid=\"search-input\"], .search-input` failed: Waiting failed: 5000ms exceeded"
+              },
+              {
+                "type": "semantic",
+                "query": "challenges faced by first generation students",
+                "time": 0,
+                "resultCount": 0,
+                "error": "Waiting for selector `input[type=\"text\"], input[type=\"search\"], [data-testid=\"search-input\"], .search-input` failed: Waiting failed: 5000ms exceeded"
+              }
+            ],
+            "averageTime": 0
+          },
+          "buildSizeMB": 4.879167556762695
+        },
+        "errors": [],
+        "systemInfo": {
+          "cpu": 4,
+          "memoryMB": 15995,
+          "architecture": "x86_64",
+          "os": "Linux",
+          "nodeVersion": "v18.20.8",
+          "platform": "linux"
+        }
+      }
+    }
+  },
+  "errors": [
+    "Deployment failed: Command failed: npx gh-pages -d dist --dotfiles\nProcessError: fatal: could not read Username for 'https://github.com': No such device or address\n\n    at ChildProcess.<anonymous> (/home/runner/work/survey_git_test/survey_git_test/node_modules/gh-pages/lib/git.js:42:16)\n    at ChildProcess.emit (node:events:517:28)\n    at maybeClose (node:internal/child_process:1098:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:303:5)\n"
+  ],
+  "summary": {
+    "testId": "test_1761186699861",
+    "configuration": {
+      "interviews": 1,
+      "sizeMultiplier": 1
+    },
+    "performance": {
+      "pageLoad": "2105ms",
+      "clusterSwitch": "N/A",
+      "search": "N/A",
+      "buildSize": "4.88 MB"
+    },
+    "status": "✅ PASSED",
+    "errors": 0
+  },
+  "endTime": "2025-10-23T02:32:16.543Z",
+  "overallSuccess": true
+}
