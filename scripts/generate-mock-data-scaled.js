@@ -6,6 +6,7 @@ import { getTestConfig } from '../config/test-config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '../examples');
+const TEST_MARKER_FILE = path.join(DATA_DIR, '.test-files.json');
 
 // [Previous constants remain the same...]
 const MAJORS = [
@@ -246,34 +247,6 @@ function generateScaledMockInterview(existingData, config, index) {
     }
   };
 }
-
-function generateLoremIpsum(wordCount) {
-  const words = [
-    'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
-    'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
-    'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud'
-  ];
-  
-  const result = [];
-  for (let i = 0; i < wordCount; i++) {
-    result.push(randomChoice(words));
-  }
-  return result.join(' ');
-}
-
-function generateActionItems(multiplier) {
-  const baseItems = [
-    'Implement new support systems',
-    'Increase resource allocation',
-    'Enhance communication channels',
-    'Develop training programs',
-    'Create feedback mechanisms'
-  ];
-  
-  const count = Math.min(baseItems.length, Math.ceil(2 * multiplier));
-  return randomSubset(baseItems, 1, count);
-}
-
 // Load existing data or generate base data
 async function loadOrGenerateBaseData() {
   const files = await fs.readdir(DATA_DIR).catch(() => []);
@@ -357,14 +330,97 @@ async function loadOrGenerateBaseData() {
   return allData;
 }
 
-// Main generation function
-export async function generateMockDataScaled(interviewCount, sizeMultiplier) {
+
+function generateLoremIpsum(wordCount) {
+  const words = [
+    'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
+    'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
+    'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud'
+  ];
+  
+  const result = [];
+  for (let i = 0; i < wordCount; i++) {
+    result.push(randomChoice(words));
+  }
+  return result.join(' ');
+}
+
+function generateActionItems(multiplier) {
+  const baseItems = [
+    'Implement new support systems',
+    'Increase resource allocation',
+    'Enhance communication channels',
+    'Develop training programs',
+    'Create feedback mechanisms'
+  ];
+  
+  const count = Math.min(baseItems.length, Math.ceil(2 * multiplier));
+  return randomSubset(baseItems, 1, count);
+}
+
+async function trackTestFiles(files) {
+  let existingFiles = [];
+  try {
+    const data = await fs.readFile(TEST_MARKER_FILE, 'utf-8');
+    existingFiles = JSON.parse(data);
+  } catch {
+    // File doesn't exist yet
+  }
+  
+  const allFiles = [...new Set([...existingFiles, ...files])];
+  await fs.writeFile(TEST_MARKER_FILE, JSON.stringify(allFiles, null, 2));
+  return allFiles;
+}
+
+// Clean up test files
+export async function cleanupTestFiles() {
+  try {
+    const data = await fs.readFile(TEST_MARKER_FILE, 'utf-8');
+    const testFiles = JSON.parse(data);
+    
+    console.log(`Cleaning up ${testFiles.length} test files...`);
+    
+    for (const file of testFiles) {
+      const filePath = path.join(DATA_DIR, file);
+      try {
+        await fs.unlink(filePath);
+        console.log(`  Deleted: ${file}`);
+      } catch (error) {
+        console.warn(`  Failed to delete ${file}: ${error.message}`);
+      }
+    }
+    
+    // Remove the marker file
+    await fs.unlink(TEST_MARKER_FILE);
+    console.log('Cleanup complete!');
+    
+    return testFiles.length;
+  } catch (error) {
+    console.log('No test files to clean up');
+    return 0;
+  }
+}
+
+// Get base files (non-test files to preserve)
+async function getBaseFiles() {
+  const baseFiles = ['01.json', '02.json', '03.json', '04.json', '05.json', '06.json', '07.json', 'base.json'];
+  return baseFiles;
+}
+
+// Main generation function with cleanup
+export async function generateMockDataScaled(interviewCount, sizeMultiplier, cleanup = false) {
   const config = getTestConfig(interviewCount, sizeMultiplier);
   
+  // Clean up previous test files if requested
+  if (cleanup) {
+    await cleanupTestFiles();
+  }
+  
   console.log('Configuration:', JSON.stringify(config.interviews, null, 2));
-  console.log('Loading existing interview data...');
+  console.log('Loading base interview data...');
   
   const existingData = await loadOrGenerateBaseData();
+  const baseFiles = await getBaseFiles();
   
   console.log(`Loaded base data:
   - ${existingData.summaries.length} summaries
@@ -376,18 +432,15 @@ export async function generateMockDataScaled(interviewCount, sizeMultiplier) {
   // Ensure examples directory exists
   await fs.mkdir(DATA_DIR, { recursive: true });
   
-  // Get existing file count
-  const existingFiles = await fs.readdir(DATA_DIR);
-  const existingNumbers = existingFiles
-    .filter(f => f.match(/^\d+\.json$/))
-    .map(f => parseInt(f.replace('.json', '')));
-  const startIndex = existingNumbers.length > 0 ? Math.max(...existingNumbers) + 1 : 1;
-  
+  // Generate unique filenames for test files
   const generatedFiles = [];
+  const timestamp = Date.now();
   
   for (let i = 0; i < config.interviews.count; i++) {
-    const mockInterview = generateScaledMockInterview(existingData, config, startIndex + i);
-    const fileName = `${(startIndex + i).toString().padStart(2, '0')}.json`;
+    const mockInterview = generateScaledMockInterview(existingData, config, i);
+    
+    // Use timestamp-based naming for test files
+    const fileName = `test_${timestamp}_${i.toString().padStart(3, '0')}.json`;
     const filePath = path.join(DATA_DIR, fileName);
     
     await fs.writeFile(filePath, JSON.stringify(mockInterview, null, 2));
@@ -396,13 +449,16 @@ export async function generateMockDataScaled(interviewCount, sizeMultiplier) {
     console.log(`Created: ${fileName} - ${mockInterview.intervieweeName} (${mockInterview.demographics.major})`);
   }
   
+  // Track generated test files
+  await trackTestFiles(generatedFiles);
+  
   // Return generation metadata
   return {
     config,
     generatedFiles,
-    startIndex,
     totalGenerated: config.interviews.count,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    testId: timestamp
   };
 }
 

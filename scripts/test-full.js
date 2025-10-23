@@ -1,4 +1,4 @@
-import { generateMockDataScaled } from './generate-mock-data-scaled.js';
+import { generateMockDataScaled, cleanupTestFiles } from './generate-mock-data-scaled.js';
 import { PerformanceTestRunner } from './performance-test.js';
 import { getTestConfig } from '../config/test-config.js';
 import { exec } from 'child_process';
@@ -9,6 +9,15 @@ import { fileURLToPath } from 'url';
 
 const execAsync = promisify(exec);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+async function setupGitConfig() {
+  // Set up git config for GitHub Actions
+  if (process.env.CI) {
+    console.log('Setting up Git configuration for CI...');
+    await execAsync('git config --global user.email "actions@github.com"');
+    await execAsync('git config --global user.name "GitHub Actions"');
+  }
+}
 
 async function runCommand(command, description) {
   console.log(`\n🔧 ${description}`);
@@ -21,7 +30,7 @@ async function runCommand(command, description) {
     });
     
     if (stdout) console.log(stdout);
-    if (stderr) console.error(stderr);
+    if (stderr && !stderr.includes('warning')) console.error(stderr);
     
     return { success: true, stdout, stderr };
   } catch (error) {
@@ -46,15 +55,29 @@ async function runFullTest(interviewCount, sizeMultiplier) {
   console.log(`Size Multiplier: ${testRun.config.interviews.sizeMultiplier}x`);
   console.log('========================================\n');
   
+  let cleanupRequired = false;
+  
   try {
+    // Setup git config
+    await setupGitConfig();
+    
+    // Phase 0: Clean up previous test files
+    console.log('🧹 PHASE 0: Cleaning Previous Test Files');
+    console.log('----------------------------------------');
+    const cleanedFiles = await cleanupTestFiles();
+    console.log(`Cleaned up ${cleanedFiles} previous test files`);
+    
     // Phase 1: Generate mock data
-    console.log('📝 PHASE 1: Generating Mock Data');
+    console.log('\n📝 PHASE 1: Generating Mock Data');
     console.log('----------------------------------------');
     
     const mockGeneration = await generateMockDataScaled(
       testRun.config.interviews.count,
-      testRun.config.interviews.sizeMultiplier
+      testRun.config.interviews.sizeMultiplier,
+      false // Don't cleanup here since we just did
     );
+    
+    cleanupRequired = true; // Mark that we need cleanup at the end
     
     testRun.phases.mockGeneration = {
       success: true,
@@ -72,8 +95,7 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     );
     
     testRun.phases.dataProcessing = {
-      success: processResult.success,
-      duration: processResult.duration
+      success: processResult.success
     };
     
     if (!processResult.success) {
@@ -101,13 +123,6 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     console.log('\n🌍 PHASE 4: Deploying to GitHub Pages');
     console.log('----------------------------------------');
     
-    // Check if gh-pages branch exists, create if not
-    await runCommand(
-      'git branch gh-pages 2>/dev/null || git checkout -b gh-pages',
-      'Ensuring gh-pages branch exists'
-    );
-    
-    // Deploy using gh-pages or similar
     const deployResult = await runCommand(
       'npx gh-pages -d dist --dotfiles',
       'Deploying to GitHub Pages'
@@ -157,6 +172,10 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     console.log('\n✅ Full test completed successfully!');
     console.log(`Results saved to: ${resultsFile}`);
     
+    // Get deployment URL
+    const deploymentUrl = testRun.config.deployment.githubPagesUrl;
+    console.log(`\n🌐 Site deployed at: ${deploymentUrl}`);
+    
     return testRun;
     
   } catch (error) {
@@ -172,6 +191,13 @@ async function runFullTest(interviewCount, sizeMultiplier) {
     await fs.writeFile(resultsFile, JSON.stringify(testRun, null, 2));
     
     throw error;
+  } finally {
+    // Phase 6: Cleanup
+    if (cleanupRequired) {
+      console.log('\n🧹 PHASE 6: Cleaning Up Test Files');
+      console.log('----------------------------------------');
+      await cleanupTestFiles();
+    }
   }
 }
 

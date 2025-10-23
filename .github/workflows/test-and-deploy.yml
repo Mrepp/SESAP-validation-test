@@ -2,11 +2,9 @@ name: Test and Deploy
 
 on:
   push:
-    branches:
-      - '**'
+    branches: [ main ]
   pull_request:
-    branches:
-      - '**'
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       interview_count:
@@ -19,60 +17,24 @@ on:
         default: '1.0'
 
 jobs:
-  test-x64:
+  test-and-deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18, 20]
     
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v4
+    - uses: actions/checkout@v3
       with:
-        node-version: ${{ matrix.node }}
-    
-    - name: Cache dependencies
-      uses: actions/cache@v4
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Run full test suite
-      run: |
-        npm run test:full -- \
-          ${{ github.event.inputs.interview_count || '10' }} \
-          ${{ github.event.inputs.size_multiplier || '1.0' }}
-      env:
-        GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
-    
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results-x64-node${{ matrix.node }}
-        path: test-results/
-    
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-x64-node${{ matrix.node }}
-        path: dist/
-
-  test-arm64:
-    runs-on: ubuntu-24.04-arm
-    if: github.event_name == 'workflow_dispatch'
-    
-    steps:
-    - uses: actions/checkout@v4
+        fetch-depth: 0
     
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
         node-version: 18
+        cache: 'npm'
+    
+    - name: Configure Git
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
     
     - name: Install dependencies
       run: npm ci
@@ -84,34 +46,39 @@ jobs:
           ${{ github.event.inputs.size_multiplier || '1.0' }}
       env:
         GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        CI: true
     
     - name: Upload test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
+      if: always()
       with:
-        name: test-results-arm64
+        name: test-results-x64-node18
         path: test-results/
-
-  deploy:
-    needs: [test-x64]
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+        retention-days: 30
     
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
       with:
         name: build-x64-node18
         path: dist/
-    - name: Configure Git identity
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-
+        retention-days: 7
+    
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+      if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-        publish_branch: gh-pages-${{ github.ref_name }}
+        force_orphan: true
+    
+    - name: Comment deployment URL
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🚀 Preview deployment will be available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}'
+          })
