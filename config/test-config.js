@@ -11,35 +11,16 @@ export const defaultTestConfig = {
     areasForImprovement: { min: 2, max: 4 }
   },
   performance: {
-    maxPageLoadTime: 3000, // ms
-    maxClusterSwitchTime: 500, // ms
-    maxSearchTime: 1000, // ms
+    maxPageLoadTime: 3000,
+    maxClusterSwitchTime: 500,
+    maxSearchTime: 1000,
     retryAttempts: 3,
-    deploymentCheckInterval: 30000, // 30 seconds
-    maxDeploymentWaitTime: 600000 // 10 minutes
+    // Shorter wait times in CI since deployment is separate
+    deploymentCheckInterval: process.env.CI ? 10000 : 30000, // 10s in CI, 30s local
+    maxDeploymentWaitTime: process.env.CI ? 60000 : 600000  // 1 min in CI, 10 min local
   },
   deployment: {
     githubPagesUrl: process.env.GITHUB_PAGES_URL || 'https://your-username.github.io/college-interview-explorer',
     branch: 'gh-pages'
   }
 };
-
-export function getTestConfig(interviewCount, sizeMultiplier) {
-  const config = JSON.parse(JSON.stringify(defaultTestConfig));
-  
-  if (interviewCount) {
-    config.interviews.count = interviewCount;
-  }
-  
-  if (sizeMultiplier) {
-    config.interviews.sizeMultiplier = sizeMultiplier;
-    
-    // Scale content based on multiplier
-    Object.keys(config.content).forEach(key => {
-      config.content[key].min = Math.ceil(config.content[key].min * sizeMultiplier);
-      config.content[key].max = Math.ceil(config.content[key].max * sizeMultiplier);
-    });
-  }
-  
-  return config;
-}

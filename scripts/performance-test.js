@@ -83,20 +83,27 @@ export class PerformanceTestRunner {
   async waitForDeployment(url, maxWaitTime, checkInterval) {
     console.log(`Waiting for deployment at ${url}...`);
     const startTime = Date.now();
+    let attempts = 0;
+    const maxAttempts = Math.floor(maxWaitTime / checkInterval);
     
-    while (Date.now() - startTime < maxWaitTime) {
+    while (Date.now() - startTime < maxWaitTime && attempts < maxAttempts) {
+      attempts++;
       try {
         await this.verifyDeployment(url);
         return true;
       } catch (error) {
-        // Keep waiting
-        process.stdout.write('.');
+        if (attempts % 5 === 0) {
+          console.log(`\n  Attempt ${attempts}/${maxAttempts}: ${error.message}`);
+        } else {
+          process.stdout.write('.');
+        }
       }
       
       await new Promise(resolve => setTimeout(resolve, checkInterval));
     }
     
-    throw new Error(`Deployment did not become ready within ${maxWaitTime}ms`);
+    console.error(`\n❌ Deployment did not become ready after ${attempts} attempts (${Math.floor((Date.now() - startTime) / 1000)}s)`);
+    throw new Error(`Deployment verification failed after ${attempts} attempts`);
   }
 
   async measurePageLoad(browser, url) {
