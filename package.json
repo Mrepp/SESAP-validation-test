@@ -11,6 +11,7 @@
     "test:full": "node scripts/test-full.js",
     "test:performance": "node scripts/performance-test.js",
     "test:cleanup": "node -e \"import('./scripts/generate-mock-data-scaled.js').then(m => m.cleanupTestFiles())\"",
+    "workflow:deploy": "node scripts/trigger-workflow-run.js",
     "monitor": "node scripts/monitor-workflow.js",
     "deploy": "gh-pages -d dist --dotfiles"
   },

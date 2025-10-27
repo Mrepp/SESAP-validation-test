@@ -235,3 +235,12 @@ All `embedding` fields are expected to be **empty arrays** in the upstream data.
 ---
 
 
+## 🚀 Automated Workflow Trigger
+
+- `npm run workflow:deploy -- --interviews <count> --size <multiplier>` triggers the GitHub Actions workflow end-to-end, waits for the `deploy` job to succeed, and polls GitHub Pages until the new build is available.
+- Requires `GITHUB_TOKEN` with `repo` and `workflow` scopes (`pages:read` for build polling). Export it before running: `export GITHUB_TOKEN=ghp_...`.
+- The command surfaces the workflow run URL for logs and returns the Pages URL once the static site update is confirmed (or notes if confirmation times out).
+- Flags: `--pages-timeout <seconds>` adjusts the wait window for Pages (default 600s); `--poll <seconds>` tweaks the polling interval (default 5s).
+
+---
+
