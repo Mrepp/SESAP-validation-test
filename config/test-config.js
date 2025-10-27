@@ -24,3 +24,13 @@ export const defaultTestConfig = {
     branch: 'gh-pages'
   }
 };
+
+export function getTestConfig(interviewCount, sizeMultiplier) {
+  return {
+    ...defaultTestConfig,
+    interviews: {
+      count: interviewCount !== undefined ? interviewCount : defaultTestConfig.interviews.count,
+      sizeMultiplier: sizeMultiplier !== undefined ? sizeMultiplier : defaultTestConfig.interviews.sizeMultiplier
+    }
+  };
+}
