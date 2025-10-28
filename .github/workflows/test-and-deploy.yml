@@ -83,9 +83,11 @@ jobs:
       contents: write
       pages: write
       id-token: write
-    
+
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GH_PAGES_TOKEN }}
     
     - name: Download build artifacts
       uses: actions/download-artifact@v4
@@ -95,9 +97,6 @@ jobs:
     
     - name: Setup Pages
       uses: actions/configure-pages@v4
-      with:
-        enablement: true
-        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Upload to GitHub Pages
       uses: actions/upload-pages-artifact@v4
