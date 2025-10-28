@@ -97,6 +97,7 @@ jobs:
       uses: actions/configure-pages@v4
       with:
         enablement: true
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Upload to GitHub Pages
       uses: actions/upload-pages-artifact@v4
