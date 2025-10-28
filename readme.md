@@ -244,3 +244,36 @@ All `embedding` fields are expected to be **empty arrays** in the upstream data.
 
 ---
 
+## ⚙️ GitHub Pages Setup
+
+### Prerequisites
+
+1. **Enable GitHub Pages:**
+   - Go to repository Settings → Pages
+   - Under "Build and deployment" → Source: Select **GitHub Actions**
+   - Save changes
+
+2. **Configure Base Path:**
+   - The `vite.config.js` file sets the base path for production builds
+   - Update line 6 to match your repository name: `base: '/your-repo-name/'`
+   - Current setting: `/survey_git_test/`
+
+3. **Personal Access Token (Optional):**
+   - Only needed if using `enablement: true` in the workflow
+   - Create at: `https://github.com/settings/tokens?type=beta`
+   - Required permissions:
+     - Repository: Administration (Read and write)
+     - Repository: Pages (Read and write)
+     - Repository: Contents (Read and write)
+   - Add as repository secret: `GH_PAGES_TOKEN`
+
+### Deployment Process
+
+The workflow runs in two jobs:
+1. **test** - Generates mock data, processes embeddings, builds the static site
+2. **deploy** - Deploys the build artifacts to GitHub Pages
+
+Only pushes to `main` branch trigger deployment (PRs run tests only).
+
+---
+

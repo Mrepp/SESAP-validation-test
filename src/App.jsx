@@ -17,11 +17,12 @@ function App() {
   const [selectedTags, setSelectedTags] = useState(new Set());
 
   useEffect(() => {
-    // Load all data
+    // Load all data with correct base path
+    const baseUrl = import.meta.env.BASE_URL;
     Promise.all([
-      fetch('/data/interviews.json').then(r => r.json()),
-      fetch('/data/clusters.json').then(r => r.json()),
-      fetch('/data/metadata.json').then(r => r.json())
+      fetch(`${baseUrl}data/interviews.json`).then(r => r.json()),
+      fetch(`${baseUrl}data/clusters.json`).then(r => r.json()),
+      fetch(`${baseUrl}data/metadata.json`).then(r => r.json())
     ]).then(([interviewData, clusterData, metaData]) => {
       setInterviews(interviewData);
       setClusters(clusterData);

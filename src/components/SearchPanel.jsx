@@ -12,19 +12,20 @@ const SearchPanel = ({ interviews, onSearchResults, onSelectInterview, selectedT
   const embeddingCache = useRef(new Map());
 
   useEffect(() => {
-    // Load search index and embeddings
+    // Load search index and embeddings with correct base path
+    const baseUrl = import.meta.env.BASE_URL;
     Promise.all([
-      fetch('/data/search-index.json').then(r => r.json()),
+      fetch(`${baseUrl}data/search-index.json`).then(r => r.json()),
       import('@xenova/transformers')
     ]).then(([data, transformers]) => {
       const idx = lunr.Index.load(data.index);
-      setSearchIndex({ 
-        index: idx, 
+      setSearchIndex({
+        index: idx,
         documents: data.documents,
         embeddings: data.embeddings
       });
       setEmbeddings(data.embeddings || []);
-      
+
       initializeEmbedder(transformers);
     });
   }, []);
